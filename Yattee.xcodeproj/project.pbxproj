@@ -606,7 +606,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Vela;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Arkadiusz Fal";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Yattee uses local network to discover and control playback on other Yattee devices.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Vela uses the local network to discover and control playback on other Vela devices.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -690,7 +690,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Vela;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Arkadiusz Fal";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Yattee uses local network to discover and control playback on other Yattee devices.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Vela uses the local network to discover and control playback on other Vela devices.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -834,7 +834,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Vela;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Arkadiusz Fal";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Yattee uses local network to discover and control playback on other Yattee devices.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Vela uses the local network to discover and control playback on other Vela devices.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -863,7 +863,7 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SPARKLE $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;

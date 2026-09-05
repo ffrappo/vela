@@ -138,15 +138,15 @@ private extension TopShelfSnapshotWriter {
         )
     }
 
-    /// Builds a `yattee://video/...` deep link from a Video's ID.
+    /// Builds a `vela://video/...` deep link from a Video's ID.
     /// Returns nil for source types not round-trippable via the URL scheme (e.g. extracted).
     static func deepLinkURL(for videoID: VideoID) -> String? {
         switch videoID.source {
         case .global:
-            return "yattee://video/\(videoID.videoID)"
+            return "vela://video/\(videoID.videoID)"
         case .federated(_, let instance):
             var components = URLComponents()
-            components.scheme = "yattee"
+            components.scheme = AppIdentifiers.urlScheme
             components.host = "video"
             components.path = "/\(videoID.videoID)"
             components.queryItems = [
@@ -169,7 +169,7 @@ private extension TopShelfSnapshotWriter {
         switch sourceRawValue {
         case "global":
             // Only YouTube survives the round-trip; other global providers fall through.
-            return "yattee://video/\(videoID)"
+            return "vela://video/\(videoID)"
         case "federated":
             guard globalProvider == "peertube",
                   let urlStr = instanceURLString,
@@ -177,7 +177,7 @@ private extension TopShelfSnapshotWriter {
                 return nil
             }
             var components = URLComponents()
-            components.scheme = "yattee"
+            components.scheme = AppIdentifiers.urlScheme
             components.host = "video"
             components.path = "/\(videoID)"
             components.queryItems = [

@@ -16,7 +16,7 @@ struct TopShelfItem: Codable, Hashable, Sendable {
     let authorName: String
     let duration: TimeInterval
     let thumbnailURL: String?
-    /// Pre-built `yattee://video/...` URL the extension uses for `displayURL`.
+    /// Pre-built `vela://video/...` URL the extension uses for `displayURL`.
     let deepLinkURL: String
     /// Seconds watched — only set for continue-watching items.
     let progressSeconds: TimeInterval?

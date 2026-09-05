@@ -139,10 +139,10 @@ struct URLRouterTests {
 
     // MARK: - Share Extension Wrapper Tests
 
-    @Test("Unwrap yattee://open wrapper to inner URL with timestamp")
+    @Test("Unwrap vela://open wrapper to inner URL with timestamp")
     func unwrapOpenWrapper() {
         // Share extension percent-encoding leaves ?, /, : intact - this is the literal form delivered
-        let wrapper = URL(string: "yattee://open?url=https://youtu.be/GBimVR2VBQU?t=17097")!
+        let wrapper = URL(string: "vela://open?url=https://youtu.be/GBimVR2VBQU?t=17097")!
         let inner = router.unwrapped(wrapper)
 
         #expect(inner.absoluteString == "https://youtu.be/GBimVR2VBQU?t=17097")
@@ -158,7 +158,7 @@ struct URLRouterTests {
 
     @Test("Unwrap wrapper with ampersand timestamp form")
     func unwrapOpenWrapperAmpersandForm() {
-        let wrapper = URL(string: "yattee://open?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=120")!
+        let wrapper = URL(string: "vela://open?url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&t=120")!
         let inner = router.unwrapped(wrapper)
 
         #expect(router.parseTimestamp(inner) == 120)
@@ -174,7 +174,7 @@ struct URLRouterTests {
         let plain = URL(string: "https://youtu.be/dQw4w9WgXcQ?t=42")!
         #expect(router.unwrapped(plain) == plain)
 
-        let scheme = URL(string: "yattee://subscriptions")!
+        let scheme = URL(string: "vela://subscriptions")!
         #expect(router.unwrapped(scheme) == scheme)
     }
 
@@ -216,9 +216,9 @@ struct URLRouterTests {
 
     // MARK: - Custom Scheme Tests
 
-    @Test("Parse yattee:// video URL")
+    @Test("Parse vela:// video URL")
     func customSchemeVideoURL() {
-        let url = URL(string: "yattee://video/dQw4w9WgXcQ")!
+        let url = URL(string: "vela://video/dQw4w9WgXcQ")!
         let destination = router.route(url)
 
         if case .video(let source, _) = destination, case .id(let videoID) = source {
@@ -228,9 +228,9 @@ struct URLRouterTests {
         }
     }
 
-    @Test("Parse yattee:// channel URL")
+    @Test("Parse vela:// channel URL")
     func customSchemeChannelURL() {
-        let url = URL(string: "yattee://channel/UCtest123")!
+        let url = URL(string: "vela://channel/UCtest123")!
         let destination = router.route(url)
 
         if case .channel(let channelID, _) = destination {
@@ -410,9 +410,9 @@ struct URLRouterTests {
 
     // MARK: - Custom Scheme Deep Link Tests
 
-    @Test("Parse yattee:// search URL")
+    @Test("Parse vela:// search URL")
     func customSchemeSearchURL() {
-        let url = URL(string: "yattee://search?q=hello%20world")!
+        let url = URL(string: "vela://search?q=hello%20world")!
         let destination = router.route(url)
 
         if case .search(let query) = destination {
@@ -422,16 +422,16 @@ struct URLRouterTests {
         }
     }
 
-    @Test("Parse yattee:// search URL without query returns nil")
+    @Test("Parse vela:// search URL without query returns nil")
     func customSchemeSearchURLNoQuery() {
-        let url = URL(string: "yattee://search")!
+        let url = URL(string: "vela://search")!
         let destination = router.route(url)
         #expect(destination == nil)
     }
 
-    @Test("Parse yattee:// playlist URL")
+    @Test("Parse vela:// playlist URL")
     func customSchemePlaylistURL() {
-        let url = URL(string: "yattee://playlist/PLtest123")!
+        let url = URL(string: "vela://playlist/PLtest123")!
         let destination = router.route(url)
 
         if case .playlist(.remote(let playlistID, _, _)) = destination {
@@ -441,65 +441,65 @@ struct URLRouterTests {
         }
     }
 
-    @Test("Parse yattee:// playlists URL")
+    @Test("Parse vela:// playlists URL")
     func customSchemePlaylistsURL() {
-        let url = URL(string: "yattee://playlists")!
+        let url = URL(string: "vela://playlists")!
         let destination = router.route(url)
         #expect(destination == .playlists)
     }
 
-    @Test("Parse yattee:// bookmarks URL")
+    @Test("Parse vela:// bookmarks URL")
     func customSchemeBookmarksURL() {
-        let url = URL(string: "yattee://bookmarks")!
+        let url = URL(string: "vela://bookmarks")!
         let destination = router.route(url)
         #expect(destination == .bookmarks)
     }
 
-    @Test("Parse yattee:// history URL")
+    @Test("Parse vela:// history URL")
     func customSchemeHistoryURL() {
-        let url = URL(string: "yattee://history")!
+        let url = URL(string: "vela://history")!
         let destination = router.route(url)
         #expect(destination == .history)
     }
 
-    @Test("Parse yattee:// downloads URL")
+    @Test("Parse vela:// downloads URL")
     func customSchemeDownloadsURL() {
-        let url = URL(string: "yattee://downloads")!
+        let url = URL(string: "vela://downloads")!
         let destination = router.route(url)
         #expect(destination == .downloads)
     }
 
-    @Test("Parse yattee:// channels URL")
+    @Test("Parse vela:// channels URL")
     func customSchemeChannelsURL() {
-        let url = URL(string: "yattee://channels")!
+        let url = URL(string: "vela://channels")!
         let destination = router.route(url)
         #expect(destination == .manageChannels)
     }
 
-    @Test("Parse yattee:// subscriptions URL")
+    @Test("Parse vela:// subscriptions URL")
     func customSchemeSubscriptionsURL() {
-        let url = URL(string: "yattee://subscriptions")!
+        let url = URL(string: "vela://subscriptions")!
         let destination = router.route(url)
         #expect(destination == .subscriptionsFeed)
     }
 
-    @Test("Parse yattee:// continue-watching URL")
+    @Test("Parse vela:// continue-watching URL")
     func customSchemeContinueWatchingURL() {
-        let url = URL(string: "yattee://continue-watching")!
+        let url = URL(string: "vela://continue-watching")!
         let destination = router.route(url)
         #expect(destination == .continueWatching)
     }
 
-    @Test("Parse yattee:// settings URL")
+    @Test("Parse vela:// settings URL")
     func customSchemeSettingsURL() {
-        let url = URL(string: "yattee://settings")!
+        let url = URL(string: "vela://settings")!
         let destination = router.route(url)
         #expect(destination == .settings)
     }
 
-    @Test("Parse yattee:// channel URL with PeerTube source")
+    @Test("Parse vela:// channel URL with PeerTube source")
     func customSchemeChannelURLWithPeerTubeSource() {
-        let url = URL(string: "yattee://channel/channelid123?source=peertube&instance=https://peertube.social")!
+        let url = URL(string: "vela://channel/channelid123?source=peertube&instance=https://peertube.social")!
         let destination = router.route(url)
 
         if case .channel(let channelID, let source) = destination {
@@ -514,10 +514,10 @@ struct URLRouterTests {
         }
     }
 
-    @Test("Parse yattee:// channel URL with PeerTube source but no instance falls back to Global")
+    @Test("Parse vela:// channel URL with PeerTube source but no instance falls back to Global")
     func customSchemeChannelURLPeerTubeNoInstance() {
         // If source=peertube but no instance is provided, should fall back to Global
-        let url = URL(string: "yattee://channel/channelid123?source=peertube")!
+        let url = URL(string: "vela://channel/channelid123?source=peertube")!
         let destination = router.route(url)
 
         if case .channel(let channelID, let source) = destination {

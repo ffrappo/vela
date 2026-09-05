@@ -118,7 +118,7 @@ private struct DefaultOptionsSection: View {
         options.append(("target-trc", "srgb"))
         options.append(("video-sync", "display-vdrop"))
         options.append(("framedrop", "decoder+vo"))
-        options.append(("audio-client-name", "Yattee"))
+        options.append(("audio-client-name", "Vela"))
 
         #if os(tvOS)
         options.append(("ao", "avfoundation,audiounit"))

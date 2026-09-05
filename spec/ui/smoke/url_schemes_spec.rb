@@ -25,7 +25,7 @@ RSpec.describe 'URL Schemes', :smoke do
     UITest::Simulator.shutdown(@udid) if @udid && !UITest::Config.keep_simulator?
   end
 
-  # Open a URL and dismiss the iOS "Open in Yattee?" system confirmation dialog.
+  # Open a URL and dismiss the iOS "Open in Vela?" system confirmation dialog.
   # The dialog is a system banner invisible to AXe (like the password save dialog),
   # so we must dismiss it with coordinate taps.
   # On iPhone 17 Pro (393x852pt), the "Open" button appears on the right side
@@ -109,73 +109,73 @@ RSpec.describe 'URL Schemes', :smoke do
     end
   end
 
-  describe 'yattee:// navigation URLs' do
+  describe 'vela:// navigation URLs' do
     after(:each) do
       navigate_to_home
     end
 
-    it 'opens Playlists via yattee://playlists' do
-      open_url('yattee://playlists')
+    it 'opens Playlists via vela://playlists' do
+      open_url('vela://playlists')
       sleep 1
       wait_for_text('Playlists')
       expect(@axe).to have_text('Playlists')
       @axe.screenshot('url-scheme-playlists')
     end
 
-    it 'opens Bookmarks via yattee://bookmarks' do
-      open_url('yattee://bookmarks')
+    it 'opens Bookmarks via vela://bookmarks' do
+      open_url('vela://bookmarks')
       sleep 1
       wait_for_text('Bookmarks')
       expect(@axe).to have_text('Bookmarks')
       @axe.screenshot('url-scheme-bookmarks')
     end
 
-    it 'opens History via yattee://history' do
-      open_url('yattee://history')
+    it 'opens History via vela://history' do
+      open_url('vela://history')
       sleep 1
       wait_for_text('History')
       expect(@axe).to have_text('History')
       @axe.screenshot('url-scheme-history')
     end
 
-    it 'opens Downloads via yattee://downloads' do
-      open_url('yattee://downloads')
+    it 'opens Downloads via vela://downloads' do
+      open_url('vela://downloads')
       sleep 1
       wait_for_text('Downloads')
       expect(@axe).to have_text('Downloads')
       @axe.screenshot('url-scheme-downloads')
     end
 
-    it 'opens Channels via yattee://channels' do
-      open_url('yattee://channels')
+    it 'opens Channels via vela://channels' do
+      open_url('vela://channels')
       sleep 1
       wait_for_text('Channels')
       expect(@axe).to have_text('Channels')
       @axe.screenshot('url-scheme-channels')
     end
 
-    it 'opens Subscriptions via yattee://subscriptions' do
-      open_url('yattee://subscriptions')
+    it 'opens Subscriptions via vela://subscriptions' do
+      open_url('vela://subscriptions')
       sleep 1
       wait_for_text('Subscriptions')
       expect(@axe).to have_text('Subscriptions')
       @axe.screenshot('url-scheme-subscriptions')
     end
 
-    it 'opens Continue Watching via yattee://continue-watching' do
-      open_url('yattee://continue-watching')
+    it 'opens Continue Watching via vela://continue-watching' do
+      open_url('vela://continue-watching')
       sleep 1
       wait_for_text('Continue Watching')
       expect(@axe).to have_text('Continue Watching')
       @axe.screenshot('url-scheme-continue-watching')
     end
 
-    # NOTE: yattee://settings deep link is broken in the app -
+    # NOTE: vela://settings deep link is broken in the app -
     # handlePendingNavigation pushes .settings onto homePath but it doesn't render.
     # Skipping until the app's deep link handler is fixed to present Settings properly.
 
-    it 'opens Search via yattee://search?q=test' do
-      open_url('yattee://search?q=test')
+    it 'opens Search via vela://search?q=test' do
+      open_url('vela://search?q=test')
       sleep 1
       # SearchView pushed via deep link has a sparse accessibility tree -
       # only the nav bar (AXUniqueId "Search") is exposed, not its children.
@@ -232,7 +232,7 @@ RSpec.describe 'URL Schemes with Backend', :url_backend do
     end
   end
 
-  # Open a yattee:// URL and dismiss the iOS "Open in Yattee?" system confirmation dialog
+  # Open a vela:// URL and dismiss the iOS "Open in Vela?" system confirmation dialog
   def open_url(url)
     UITest::Simulator.open_url(@udid, url)
     sleep 0.8
@@ -254,11 +254,11 @@ RSpec.describe 'URL Schemes with Backend', :url_backend do
     end
   end
 
-  # Wrap an HTTPS URL in yattee://open?url= scheme so simctl routes it to the app
+  # Wrap an HTTPS URL in vela://open?url= scheme so simctl routes it to the app
   # instead of Safari. This tests the app's YouTube URL parsing via URLRouter.
   def open_youtube_url(url)
     encoded = CGI.escape(url)
-    open_url("yattee://open?url=#{encoded}")
+    open_url("vela://open?url=#{encoded}")
   end
 
   # Navigate back to Home tab
@@ -341,31 +341,31 @@ RSpec.describe 'URL Schemes with Backend', :url_backend do
     navigate_to_home
   end
 
-  describe 'yattee:// content URLs' do
+  describe 'vela:// content URLs' do
     after(:each) do
       cleanup_after_video
     end
 
-    it 'opens video via yattee://video/{id}' do
-      open_url('yattee://video/dQw4w9WgXcQ')
+    it 'opens video via vela://video/{id}' do
+      open_url('vela://video/dQw4w9WgXcQ')
       @player.wait_for_player_expanded(timeout: 20)
       @axe.screenshot('url-scheme-video')
     end
 
-    it 'opens channel via yattee://channel/{id}' do
-      open_url('yattee://channel/UC_x5XG1OV2P6uZZ5FSM9Ttw')
+    it 'opens channel via vela://channel/{id}' do
+      open_url('vela://channel/UC_x5XG1OV2P6uZZ5FSM9Ttw')
       wait_for_content_loaded(timeout: 20)
       @axe.screenshot('url-scheme-channel')
     end
 
-    it 'opens playlist via yattee://playlist/{id}' do
-      open_url('yattee://playlist/PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf')
+    it 'opens playlist via vela://playlist/{id}' do
+      open_url('vela://playlist/PLrAXtmErZgOeiKm4sgNOknGvNjby9efdf')
       wait_for_content_loaded(timeout: 20)
       @axe.screenshot('url-scheme-playlist')
     end
   end
 
-  describe 'YouTube URL parsing via yattee://open?url=' do
+  describe 'YouTube URL parsing via vela://open?url=' do
     after(:each) do
       cleanup_after_video
     end

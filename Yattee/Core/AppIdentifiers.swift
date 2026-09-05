@@ -5,6 +5,7 @@ enum AppIdentifiers {
     // MARK: - Base Identifier
 
     static let bundleIdentifier = "app.vela.video"
+    static let urlScheme = "vela"
 
     // MARK: - iCloud
 

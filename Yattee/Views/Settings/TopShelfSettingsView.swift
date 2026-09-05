@@ -23,7 +23,7 @@ struct TopShelfSettingsView: View {
                 } footer: {
                     Text(String(
                         localized: "settings.topShelf.sections.footer",
-                        defaultValue: "Enabled sections appear in the Apple TV Home top shelf when Yattee is focused."
+                        defaultValue: "Enabled sections appear in the Apple TV Home top shelf when Vela is focused."
                     ))
                 }
             }

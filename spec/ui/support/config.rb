@@ -59,7 +59,7 @@ module UITest
 
       # App bundle identifier
       def bundle_id
-        'stream.yattee.app'
+        'app.vela.video'
       end
 
       # Yattee Server URL for testing (configurable via env)

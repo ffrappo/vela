@@ -14,7 +14,7 @@ struct URLRouter: Sendable {
 
     /// Route a URL only if we are *confident* the app can handle it natively —
     /// YouTube/PeerTube video/channel/playlist, direct media (mp4/m3u8/etc),
-    /// or the custom `yattee://` scheme. Unlike `route(_:)` this deliberately
+    /// or the custom `vela://` scheme. Unlike `route(_:)` this deliberately
     /// skips the `.externalVideo` yt-dlp fallback, which matches almost any
     /// http/https URL and is therefore unsafe to trigger blindly after
     /// resolving a URL shortener.
@@ -27,7 +27,7 @@ struct URLRouter: Sendable {
     /// Route a URL to a navigation destination.
     func route(_ url: URL) -> NavigationDestination? {
         // Try custom scheme first
-        if url.scheme == "yattee" {
+        if url.scheme?.lowercased() == AppIdentifiers.urlScheme {
             return parseCustomScheme(url)
         }
 
@@ -98,7 +98,7 @@ struct URLRouter: Sendable {
 
     // MARK: - Wrapper Unwrapping
 
-    /// Resolve a `yattee://open?url={encoded_url}` wrapper (share extension) to the inner URL.
+    /// Resolve a `vela://open?url={encoded_url}` wrapper (share extension) to the inner URL.
     /// Returns the input unchanged for any other URL. The wrapper's query holds the full
     /// original link, so timestamp parsing must run against the unwrapped URL.
     ///
@@ -106,7 +106,7 @@ struct URLRouter: Sendable {
     /// intact - URLComponents would split the inner URL's own query into separate wrapper
     /// items (losing e.g. `&t=120`), so take the raw remainder after `?url=` instead.
     func unwrapped(_ url: URL) -> URL {
-        guard url.scheme?.lowercased() == "yattee", url.host == "open",
+        guard url.scheme?.lowercased() == AppIdentifiers.urlScheme, url.host == "open",
               let range = url.absoluteString.range(of: "?url=") else {
             return url
         }
@@ -116,7 +116,7 @@ struct URLRouter: Sendable {
             return url
         }
         // Unwrap once more in case the wrapper was itself wrapped
-        if innerURL.scheme?.lowercased() == "yattee", innerURL.host == "open", innerURL != url {
+        if innerURL.scheme?.lowercased() == AppIdentifiers.urlScheme, innerURL.host == "open", innerURL != url {
             return unwrapped(innerURL)
         }
         return innerURL
@@ -183,7 +183,7 @@ struct URLRouter: Sendable {
 
     // MARK: - Custom Scheme
 
-    /// Parse yattee:// scheme URLs.
+    /// Parse Vela custom-scheme URLs.
     private func parseCustomScheme(_ url: URL) -> NavigationDestination? {
         guard let host = url.host else { return nil }
 
@@ -191,7 +191,7 @@ struct URLRouter: Sendable {
 
         switch host {
         case "video":
-            // yattee://video/{videoId}?source={source}&instance={url}
+            // vela://video/{videoId}?source={source}&instance={url}
             let videoID = url.lastPathComponent
             guard !videoID.isEmpty else { return nil }
 
@@ -206,7 +206,7 @@ struct URLRouter: Sendable {
             return .video(.id(.global(videoID)))
 
         case "channel":
-            // yattee://channel/{channelId}?source={source}&instance={url}
+            // vela://channel/{channelId}?source={source}&instance={url}
             let channelID = url.lastPathComponent
             guard !channelID.isEmpty else { return nil }
 
@@ -223,13 +223,13 @@ struct URLRouter: Sendable {
             return .channel(channelID, source)
 
         case "playlist":
-            // yattee://playlist/{playlistId}
+            // vela://playlist/{playlistId}
             let playlistID = url.lastPathComponent
             guard !playlistID.isEmpty else { return nil }
             return .playlist(.remote(PlaylistID(source: .global(provider: ContentSource.youtubeProvider), playlistID: playlistID), instance: nil))
 
         case "search":
-            // yattee://search?q={query}
+            // vela://search?q={query}
             guard let query = components?.queryItems?.first(where: { $0.name == "q" })?.value,
                   !query.isEmpty else {
                 return nil
@@ -237,39 +237,39 @@ struct URLRouter: Sendable {
             return .search(query)
 
         case "playlists":
-            // yattee://playlists
+            // vela://playlists
             return .playlists
 
         case "bookmarks":
-            // yattee://bookmarks
+            // vela://bookmarks
             return .bookmarks
 
         case "history":
-            // yattee://history
+            // vela://history
             return .history
 
         case "downloads":
-            // yattee://downloads
+            // vela://downloads
             return .downloads
 
         case "channels":
-            // yattee://channels (manage subscribed channels)
+            // vela://channels (manage subscribed channels)
             return .manageChannels
 
         case "subscriptions":
-            // yattee://subscriptions
+            // vela://subscriptions
             return .subscriptionsFeed
 
         case "continue-watching":
-            // yattee://continue-watching
+            // vela://continue-watching
             return .continueWatching
 
         case "settings":
-            // yattee://settings
+            // vela://settings
             return .settings
 
         case "open":
-            // yattee://open?url={encoded_url} - from share extension
+            // vela://open?url={encoded_url} - from share extension
             if let urlParam = components?.queryItems?.first(where: { $0.name == "url" })?.value,
                let decodedURL = URL(string: urlParam) {
                 // Route the decoded URL through normal routing

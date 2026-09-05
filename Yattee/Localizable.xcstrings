@@ -178,7 +178,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Try in Yattee"
+            "value" : "Try in Vela"
           }
         }
       }
@@ -228,7 +228,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Try in Yattee"
+            "value" : "Try in Vela"
           }
         }
       }
@@ -8595,7 +8595,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Allow this device to discover and control other Yattee devices on your local network."
+            "value" : "Allow this device to discover and control other Vela devices on your local network."
           }
         }
       }
@@ -15442,7 +15442,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Enabled sections appear in the Apple TV Home top shelf when Yattee is focused."
+            "value" : "Enabled sections appear in the Apple TV Home top shelf when Vela is focused."
           }
         }
       }

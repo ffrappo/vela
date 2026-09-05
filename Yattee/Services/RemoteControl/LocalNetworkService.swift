@@ -192,7 +192,7 @@ final class LocalNetworkService {
     /// Used to treat health check timeouts as "dead" for these devices, since Bonjour removal is authoritative.
     private var bonjourDisappearedDevices: Set<String> = []
 
-    /// Start discovering other Yattee devices on the local network.
+    /// Start discovering other Vela devices on the local network.
     func startDiscovery() {
         guard !isDiscovering else {
             rcLog("DISCOVERY", "Already discovering, ignoring duplicate start")
