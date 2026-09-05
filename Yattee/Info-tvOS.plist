@@ -6,7 +6,7 @@
 	<false/>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>stream.yattee.app.feedRefresh</string>
+		<string>app.vela.video.feedRefresh</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
@@ -14,10 +14,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>stream.yattee.app</string>
+			<string>app.vela.video</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>yattee</string>
+				<string>vela</string>
 			</array>
 		</dict>
 	</array>
@@ -35,7 +35,7 @@
 	</array>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>stream.yattee.app.activity</string>
+		<string>app.vela.video.activity</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

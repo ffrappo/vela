@@ -82,12 +82,12 @@ class ShareViewController: UIViewController {
 
     private func openInYattee(url: URL) {
         guard let encodedURL = url.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let yatteeURL = URL(string: "yattee://open?url=\(encodedURL)") else {
+              let velaURL = URL(string: "vela://open?url=\(encodedURL)") else {
             close()
             return
         }
 
-        openURLViaApplication(yatteeURL)
+        openURLViaApplication(velaURL)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             self?.close()
