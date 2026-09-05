@@ -8,6 +8,7 @@
 import Foundation
 import Libmpv
 import Metal
+import os
 
 #if os(macOS)
 import OpenGL.GL
@@ -753,6 +754,20 @@ final class MPVClient: @unchecked Sendable {
 
     /// Pending audio URL to be added after file loads (accessed only on mpvQueue).
     private var pendingAudioURL: URL?
+    private let eventGeneration = OSAllocatedUnfairLock(initialState: UInt(0))
+    private let expectedLoadTokens = OSAllocatedUnfairLock(initialState: [UUID]())
+    private let activeLoadToken = OSAllocatedUnfairLock<UUID?>(initialState: nil)
+
+    func expectNextFile(loadToken: UUID) {
+        expectedLoadTokens.withLock { $0.append(loadToken) }
+    }
+
+    private func advanceEventGeneration() -> UInt {
+        eventGeneration.withLock {
+            $0 &+= 1
+            return $0
+        }
+    }
 
     /// Add an external audio track. Call this after the file is loaded.
     private func addExternalAudioUnsafe(_ url: URL) {
@@ -1750,13 +1765,39 @@ final class MPVClient: @unchecked Sendable {
             }
 
         case MPV_EVENT_FILE_LOADED:
+            let generation = eventGeneration.withLock { $0 }
+            let loadToken = activeLoadToken.withLock { $0 }
             // Add pending external audio track after file is loaded (dispatch to mpvQueue for thread safety)
             mpvQueue.async { [weak self] in
                 self?.addPendingAudioIfNeeded()
             }
             Task { @MainActor [weak self] in
                 guard let self else { return }
+                self.delegate?.mpvClient(
+                    self,
+                    didUpdateProperty: "file-loaded-generation",
+                    value: (generation: generation, loadToken: loadToken)
+                )
                 self.delegate?.mpvClient(self, didReceiveEvent: eventId)
+            }
+
+        case MPV_EVENT_START_FILE:
+            activeLoadToken.withLock { active in
+                active = expectedLoadTokens.withLock { expected in
+                    guard !expected.isEmpty else { return nil }
+                    return expected.removeFirst()
+                }
+            }
+            _ = advanceEventGeneration()
+            let generation = eventGeneration.withLock { $0 }
+            let loadToken = activeLoadToken.withLock { $0 }
+            Task { @MainActor [weak self] in
+                guard let self else { return }
+                self.delegate?.mpvClient(
+                    self,
+                    didUpdateProperty: "start-file-generation",
+                    value: (generation: generation, loadToken: loadToken)
+                )
             }
 
         case MPV_EVENT_PLAYBACK_RESTART, MPV_EVENT_SEEK:
@@ -1779,6 +1820,9 @@ final class MPVClient: @unchecked Sendable {
             scheduleTrackListRefresh()
             return
         }
+
+        let generation = eventGeneration.withLock { $0 }
+        let loadToken = activeLoadToken.withLock { $0 }
 
         var value: Any?
 
@@ -1811,7 +1855,16 @@ final class MPVClient: @unchecked Sendable {
                 if let size = parseVideoSizeSync(node) {
                     Task { @MainActor [weak self] in
                         guard let self else { return }
-                        self.delegate?.mpvClient(self, didUpdateProperty: name, value: size)
+                        self.delegate?.mpvClient(
+                            self,
+                            didUpdateProperty: name,
+                            value: (
+                                generation: generation,
+                                loadToken: loadToken,
+                                width: size.width,
+                                height: size.height
+                            )
+                        )
                     }
                 }
                 return

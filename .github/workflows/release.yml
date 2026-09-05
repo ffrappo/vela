@@ -246,7 +246,9 @@ jobs:
           bodyFile: CHANGELOG.md
 
   publish_appcast:
-    if: ${{ inputs.build_mac_notarized && inputs.create_release && !cancelled() && !failure() }}
+    # Vela direct updates remain disabled until the fork has its own feed URL
+    # and signing key. Keeping this false prevents publishing an unusable feed.
+    if: ${{ false }}
     needs: [determine_build_number, mac_notarized, release]
     name: Publish Sparkle appcast
     runs-on: macos-26

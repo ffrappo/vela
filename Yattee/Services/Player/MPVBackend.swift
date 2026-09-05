@@ -110,6 +110,8 @@ final class MPVBackend: PlayerBackend {
     private let loadTimeouts: [TimeInterval] = [3, 3, 10, 10]  // Timeout per attempt
     private var isInitialLoading = false  // Prevents event handler from interfering during load
     private var currentLoadingID: UUID?   // Tracks current load operation for cancellation
+    private var playerVideoGeneration: UInt = 0
+    private var acceptedClientEventGeneration: UInt?
     private var isWaitingForExternalAudio = false  // True when waiting for external audio track to load
 
     // Captured detail from the most recent failed load attempt (mpv error string + recent log lines).
@@ -169,7 +171,11 @@ final class MPVBackend: PlayerBackend {
 
     /// Whether the player view and AVKit source layer are attached to a window.
     var isPiPRestoreSurfaceReady: Bool {
-        _playerView?.window != nil && pipBridge?.isPiPSourceAttachedToVisibleWindow() == true
+        guard let window = _playerView?.window,
+              !window.isHidden,
+              window.alpha > 0,
+              window.windowScene?.activationState == .foregroundActive else { return false }
+        return pipBridge?.isPiPSourceAttachedToVisibleWindow() == true
     }
 
     /// Whether PiP is possible.
@@ -182,6 +188,9 @@ final class MPVBackend: PlayerBackend {
     /// Callback for when PiP starts.
     /// Set by PlayerService to collapse the player sheet.
     var onPiPDidStart: (() -> Void)?
+
+    /// Callback for when PiP closes instead of restoring.
+    var onPiPDidStopWithoutRestore: (() -> Void)?
 
     /// Pause video rendering (for smooth panscan animation)
     func pauseRendering() {
@@ -416,6 +425,18 @@ final class MPVBackend: PlayerBackend {
 
     // MARK: - Playback Control
 
+    /// Invalidates callbacks from the currently loaded file before the player
+    /// domain changes ownership to another video.
+    func beginVideoTransition() {
+        playerVideoGeneration &+= 1
+        acceptedClientEventGeneration = nil
+        currentLoadingID = nil
+        videoWidth = 0
+        videoHeight = 0
+        pipVideoSizeUpdateTask?.cancel()
+        pipVideoSizeUpdateTask = nil
+    }
+
     func load(stream: Stream, audioStream: Stream?, autoplay: Bool, useEDL: Bool) async throws {
         // Wait for setup to complete before loading
         MPVLogging.log("MPVBackend.load: waiting for setup")
@@ -437,6 +458,7 @@ final class MPVBackend: PlayerBackend {
         // Cancel any previous loading operation by changing the ID
         let loadingID = UUID()
         currentLoadingID = loadingID
+        acceptedClientEventGeneration = nil
         
         // IMMEDIATELY mark as loading to protect against .stop events from previous stream
         // This must happen before any async work to prevent race conditions where .stop
@@ -520,6 +542,7 @@ final class MPVBackend: PlayerBackend {
 
         // Load the stream
         do {
+            mpvClient?.expectNextFile(loadToken: loadingID)
             try mpvClient?.loadFile(
                 stream.url,
                 audioURL: audioStream?.url,
@@ -785,7 +808,11 @@ final class MPVBackend: PlayerBackend {
         // The callback will be properly cleared in cleanup() when the backend is destroyed.
         #endif
 
-        // Stop buffer stall detection
+        // Stop buffer stall detection and invalidate delayed size work.
+        playerVideoGeneration &+= 1
+        currentLoadingID = nil
+        pipVideoSizeUpdateTask?.cancel()
+        pipVideoSizeUpdateTask = nil
         stopBufferStallDetection()
         stopPlaybackStatsLogging()
 
@@ -1229,6 +1256,10 @@ final class MPVBackend: PlayerBackend {
         pipBridge.onPiPWillStop = { [weak self] in
             // Keep isPiPActive = true so main view shows placeholder during close animation
             _ = self  // Silence unused warning
+        }
+
+        pipBridge.onPiPDidStopWithoutRestore = { [weak self] in
+            self?.onPiPDidStopWithoutRestore?()
         }
 
         // Connect frame capture from the render view to PiP.
@@ -1762,13 +1793,33 @@ extension MPVBackend: MPVClientDelegate {
                 }
             }
 
-        case "video-out-params":
-            // Treat the observed node as a change signal. The asynchronous
-            // reread carries the active load generation and is rejected if a
-            // newer video takes ownership before it completes.
+        case "start-file-generation":
+            guard let started = value as? (generation: UInt, loadToken: UUID?),
+                  started.loadToken == currentLoadingID else { break }
+            acceptedClientEventGeneration = started.generation
+
+        case "file-loaded-generation":
+            guard let loaded = value as? (generation: UInt, loadToken: UUID?),
+                  loaded.loadToken == currentLoadingID,
+                  loaded.generation == acceptedClientEventGeneration else { break }
             captureVideoSizeSnapshot()
 
+        case "video-out-params":
+            guard let snapshot = value as? (
+                generation: UInt,
+                loadToken: UUID?,
+                width: Int,
+                height: Int
+            ),
+                  snapshot.loadToken == currentLoadingID,
+                  let acceptedClientEventGeneration,
+                  snapshot.generation == acceptedClientEventGeneration else { break }
+            videoWidth = snapshot.width
+            videoHeight = snapshot.height
+            notifyVideoSizeIfReady()
+
         case "width", "height":
+            guard acceptedClientEventGeneration != nil else { break }
             // Compatibility signal for MPV builds that do not emit
             // video-out-params changes. The follow-up read still fetches one
             // node-valued dimension snapshot.
@@ -1838,12 +1889,16 @@ extension MPVBackend: MPVClientDelegate {
     }
 
     private func captureVideoSizeSnapshot() {
-        guard let mpvClient else { return }
-        let loadingID = currentLoadingID
+        guard mpvClient != nil,
+              let acceptedGeneration = acceptedClientEventGeneration,
+              let loadingID = currentLoadingID else { return }
+        let generation = playerVideoGeneration
         Task { [weak self] in
             guard let self else { return }
             guard let size = await self.mpvClient?.getVideoSizeAsync() else { return }
-            guard self.currentLoadingID == loadingID else { return }
+            guard self.currentLoadingID == loadingID,
+                  self.acceptedClientEventGeneration == acceptedGeneration,
+                  self.playerVideoGeneration == generation else { return }
             self.videoWidth = size.width
             self.videoHeight = size.height
             self.notifyVideoSizeIfReady()

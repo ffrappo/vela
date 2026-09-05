@@ -449,6 +449,9 @@ final class ExpandedPlayerWindowManager {
     static let shared = ExpandedPlayerWindowManager()
 
     private var expandedWindow: UIWindow?
+    private var pendingShowAfterDismissal: (appEnvironment: AppEnvironment, animated: Bool)?
+    private var isDismissing = false
+    private var retainingWindowForPiP = false
     private weak var appEnvironment: AppEnvironment?
     private var dragHandler: DragToDismissGestureHandler?
 
@@ -724,6 +727,22 @@ final class ExpandedPlayerWindowManager {
 
     func show(with appEnvironment: AppEnvironment, animated: Bool = true) {
         LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] show called, expandedWindow=\(expandedWindow != nil), animated=\(animated), retryCount=\(showRetryCount)")
+        if isDismissing {
+            pendingShowAfterDismissal = (appEnvironment, animated)
+            LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] queued show until dismissal completes")
+            return
+        }
+        if retainingWindowForPiP, expandedWindow != nil {
+            retainingWindowForPiP = false
+            OrientationManager.shared.beginPlayerSession()
+            expandedWindow?.alpha = 1
+            expandedWindow?.isUserInteractionEnabled = true
+            expandedWindow?.isHidden = false
+            expandedWindow?.makeKeyAndVisible()
+            appEnvironment.navigationCoordinator.isPlayerWindowVisible = true
+            appEnvironment.playerService.playerSheetDidAppear()
+            return
+        }
         guard expandedWindow == nil else { return }
 
         self.appEnvironment = appEnvironment
@@ -938,6 +957,17 @@ final class ExpandedPlayerWindowManager {
         LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] show complete")
     }
 
+    func cleanupRetainedPiPHost() {
+        guard retainingWindowForPiP else { return }
+        retainingWindowForPiP = false
+        expandedWindow?.isHidden = true
+        expandedWindow?.rootViewController = nil
+        expandedWindow = nil
+        dragHandler = nil
+        OrientationManager.shared.unlock()
+        appEnvironment?.navigationCoordinator.isPlayerWindowVisible = false
+    }
+
     func hide(animated: Bool = true, completion: (() -> Void)? = nil) {
         LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] hide called, expandedWindow=\(expandedWindow != nil), animated=\(animated)")
 
@@ -947,11 +977,30 @@ final class ExpandedPlayerWindowManager {
         pendingScaleApplication = false
 
         // Mark window as not visible immediately and start collapsing animation
+        isDismissing = true
         appEnvironment?.navigationCoordinator.isPlayerWindowVisible = false
         appEnvironment?.navigationCoordinator.isPlayerCollapsing = true
         LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] hide: isPlayerWindowVisible=false, isPlayerCollapsing=true")
 
         guard let window = expandedWindow else {
+            isDismissing = false
+            completion?()
+            return
+        }
+
+        if appEnvironment?.playerService.state.pipState == .active {
+            retainingWindowForPiP = true
+            isDismissing = false
+            resetMainWindowImmediate()
+            // Keep a transparent, non-interactive window in the foreground so
+            // AVKit's sample-buffer source remains attached even when the mini
+            // player video is disabled.
+            window.alpha = 0.001
+            window.isUserInteractionEnabled = false
+            window.isHidden = false
+            mainWindow?.makeKey()
+            appEnvironment?.navigationCoordinator.isPlayerCollapsing = false
+            appEnvironment?.playerService.playerSheetDidDisappear()
             completion?()
             return
         }
@@ -972,6 +1021,7 @@ final class ExpandedPlayerWindowManager {
             self?.expandedWindow?.isHidden = true
             self?.expandedWindow?.rootViewController = nil
             self?.expandedWindow = nil
+            self?.isDismissing = false
 
             // Notify player service
             self?.appEnvironment?.playerService.playerSheetDidDisappear()
@@ -1029,6 +1079,10 @@ final class ExpandedPlayerWindowManager {
             }
 
             completion?()
+            if let pending = self?.pendingShowAfterDismissal {
+                self?.pendingShowAfterDismissal = nil
+                self?.show(with: pending.appEnvironment, animated: pending.animated)
+            }
             LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] hide complete")
         }
 

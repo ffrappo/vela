@@ -225,6 +225,8 @@ final class PlayerService {
     func prepare(video: Video) {
         LoggingService.shared.logPlayer("Preparing video: \(video.id.id)")
 
+        (currentBackend as? MPVBackend)?.beginVideoTransition()
+
         // Clear streams
         availableStreams = []
         originalStreams = []
@@ -271,6 +273,7 @@ final class PlayerService {
         // Skipped for same-video calls (e.g. in-video quality switch) so the
         // full stream list kept around for the picker survives the switch.
         if isNewVideo {
+            (currentBackend as? MPVBackend)?.beginVideoTransition()
             availableStreams = []
         }
 
@@ -1089,6 +1092,7 @@ final class PlayerService {
         currentPlayTask?.cancel()
 
         // Set video info before expanding so the sheet animates with content visible
+        (currentBackend as? MPVBackend)?.beginVideoTransition()
         state.setPlaybackState(.loading)
         state.setCurrentVideo(video, stream: nil)
 
@@ -1133,6 +1137,7 @@ final class PlayerService {
         currentPlayTask?.cancel()
 
         // Set video info before expanding so the sheet animates with content visible
+        (currentBackend as? MPVBackend)?.beginVideoTransition()
         state.setPlaybackState(.loading)
         state.setCurrentVideo(video, stream: stream, audioStream: audioStream)
 
@@ -2542,6 +2547,11 @@ final class PlayerService {
                 mpvBackend.onPiPDidStopWithoutRestore = {
                     LoggingService.shared.debug("PlayerService: onPiPDidStopWithoutRestore - cleaning up hidden window", category: .player)
                     ExpandedPlayerWindowManager.shared.cleanupAfterPiP()
+                }
+                #else
+                // iOS keeps a transparent player host while PiP owns presentation.
+                mpvBackend.onPiPDidStopWithoutRestore = {
+                    ExpandedPlayerWindowManager.shared.cleanupRetainedPiPHost()
                 }
                 #endif
             }
