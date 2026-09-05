@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "Yattee/Core/AppIdentifiers.swift": {
-    "mtime": 1788638091.928648,
-    "ast_hash": "9a5c70a2b98ba0159e39699a2b1c6329",
+    "mtime": 1788635206.103092,
+    "ast_hash": "73a4b2c467b1b0fada6d772f41778574",
     "semantic_hash": ""
   },
   "Yattee/Core/FeedCache.swift": {
@@ -845,8 +845,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/CloudKit/CloudKitAvailability.swift": {
-    "mtime": 1788638123.3249664,
-    "ast_hash": "1a4dc2a36f622b2a9d80bd744d78074c",
+    "mtime": 1788631642.4994266,
+    "ast_hash": "5fe6f9c9e7fe628acea5a34212bbf70c",
     "semantic_hash": ""
   },
   "Yattee/Services/CloudKit/CloudKitConflictResolver.swift": {
@@ -1050,8 +1050,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Navigation/NavigationCoordinator.swift": {
-    "mtime": 1788640612.4224052,
-    "ast_hash": "89a6dcd22c3410e43d95e0d44d6cfd46",
+    "mtime": 1788631642.5029507,
+    "ast_hash": "b507537e4bd1b588caac1bb8868f50c4",
     "semantic_hash": ""
   },
   "Yattee/Services/Navigation/NavigationDestination.swift": {
@@ -1065,8 +1065,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Navigation/URLRouter.swift": {
-    "mtime": 1788638123.3246176,
-    "ast_hash": "f87980d087534f1ed3e4d0280c97ac0f",
+    "mtime": 1788631642.503132,
+    "ast_hash": "54d74770dc1ef044d620b53d7aa06ff8",
     "semantic_hash": ""
   },
   "Yattee/Services/Navigation/URLShortenerResolver.swift": {
@@ -1105,8 +1105,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/OrientationManager.swift": {
-    "mtime": 1788641707.3226373,
-    "ast_hash": "b5e35c50f4fd16bf2b27cecb2b51ac56",
+    "mtime": 1788633779.8329477,
+    "ast_hash": "cdb4ea162d7e2d45350dbef65fb40570",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/BackendSwitcher.swift": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Player/MPV/MPVClient.swift": {
-    "mtime": 1788649492.1306217,
-    "ast_hash": "81110201ad24dabd7782b382c76eaafd",
+    "mtime": 1788631642.5041032,
+    "ast_hash": "68d1a78d1e5df03f51fd851a19bef64e",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/MPV/MPVLogging.swift": {
@@ -1140,8 +1140,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Player/MPV/MPVPiPBridge.swift": {
-    "mtime": 1788643830.2654457,
-    "ast_hash": "60064e5e5b4d783371c4f2402b29c8ad",
+    "mtime": 1788631642.5045228,
+    "ast_hash": "d098f72a040006bbc74c1437fd6f83eb",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/MPV/MPVRenderView.swift": {
@@ -1155,8 +1155,8 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Player/MPVBackend.swift": {
-    "mtime": 1788649439.4826422,
-    "ast_hash": "6e5c7202cc5560c7e6e729bb1db7df7e",
+    "mtime": 1788634290.7119238,
+    "ast_hash": "3f99e17ffd8195104e28b4418f11068f",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/NowPlayingService.swift": {
@@ -1170,13 +1170,13 @@
     "semantic_hash": ""
   },
   "Yattee/Services/Player/PlayerService.swift": {
-    "mtime": 1788647048.8374097,
-    "ast_hash": "4dd0900fbe49369abd785d7475fbf6e3",
+    "mtime": 1788631642.5053568,
+    "ast_hash": "771bc75af2e13e1d36e9a2a580c1ad64",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/PlayerState.swift": {
-    "mtime": 1788638823.8438685,
-    "ast_hash": "c43fca9b3a8fd744eb78fbedf3971543",
+    "mtime": 1788631642.5054648,
+    "ast_hash": "83f372361835a328bb686245b6a4befc",
     "semantic_hash": ""
   },
   "Yattee/Services/Player/QueueManager.swift": {
@@ -1230,13 +1230,13 @@
     "semantic_hash": ""
   },
   "Yattee/Services/PlayerOrientationPolicy.swift": {
-    "mtime": 1788638136.249209,
-    "ast_hash": "a701b95756889ce6fe9602d9c92e578a",
+    "mtime": 1788633742.8926857,
+    "ast_hash": "2721636133e0b344b23d475a24b8d161",
     "semantic_hash": ""
   },
   "Yattee/Services/RemoteControl/LocalNetworkService.swift": {
-    "mtime": 1788638578.6741967,
-    "ast_hash": "7a228c7befd5d9158888fe26a1306a86",
+    "mtime": 1788631642.5066216,
+    "ast_hash": "ac98bb1ff77ae87bc8f3e3f1de05916c",
     "semantic_hash": ""
   },
   "Yattee/Services/RemoteControl/RemoteControlCoordinator.swift": {
@@ -1305,13 +1305,13 @@
     "semantic_hash": ""
   },
   "Yattee/Services/TopShelfSnapshot.swift": {
-    "mtime": 1788638112.1994238,
-    "ast_hash": "8852b6e11509c0902bff27d113e8dcb8",
+    "mtime": 1788631642.5079381,
+    "ast_hash": "ceaeeefc320a55fab93d67dec6c5956c",
     "semantic_hash": ""
   },
   "Yattee/Services/TopShelfSnapshotWriter.swift": {
-    "mtime": 1788638112.1990504,
-    "ast_hash": "50cd50ce0a733dfd27faf8695bb9b966",
+    "mtime": 1788631642.508002,
+    "ast_hash": "cd69d9131e7ad8f266a33aa8033227af",
     "semantic_hash": ""
   },
   "Yattee/Services/TranslationContributorsLoader.swift": {
@@ -1845,8 +1845,8 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Player/ExpandedPlayerSheet+Orientation.swift": {
-    "mtime": 1788638843.6448681,
-    "ast_hash": "7a9059a4838123819a0625a7a80d7b6e",
+    "mtime": 1788633829.131694,
+    "ast_hash": "3f6ef4cb86d32a5d46c91bedf25060c9",
     "semantic_hash": ""
   },
   "Yattee/Views/Player/ExpandedPlayerSheet+Overlays.swift": {
@@ -1860,13 +1860,13 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Player/ExpandedPlayerSheet.swift": {
-    "mtime": 1788640526.8677795,
-    "ast_hash": "81fb8c304820fd3488ac979ca6d32ff7",
+    "mtime": 1788633967.1986248,
+    "ast_hash": "980c6ff47449fcaf2cc9c9e7a4d1ee37",
     "semantic_hash": ""
   },
   "Yattee/Views/Player/ExpandedPlayerWindow.swift": {
-    "mtime": 1788644816.9181492,
-    "ast_hash": "dfc2a1ed92a48593a0e0f2b74a94cc84",
+    "mtime": 1788633977.2446125,
+    "ast_hash": "2fb267077d23e4c696a6e722746745c0",
     "semantic_hash": ""
   },
   "Yattee/Views/Player/ExpandedPlayerWindowManager.swift": {
@@ -2120,8 +2120,8 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Playlist/UnifiedPlaylistDetailView.swift": {
-    "mtime": 1788638112.1997495,
-    "ast_hash": "8323e24332ba649495bff5a89a701255",
+    "mtime": 1788631642.5219958,
+    "ast_hash": "82323ebd85dcf8fe2cbedc3cdb13d9c8",
     "semantic_hash": ""
   },
   "Yattee/Views/RemoteControl/RemoteControlContentView.swift": {
@@ -2270,8 +2270,8 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/MPVOptionsSettingsView.swift": {
-    "mtime": 1788638569.471998,
-    "ast_hash": "77159f610d707c20038e2ae06fbb940e",
+    "mtime": 1788631642.525188,
+    "ast_hash": "aac75a6e6bb8caf4341013332a1c4b17",
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/MacOSSettings.swift": {
@@ -2420,8 +2420,8 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/SettingsView.swift": {
-    "mtime": 1788638569.4718192,
-    "ast_hash": "75191c663c76eff2dbb1490de7618ab3",
+    "mtime": 1788631642.5275667,
+    "ast_hash": "f7dcd18c5d719618cabdd51e616051f5",
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/SidebarSettingsView.swift": {
@@ -2470,8 +2470,8 @@
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/TopShelfSettingsView.swift": {
-    "mtime": 1788638569.472224,
-    "ast_hash": "7de8f839fdcf9bc5500126feac9dbcff",
+    "mtime": 1788631642.5283103,
+    "ast_hash": "f2f2c116927a050c1f6cf2634c97d4bc",
     "semantic_hash": ""
   },
   "Yattee/Views/Settings/TranslationContributorsView.swift": {
@@ -2555,8 +2555,8 @@
     "semantic_hash": ""
   },
   "Yattee/YatteeApp.swift": {
-    "mtime": 1788638112.2000248,
-    "ast_hash": "f3dc4336a7ccfd7f9436c905fd174380",
+    "mtime": 1788631642.5297685,
+    "ast_hash": "d89c1e6e94520cc00c35b72ba20d2810",
     "semantic_hash": ""
   },
   "Yattee/weblate-credits.json": {
@@ -2655,8 +2655,8 @@
     "semantic_hash": ""
   },
   "YatteeTests/NavigationTests.swift": {
-    "mtime": 1788638112.2001595,
-    "ast_hash": "d46047a15c8a383045247a89c27864c4",
+    "mtime": 1788631642.5318973,
+    "ast_hash": "d2c9313a59ae837d1db36163f8d222ef",
     "semantic_hash": ""
   },
   "YatteeTests/NetworkingTests.swift": {
@@ -2670,13 +2670,13 @@
     "semantic_hash": ""
   },
   "YatteeTests/PlayerOrientationPolicyTests.swift": {
-    "mtime": 1788638235.1674943,
-    "ast_hash": "6cee88a97cc75bb37f7f24e10b36f3d8",
+    "mtime": 1788633995.0063229,
+    "ast_hash": "823cb6ac7d6d0a95d7eff3f7e601620d",
     "semantic_hash": ""
   },
   "YatteeTests/PlayerTests.swift": {
-    "mtime": 1788638891.4050848,
-    "ast_hash": "25e325dad1c26f1c1355048381348691",
+    "mtime": 1788631642.5321805,
+    "ast_hash": "918458c33d3f26e097a0e484294bbebd",
     "semantic_hash": ""
   },
   "YatteeTests/SearchHistoryTests.swift": {
@@ -2725,8 +2725,8 @@
     "semantic_hash": ""
   },
   "altstore-source.json": {
-    "mtime": 1788640671.972255,
-    "ast_hash": "75b9a5962ce227dba17f5c2f5b660559",
+    "mtime": 1788631642.532934,
+    "ast_hash": "e110ececf410f606096e7de7e4ef9e2f",
     "semantic_hash": ""
   },
   "bin/clean-weblate-credits": {
@@ -2750,8 +2750,8 @@
     "semantic_hash": ""
   },
   "bin/mac-release": {
-    "mtime": 1788640978.956084,
-    "ast_hash": "c18a491cb06ffb0b2f872cd55ed031b8",
+    "mtime": 1788631642.5381002,
+    "ast_hash": "e75a32351f53e5e52a6d000368eabfc1",
     "semantic_hash": ""
   },
   "bin/ui-test": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "spec/ui/smoke/url_schemes_spec.rb": {
-    "mtime": 1788638112.200689,
-    "ast_hash": "701cca81394e0d811cdb21b0f3cb3b7d",
+    "mtime": 1788631642.539613,
+    "ast_hash": "e154cf561ddfd3c40b738c96a9fe4180",
     "semantic_hash": ""
   },
   "spec/ui/smoke/video_playback_invidious_spec.rb": {
@@ -2880,8 +2880,8 @@
     "semantic_hash": ""
   },
   "spec/ui/support/config.rb": {
-    "mtime": 1788638112.2003732,
-    "ast_hash": "fd37f2f844c5c61005f729875a982a9a",
+    "mtime": 1788631642.540172,
+    "ast_hash": "7b931c2b3d93f67be121b2a2ffd6efa1",
     "semantic_hash": ""
   },
   "spec/ui/support/instance_setup.rb": {
@@ -2955,13 +2955,13 @@
     "semantic_hash": ""
   },
   ".github/workflows/release.yml": {
-    "mtime": 1788643853.5450163,
-    "ast_hash": "53f7869e9c759d7af9e6ff245ab19b64",
+    "mtime": 1788631642.4806988,
+    "ast_hash": "69709d9316131feaed515e0175ed445a",
     "semantic_hash": ""
   },
   ".github/workflows/update-altstore.yml": {
-    "mtime": 1788640680.011791,
-    "ast_hash": "7fa39b6c64e204c48817cd331b54ef04",
+    "mtime": 1788631642.480775,
+    "ast_hash": "8af32e7909fb2f1ae9aee373ea1d4e7e",
     "semantic_hash": ""
   },
   ".periphery.yml": {

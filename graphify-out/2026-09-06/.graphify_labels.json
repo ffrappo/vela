@@ -395,15 +395,5 @@
   "393": "ObjCExceptionHandler.h",
   "394": "ObjCExceptionHandler.m",
   "395": "SMBBridge.h",
-  "396": "Yattee-Bridging-Header.h",
-  "397": "VideoRowStyleTests",
-  "398": "PlaybackRateDisplayTests",
-  "399": "Error",
-  "400": "VideoGridContent",
-  "401": "SponsorBlockCategoryExtendedTests",
-  "402": "AppGroup.swift",
-  "403": "AppIdentifiers.swift",
-  "404": "TapZoneCalculator",
-  "405": "AppGroup.swift",
-  "406": ".hash"
+  "396": "Yattee-Bridging-Header.h"
 }
