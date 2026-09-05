@@ -41,8 +41,9 @@ final class MPVPiPBridge: NSObject {
         pipController?.isPictureInPicturePossible ?? false
     }
 
-    /// Callback for when user wants to restore from PiP to main app.
-    var onRestoreUserInterface: (() async -> Void)?
+    /// Callback for restoring the app UI. Returns whether a visible playback
+    /// surface was ready before AVKit completed its restore transition.
+    var onRestoreUserInterface: (() async -> Bool)?
 
     /// Callback for when PiP active status changes.
     var onPiPStatusChanged: ((Bool) -> Void)?
@@ -826,8 +827,8 @@ extension MPVPiPBridge: AVPictureInPictureControllerDelegate {
             // Mark that restore was requested - didStopPictureInPicture will check this
             restoreWasRequested = true
             LoggingService.shared.debug("MPVPiPBridge: Restore requested", category: .mpv)
-            await onRestoreUserInterface?()
-            completionHandler(true)
+            let restored = await onRestoreUserInterface?() ?? false
+            completionHandler(restored)
         }
     }
 }

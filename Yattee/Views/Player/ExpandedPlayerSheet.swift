@@ -919,6 +919,7 @@ private struct PlayerIOSEventHandlersModifier: ViewModifier {
                 if inAppOrientationLock {
                     OrientationManager.shared.lock()
                 }
+                reconcileVideoOrientation()
             }
             .onDisappear {
                 DeviceRotationManager.shared.stopMonitoring()
@@ -938,10 +939,9 @@ private struct PlayerIOSEventHandlersModifier: ViewModifier {
                 reconcileVideoOrientation()
             }
             .onChange(of: playerState?.currentVideo?.id) { _, _ in
-                // Keep the current landscape geometry while the next video's
-                // dimensions load. A confirmed wide ratio may enter landscape;
-                // a handoff never requests portrait.
-                reconcileVideoOrientation()
+                // PlayerState invalidates the previous video's measured ratio.
+                // Keep the current landscape geometry while new dimensions load.
+                OrientationManager.shared.resetAutomaticLandscapeSuppression()
             }
             .onChange(of: navigationCoordinator?.pendingFullscreenToggle) { _, _ in
                 toggleFullscreen()

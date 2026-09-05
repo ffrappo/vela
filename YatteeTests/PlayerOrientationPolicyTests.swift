@@ -42,6 +42,20 @@ struct PlayerOrientationPolicyTests {
         #expect(action(enabled: false, ratio: 16.0 / 9.0) == .none)
     }
 
+    @Test("Stale ratio from another video does not rotate")
+    func staleRatioDoesNotRotate() {
+        let context = PlayerOrientationContext(
+            isPhone: true,
+            isPlayerExpanded: true,
+            isPiPActive: false,
+            rotatesToMatchAspectRatio: true,
+            interfaceOrientation: .portrait,
+            videoAspectRatio: 16.0 / 9.0,
+            aspectRatioMatchesCurrentVideo: false
+        )
+        #expect(PlayerOrientationPolicy.action(for: context) == .none)
+    }
+
     @Test("Picture in Picture owns presentation")
     func pictureInPictureDoesNotRotatePlayer() {
         #expect(action(pip: true, ratio: 16.0 / 9.0) == .none)
@@ -71,7 +85,8 @@ struct PlayerOrientationPolicyTests {
             isPiPActive: pip,
             rotatesToMatchAspectRatio: enabled,
             interfaceOrientation: orientation,
-            videoAspectRatio: ratio
+            videoAspectRatio: ratio,
+            aspectRatioMatchesCurrentVideo: true
         ))
     }
 }

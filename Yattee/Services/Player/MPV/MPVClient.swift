@@ -505,7 +505,7 @@ final class MPVClient: @unchecked Sendable {
         setOptionSync("framedrop", "decoder+vo")
 
         // Audio
-        setOptionSync("audio-client-name", "Yattee")
+        setOptionSync("audio-client-name", "Vela")
         #if os(tvOS)
         // Prefer avfoundation (AVSampleBufferAudioRenderer): audiounit can't open
         // 32-channel HDMI routes (Atmos "Continuous Audio Output") and stays silent.
@@ -1320,6 +1320,27 @@ final class MPVClient: @unchecked Sendable {
                 var value: Int64 = 0
                 let result = mpv_get_property(mpv, name, MPV_FORMAT_INT64, &value)
                 continuation.resume(returning: result >= 0 ? Int(value) : nil)
+            }
+        }
+    }
+
+    /// Fetch width and height atomically on MPV's serial queue.
+    func getVideoSizeAsync() async -> (width: Int, height: Int)? {
+        await withCheckedContinuation { continuation in
+            mpvQueue.async { [weak self] in
+                guard let self, let mpv = self.mpv, !self.isDestroyed else {
+                    continuation.resume(returning: nil)
+                    return
+                }
+                var width: Int64 = 0
+                var height: Int64 = 0
+                let widthResult = mpv_get_property(mpv, "width", MPV_FORMAT_INT64, &width)
+                let heightResult = mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &height)
+                guard widthResult >= 0, heightResult >= 0, width > 0, height > 0 else {
+                    continuation.resume(returning: nil)
+                    return
+                }
+                continuation.resume(returning: (Int(width), Int(height)))
             }
         }
     }

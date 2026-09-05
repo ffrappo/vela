@@ -42,14 +42,16 @@ extension ExpandedPlayerSheet {
             .compactMap({ $0 as? UIWindowScene })
             .first(where: { $0.activationState == .foregroundActive }) else { return }
 
-        let screenBounds = windowScene.screen.bounds
-        let isCurrentlyLandscape = screenBounds.width > screenBounds.height
         let orientationManager = OrientationManager.shared
+        let requestedOrientation = orientationManager.effectiveOrPendingOrientation(in: windowScene)
+        let isCurrentlyLandscape = requestedOrientation == .landscape ||
+            requestedOrientation == .landscapeLeft ||
+            requestedOrientation == .landscapeRight
         let isOrientationLocked = appEnvironment?.settingsManager.inAppOrientationLock ?? false
 
         MPVLogging.logTransition("toggleFullscreen",
-            fromSize: screenBounds.size,
-            toSize: isCurrentlyLandscape ? CGSize(width: screenBounds.height, height: screenBounds.width) : nil)
+            fromSize: windowScene.coordinateSpace.bounds.size,
+            toSize: nil)
 
         if isCurrentlyLandscape {
             // Exit fullscreen and rotate to portrait.
@@ -57,7 +59,13 @@ extension ExpandedPlayerSheet {
             if isOrientationLocked {
                 orientationManager.lock(to: .portrait)
             }
-            orientationManager.request(.portrait, reason: "explicit fullscreen exit", scene: windowScene)
+            orientationManager.request(
+                .portrait,
+                reason: "explicit fullscreen exit",
+                priority: .explicit,
+                scene: windowScene,
+                unlockWhenApplied: isOrientationLocked
+            )
         } else {
             // Enter fullscreen and rotate to landscape.
             let targetOrientation = Self.currentLandscapeInterfaceOrientation()
@@ -65,7 +73,12 @@ extension ExpandedPlayerSheet {
             if isOrientationLocked {
                 orientationManager.lock(to: targetOrientation)
             }
-            orientationManager.request(targetOrientation, reason: "explicit fullscreen entry", scene: windowScene)
+            orientationManager.request(
+                targetOrientation,
+                reason: "explicit fullscreen entry",
+                priority: .explicit,
+                scene: windowScene
+            )
         }
     }
 
@@ -95,11 +108,11 @@ extension ExpandedPlayerSheet {
                     .compactMap({ $0 as? UIWindowScene })
                     .first(where: { $0.activationState == .foregroundActive }) else { return }
 
-                let screenBounds = windowScene.screen.bounds
-                if screenBounds.height > screenBounds.width {
+                let isLandscape = OrientationManager.shared.effectiveOrientation(in: windowScene).isLandscape
+                if !isLandscape {
                     let targetOrientation = Self.currentLandscapeInterfaceOrientation()
                     MPVLogging.logTransition("onLandscapeDetected: requesting landscape",
-                        fromSize: screenBounds.size, toSize: nil)
+                        fromSize: windowScene.coordinateSpace.bounds.size, toSize: nil)
                     OrientationManager.shared.request(
                         targetOrientation,
                         reason: "physical landscape rotation",
@@ -120,10 +133,10 @@ extension ExpandedPlayerSheet {
                     .compactMap({ $0 as? UIWindowScene })
                     .first(where: { $0.activationState == .foregroundActive }) else { return }
 
-                let screenBounds = windowScene.screen.bounds
-                if screenBounds.width > screenBounds.height {
+                let isLandscape = OrientationManager.shared.effectiveOrientation(in: windowScene).isLandscape
+                if isLandscape {
                     MPVLogging.logTransition("onPortraitDetected: requesting portrait",
-                        fromSize: screenBounds.size, toSize: nil)
+                        fromSize: windowScene.coordinateSpace.bounds.size, toSize: nil)
                     OrientationManager.shared.request(
                         .portrait,
                         reason: "physical portrait rotation",
@@ -177,20 +190,17 @@ extension ExpandedPlayerSheet {
                 .compactMap({ $0 as? UIWindowScene })
                 .first(where: { $0.activationState == .foregroundActive }) else { return }
 
-        let isLandscape: Bool
-        if #available(iOS 26.0, *) {
-            isLandscape = windowScene.effectiveGeometry.interfaceOrientation.isLandscape
-        } else {
-            isLandscape = windowScene.interfaceOrientation.isLandscape
-        }
+        let isLandscape = OrientationManager.shared.effectiveOrientation(in: windowScene).isLandscape
+        let state = appEnvironment.playerService.state
 
         let context = PlayerOrientationContext(
             isPhone: true,
             isPlayerExpanded: appEnvironment.navigationCoordinator.isPlayerExpanded,
-            isPiPActive: appEnvironment.playerService.state.pipState == .active,
+            isPiPActive: state.pipState == .active,
             rotatesToMatchAspectRatio: appEnvironment.settingsManager.rotateToMatchAspectRatio,
             interfaceOrientation: isLandscape ? .landscape : .portrait,
-            videoAspectRatio: appEnvironment.playerService.state.videoAspectRatio
+            videoAspectRatio: state.videoAspectRatio,
+            aspectRatioMatchesCurrentVideo: state.videoAspectRatio != nil
         )
 
         guard PlayerOrientationPolicy.action(for: context) == .requestLandscape else { return }
@@ -202,6 +212,7 @@ extension ExpandedPlayerSheet {
         OrientationManager.shared.request(
             targetOrientation,
             reason: "wide video started while expanded",
+            priority: .automatic,
             scene: windowScene
         )
     }

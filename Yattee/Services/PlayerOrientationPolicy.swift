@@ -26,6 +26,7 @@ struct PlayerOrientationContext: Equatable, Sendable {
     let rotatesToMatchAspectRatio: Bool
     let interfaceOrientation: PlayerInterfaceOrientation
     let videoAspectRatio: Double?
+    let aspectRatioMatchesCurrentVideo: Bool
 }
 
 enum PlayerOrientationPolicy {
@@ -38,6 +39,7 @@ enum PlayerOrientationPolicy {
               context.isPlayerExpanded,
               !context.isPiPActive,
               context.rotatesToMatchAspectRatio,
+              context.aspectRatioMatchesCurrentVideo,
               context.interfaceOrientation == .portrait,
               let aspectRatio = context.videoAspectRatio,
               aspectRatio > 1 else {

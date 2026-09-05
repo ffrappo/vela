@@ -1021,13 +1021,10 @@ final class ExpandedPlayerWindowManager {
                     OrientationManager.shared.request(
                         .portrait,
                         reason: "expanded player dismissed",
-                        scene: windowScene
+                        priority: .dismissal,
+                        scene: windowScene,
+                        unlockWhenApplied: true
                     )
-
-                    // The dismissed player cannot race a later session by
-                    // unlocking it after an arbitrary delay. Unlock now that
-                    // the portrait geometry request has captured its mask.
-                    OrientationManager.shared.unlock()
                 }
             }
 

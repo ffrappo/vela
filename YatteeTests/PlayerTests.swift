@@ -263,6 +263,37 @@ struct PlayerStateTests {
         #expect(state.queue.isEmpty)
     }
 
+    @Test("Changing video invalidates measured aspect ratio")
+    func changingVideoInvalidatesAspectRatio() {
+        let state = PlayerState()
+        let first = testVideo(id: "first")
+        let second = testVideo(id: "second")
+
+        state.setCurrentVideo(first, stream: nil)
+        state.videoAspectRatio = 16.0 / 9.0
+        state.setCurrentVideo(second, stream: nil)
+
+        #expect(state.videoAspectRatio == nil)
+    }
+
+    private func testVideo(id: String) -> Video {
+        Video(
+            id: .global(id),
+            title: id,
+            description: nil,
+            author: Author(id: "channel", name: "Channel"),
+            duration: 100,
+            publishedAt: nil,
+            publishedText: nil,
+            viewCount: nil,
+            likeCount: nil,
+            thumbnails: [],
+            isLive: false,
+            isUpcoming: false,
+            scheduledStartTime: nil
+        )
+    }
+
     @Test("SponsorBlock auto-skip categories")
     func autoSkipCategories() {
         let state = PlayerState()

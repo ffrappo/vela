@@ -72,7 +72,7 @@ final class NavigationCoordinator {
     /// when the player is expanded, so the sheet always sits above the visible layer.
     var descriptionLinkQueueSheetVideo: Video?
 
-    /// Resolved short-link URL awaiting user confirmation ("Try in Yattee" vs
+    /// Resolved short-link URL awaiting user confirmation ("Try in Vela" vs
     /// "Open in Browser"). Dual-hosted like `descriptionLinkQueueSheetVideo`
     /// so the dialog is visible whether or not the expanded player is covering
     /// the main app view.
@@ -273,6 +273,18 @@ final class NavigationCoordinator {
         isPlayerExpanded = true
         playerExpandTrigger += 1
         LoggingService.shared.debug("NavigationCoordinator: expandPlayer complete - isPlayerExpanded=\(isPlayerExpanded), trigger=\(playerExpandTrigger)", category: .player)
+    }
+
+    /// Waits until the requested player surface is visible.
+    func waitForPlayerSurface(timeout: Duration = .seconds(1)) async -> Bool {
+        let clock = ContinuousClock()
+        let deadline = clock.now.advanced(by: timeout)
+        while clock.now < deadline {
+            if isPlayerWindowVisible { return true }
+            if !isPlayerExpanded, MiniPlayerSettings.cached.showVideo { return true }
+            try? await Task.sleep(for: .milliseconds(25))
+        }
+        return isPlayerWindowVisible || (!isPlayerExpanded && MiniPlayerSettings.cached.showVideo)
     }
 
     /// Waits until player sheet animation completes.

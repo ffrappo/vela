@@ -456,6 +456,7 @@ final class PlayerState {
             currentTime = 0
             duration = 0
             bufferedTime = 0
+            videoAspectRatio = nil
             isDurationLockedFromAPI = false
             // Reset video details state for new video
             videoDetailsState = .idle
