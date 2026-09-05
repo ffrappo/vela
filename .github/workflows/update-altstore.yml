@@ -40,7 +40,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Get IPA size from release
         run: |
-          IPA_NAME="Yattee-${{ env.VERSION_NUMBER }}-iOS.ipa"
+          IPA_NAME="Vela-${{ env.VERSION_NUMBER }}-iOS.ipa"
           SIZE=$(gh release view "${{ env.TAG }}" --json assets --jq ".assets[] | select(.name == \"$IPA_NAME\") | .size")
           if [ -z "$SIZE" ]; then
             echo "::error::Release ${{ env.TAG }} has no asset named $IPA_NAME — refusing to publish a broken AltStore entry"
@@ -56,7 +56,7 @@ jobs:
           jq --arg version "${{ env.VERSION_NUMBER }}" \
              --arg build "${{ env.BUILD_NUMBER }}" \
              --arg date "$DATE" \
-             --arg url "https://github.com/yattee/yattee/releases/download/${{ env.TAG }}/${{ env.IPA_NAME }}" \
+             --arg url "https://github.com/${{ github.repository }}/releases/download/${{ env.TAG }}/${{ env.IPA_NAME }}" \
              --argjson size "${{ env.IPA_SIZE }}" \
              '.apps[0].versions = [{
                version: $version,

@@ -2,7 +2,7 @@
 //  OrientationManager.swift
 //  Vela
 //
-//  Serializes scene-geometry requests and orientation restrictions.
+//  Coalesces scene-geometry requests and orientation restrictions.
 //
 
 #if os(iOS)
@@ -18,13 +18,21 @@ final class OrientationManager {
         case dismissal = 3
     }
 
+    private struct Request {
+        let orientation: UIInterfaceOrientationMask
+        let reason: String
+        let priority: RequestPriority
+        weak var scene: UIWindowScene?
+        let unlockWhenApplied: Bool
+    }
+
     static let shared = OrientationManager()
 
     private var lockedOrientation: UIInterfaceOrientationMask?
     private(set) var isLocked = false
+    private var inFlight: Request?
+    private var queued: Request?
     private var requestGeneration: UInt = 0
-    private var pendingOrientation: UIInterfaceOrientationMask?
-    private var pendingPriority: RequestPriority?
     private var automaticLandscapeSuppressed = false
 
     private init() {}
@@ -57,6 +65,14 @@ final class OrientationManager {
         notifyOrientationChange()
     }
 
+    /// Starts a player presentation. UIKit cannot cancel an accepted geometry
+    /// request, so a new session queues behind the transport-level request that
+    /// is already draining rather than submitting an overlapping request.
+    func beginPlayerSession() {
+        automaticLandscapeSuppressed = false
+        if inFlight == nil { queued = nil }
+    }
+
     func resetAutomaticLandscapeSuppression() {
         automaticLandscapeSuppressed = false
     }
@@ -68,16 +84,12 @@ final class OrientationManager {
     }
 
     func effectiveOrientation(in scene: UIWindowScene) -> UIInterfaceOrientation {
-        if #available(iOS 26.0, *) {
-            return scene.effectiveGeometry.interfaceOrientation
-        }
+        if #available(iOS 26.0, *) { return scene.effectiveGeometry.interfaceOrientation }
         return scene.interfaceOrientation
     }
 
-    /// Returns the resolved orientation together with an in-flight explicit
-    /// target so repeated fullscreen taps reverse the user's latest intent.
     func effectiveOrPendingOrientation(in scene: UIWindowScene) -> UIInterfaceOrientationMask {
-        pendingOrientation ?? mask(for: effectiveOrientation(in: scene))
+        queued?.orientation ?? inFlight?.orientation ?? mask(for: effectiveOrientation(in: scene))
     }
 
     func request(
@@ -87,80 +99,82 @@ final class OrientationManager {
         scene preferredScene: UIWindowScene? = nil,
         unlockWhenApplied: Bool = false
     ) {
-        guard let windowScene = preferredScene ?? foregroundScene else {
+        guard let scene = preferredScene ?? foregroundScene else {
             LoggingService.shared.logPlayer("[Orientation] Request skipped: no foreground scene (reason=\(reason))")
             return
         }
-
-        if priority == .automatic, automaticLandscapeSuppressed {
-            return
-        }
+        if priority == .automatic, automaticLandscapeSuppressed { return }
         if priority == .explicit, orientation == .portrait {
             automaticLandscapeSuppressed = true
-        } else if orientation == .landscape || orientation == .landscapeLeft || orientation == .landscapeRight {
+        } else if orientation.isLandscapeMask {
             automaticLandscapeSuppressed = false
         }
 
-        if let pendingPriority, pendingPriority.rawValue > priority.rawValue {
-            LoggingService.shared.logPlayer(
-                "[Orientation] Request ignored behind higher priority intent: reason=\(reason)"
-            )
+        let request = Request(
+            orientation: orientation,
+            reason: reason,
+            priority: priority,
+            scene: scene,
+            unlockWhenApplied: unlockWhenApplied
+        )
+        guard inFlight != nil else {
+            start(request)
             return
         }
 
-        requestGeneration &+= 1
-        let generation = requestGeneration
-        pendingOrientation = orientation
-        pendingPriority = priority
-        notifyOrientationChange(in: windowScene)
-
-        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: orientation)) { [weak self, weak windowScene] error in
-            Task { @MainActor in
-                guard let self, generation == self.requestGeneration else { return }
-                self.pendingOrientation = nil
-                self.pendingPriority = nil
-                LoggingService.shared.logPlayer(
-                    "[Orientation] Request denied: mask=\(orientation.rawValue), reason=\(reason), error=\(error.localizedDescription)"
-                )
-                if unlockWhenApplied { self.unlock() }
-                windowScene?.windows.forEach {
-                    $0.rootViewController?.setNeedsUpdateOfSupportedInterfaceOrientations()
-                }
-            }
-        }
-
-        observeApplied(
-            orientation,
-            generation: generation,
-            scene: windowScene,
-            unlockWhenApplied: unlockWhenApplied
-        )
+        // Keep the newest user intent. Lower-priority automatic or physical
+        // requests cannot replace an explicit request already waiting.
+        if let queued, queued.priority.rawValue > priority.rawValue { return }
+        self.queued = request
     }
 
-    private func observeApplied(
-        _ target: UIInterfaceOrientationMask,
-        generation: UInt,
-        scene: UIWindowScene,
-        unlockWhenApplied: Bool
-    ) {
-        Task { @MainActor [weak self, weak scene] in
+    private func start(_ request: Request) {
+        guard let scene = request.scene else {
+            finish(request, succeeded: false)
+            return
+        }
+        inFlight = request
+        requestGeneration &+= 1
+        let generation = requestGeneration
+        notifyOrientationChange(in: scene)
+        scene.requestGeometryUpdate(.iOS(interfaceOrientations: request.orientation)) { [weak self] error in
+            Task { @MainActor in
+                guard let self,
+                      generation == self.requestGeneration else { return }
+                LoggingService.shared.logPlayer(
+                    "[Orientation] Request denied: mask=\(request.orientation.rawValue), reason=\(request.reason), error=\(error.localizedDescription)"
+                )
+                self.finish(request, succeeded: false)
+            }
+        }
+        observe(request, generation: generation)
+    }
+
+    private func observe(_ request: Request, generation: UInt) {
+        Task { @MainActor [weak self, weak scene = request.scene] in
             for _ in 0..<40 {
-                guard let self, let scene, generation == self.requestGeneration else { return }
-                if target.contains(self.mask(for: self.effectiveOrientation(in: scene))) {
-                    self.pendingOrientation = nil
-                    self.pendingPriority = nil
-                    if unlockWhenApplied { self.unlock() }
+                guard let self, let scene,
+                      generation == self.requestGeneration else { return }
+                if request.orientation.contains(self.mask(for: self.effectiveOrientation(in: scene))) {
+                    self.finish(request, succeeded: true)
                     return
                 }
                 try? await Task.sleep(for: .milliseconds(25))
             }
-            guard let self, generation == self.requestGeneration else { return }
-            LoggingService.shared.logPlayer(
-                "[Orientation] Request timed out: mask=\(target.rawValue)"
-            )
-            self.pendingOrientation = nil
-            self.pendingPriority = nil
-            if unlockWhenApplied { self.unlock() }
+            guard let self,
+                  generation == self.requestGeneration else { return }
+            LoggingService.shared.logPlayer("[Orientation] Request timed out: mask=\(request.orientation.rawValue)")
+            self.finish(request, succeeded: false)
+        }
+    }
+
+    private func finish(_ request: Request, succeeded _: Bool) {
+        guard inFlight != nil else { return }
+        inFlight = nil
+        if request.unlockWhenApplied { unlock() }
+        if let next = queued {
+            queued = nil
+            start(next)
         }
     }
 
@@ -170,16 +184,16 @@ final class OrientationManager {
             .first { $0.activationState == .foregroundActive }
     }
 
-    private func notifyOrientationChange(in windowScene: UIWindowScene? = nil) {
-        guard let windowScene = windowScene ?? foregroundScene else { return }
-        for window in windowScene.windows {
+    private func notifyOrientationChange(in scene: UIWindowScene? = nil) {
+        guard let scene = scene ?? foregroundScene else { return }
+        for window in scene.windows {
             window.rootViewController?.setNeedsUpdateOfSupportedInterfaceOrientations()
         }
     }
 
     var currentInterfaceOrientationMask: UIInterfaceOrientationMask {
-        guard let windowScene = foregroundScene else { return .allButUpsideDown }
-        return mask(for: effectiveOrientation(in: windowScene))
+        guard let scene = foregroundScene else { return .allButUpsideDown }
+        return mask(for: effectiveOrientation(in: scene))
     }
 
     private func mask(for orientation: UIInterfaceOrientation) -> UIInterfaceOrientationMask {
@@ -190,6 +204,12 @@ final class OrientationManager {
         case .landscapeRight: .landscapeRight
         default: .allButUpsideDown
         }
+    }
+}
+
+private extension UIInterfaceOrientationMask {
+    var isLandscapeMask: Bool {
+        self == .landscape || self == .landscapeLeft || self == .landscapeRight
     }
 }
 

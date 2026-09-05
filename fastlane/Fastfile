@@ -1,7 +1,8 @@
-# Yattee v2 Fastlane configuration
-# Single unified "Yattee" scheme, platform selected via destination parameter
+# Vela Fastlane configuration
+# The Xcode project and scheme retain their upstream names for mergeability.
 
-APP_NAME = ENV['APP_NAME'] || 'Yattee'
+APP_NAME = ENV['APP_NAME'] || 'Vela'
+PROJECT_NAME = ENV['PROJECT_NAME'] || 'Yattee'
 DEVELOPER_KEY_ID = ENV['DEVELOPER_KEY_ID']
 DEVELOPER_KEY_ISSUER_ID = ENV['DEVELOPER_KEY_ISSUER_ID']
 DEVELOPER_KEY_CONTENT = ENV['DEVELOPER_KEY_CONTENT']
@@ -11,8 +12,8 @@ TEMP_KEYCHAIN_PASSWORD = ENV['TEMP_KEYCHAIN_PASSWORD']
 DEVELOPER_APP_IDENTIFIER = ENV['DEVELOPER_APP_IDENTIFIER']
 GIT_AUTHORIZATION = ENV['GIT_AUTHORIZATION']
 
-XCODEPROJ = "#{APP_NAME}.xcodeproj"
-SCHEME = APP_NAME
+XCODEPROJ = "#{PROJECT_NAME}.xcodeproj"
+SCHEME = PROJECT_NAME
 
 def delete_temp_keychain(name)
   delete_keychain(

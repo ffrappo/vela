@@ -646,6 +646,7 @@ final class MPVClient: @unchecked Sendable {
         // Video dimensions for aspect ratio detection
         observeProperty("width", format: MPV_FORMAT_INT64)
         observeProperty("height", format: MPV_FORMAT_INT64)
+        observeProperty("video-out-params", format: MPV_FORMAT_NODE)
         // Video FPS for display link frame rate matching (avoid sync fetch on main thread)
         observeProperty("container-fps", format: MPV_FORMAT_DOUBLE)
         // Video codec info for hwdec diagnostics (avoid sync fetch on main thread)
@@ -1324,7 +1325,7 @@ final class MPVClient: @unchecked Sendable {
         }
     }
 
-    /// Fetch width and height atomically on MPV's serial queue.
+    /// Fetch width and height from one node-valued MPV snapshot.
     func getVideoSizeAsync() async -> (width: Int, height: Int)? {
         await withCheckedContinuation { continuation in
             mpvQueue.async { [weak self] in
@@ -1332,15 +1333,13 @@ final class MPVClient: @unchecked Sendable {
                     continuation.resume(returning: nil)
                     return
                 }
-                var width: Int64 = 0
-                var height: Int64 = 0
-                let widthResult = mpv_get_property(mpv, "width", MPV_FORMAT_INT64, &width)
-                let heightResult = mpv_get_property(mpv, "height", MPV_FORMAT_INT64, &height)
-                guard widthResult >= 0, heightResult >= 0, width > 0, height > 0 else {
+                var node = mpv_node()
+                guard mpv_get_property(mpv, "video-out-params", MPV_FORMAT_NODE, &node) >= 0 else {
                     continuation.resume(returning: nil)
                     return
                 }
-                continuation.resume(returning: (Int(width), Int(height)))
+                defer { mpv_free_node_contents(&node) }
+                continuation.resume(returning: self.parseVideoSizeSync(node))
             }
         }
     }
@@ -1503,6 +1502,24 @@ final class MPVClient: @unchecked Sendable {
                 continuation.resume(returning: props)
             }
         }
+    }
+
+    private func parseVideoSizeSync(_ node: mpv_node) -> (width: Int, height: Int)? {
+        guard node.format == MPV_FORMAT_NODE_MAP,
+              let list = node.u.list else { return nil }
+
+        var width: Int?
+        var height: Int?
+        for index in 0..<Int(list.pointee.num) {
+            guard let keyPointer = list.pointee.keys?[index] else { continue }
+            let key = String(cString: keyPointer)
+            let value = list.pointee.values[index]
+            guard value.format == MPV_FORMAT_INT64 else { continue }
+            if key == "dw" || key == "w" { width = Int(value.u.int64) }
+            if key == "dh" || key == "h" { height = Int(value.u.int64) }
+        }
+        guard let width, let height, width > 0, height > 0 else { return nil }
+        return (width, height)
     }
 
     /// Parse mpv_node map into MPVCacheState (sync version for use on mpvQueue).
@@ -1789,6 +1806,16 @@ final class MPVClient: @unchecked Sendable {
             }
 
         case MPV_FORMAT_NODE:
+            if name == "video-out-params", let ptr = property.data {
+                let node = ptr.assumingMemoryBound(to: mpv_node.self).pointee
+                if let size = parseVideoSizeSync(node) {
+                    Task { @MainActor [weak self] in
+                        guard let self else { return }
+                        self.delegate?.mpvClient(self, didUpdateProperty: name, value: size)
+                    }
+                }
+                return
+            }
             // Handle demuxer-cache-state specially
             if name == "demuxer-cache-state", let ptr = property.data {
                 let node = ptr.assumingMemoryBound(to: mpv_node.self).pointee

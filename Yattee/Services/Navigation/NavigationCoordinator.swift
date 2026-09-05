@@ -275,16 +275,19 @@ final class NavigationCoordinator {
         LoggingService.shared.debug("NavigationCoordinator: expandPlayer complete - isPlayerExpanded=\(isPlayerExpanded), trigger=\(playerExpandTrigger)", category: .player)
     }
 
-    /// Waits until the requested player surface is visible.
-    func waitForPlayerSurface(timeout: Duration = .seconds(1)) async -> Bool {
+    /// Waits until the requested playback surface and AVKit source layer are
+    /// attached to a visible window.
+    func waitForPlayerSurface(
+        backend: MPVBackend,
+        timeout: Duration = .seconds(1)
+    ) async -> Bool {
         let clock = ContinuousClock()
         let deadline = clock.now.advanced(by: timeout)
         while clock.now < deadline {
-            if isPlayerWindowVisible { return true }
-            if !isPlayerExpanded, MiniPlayerSettings.cached.showVideo { return true }
+            if backend.isPiPRestoreSurfaceReady { return true }
             try? await Task.sleep(for: .milliseconds(25))
         }
-        return isPlayerWindowVisible || (!isPlayerExpanded && MiniPlayerSettings.cached.showVideo)
+        return backend.isPiPRestoreSurfaceReady
     }
 
     /// Waits until player sheet animation completes.

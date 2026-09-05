@@ -35,7 +35,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  APP_NAME: Yattee
+  APP_NAME: Vela
+  PROJECT_NAME: Yattee
   FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
   FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
   ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
@@ -183,9 +184,9 @@ jobs:
       - name: Resolve artifact paths
         run: |
           DIR="fastlane/builds/${{ env.VERSION_NUMBER }}-${{ env.BUILD_NUMBER }}/macOS"
-          echo "APP_PATH=$DIR/Yattee.app" >> $GITHUB_ENV
-          echo "ZIP_PATH=$DIR/Yattee-${{ env.VERSION_NUMBER }}-macOS.zip" >> $GITHUB_ENV
-          echo "DMG_PATH=$DIR/Yattee-${{ env.VERSION_NUMBER }}-macOS.dmg" >> $GITHUB_ENV
+          echo "APP_PATH=$DIR/${APP_NAME}.app" >> $GITHUB_ENV
+          echo "ZIP_PATH=$DIR/${APP_NAME}-${{ env.VERSION_NUMBER }}-macOS.zip" >> $GITHUB_ENV
+          echo "DMG_PATH=$DIR/${APP_NAME}-${{ env.VERSION_NUMBER }}-macOS.dmg" >> $GITHUB_ENV
       - uses: actions/upload-artifact@v4
         with:
           name: mac-notarized-build

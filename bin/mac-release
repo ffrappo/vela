@@ -17,7 +17,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-APP_NAME=Yattee
+APP_NAME=Vela
+PROJECT_NAME=Yattee
 BUNDLE_ID=app.vela.video
 TEAM_ID=9JJT74Z7US
 PROFILE="match Direct ${BUNDLE_ID} macos"
@@ -34,7 +35,7 @@ done
 
 # Marketing version is a build setting (no Info.plist entry), so agvtool
 # can't read it — take it from the pbxproj.
-VERSION=$(sed -n 's/.*MARKETING_VERSION = \([^;]*\);.*/\1/p' "${APP_NAME}.xcodeproj/project.pbxproj" | head -1)
+VERSION=$(sed -n 's/.*MARKETING_VERSION = \([^;]*\);.*/\1/p' "${PROJECT_NAME}.xcodeproj/project.pbxproj" | head -1)
 BUILD=$(xcrun agvtool what-version -terse)
 [ -n "$VERSION" ] && [ -n "$BUILD" ] || { echo "Could not determine version/build"; exit 1; }
 
@@ -56,8 +57,8 @@ if [ "$SKIP_BUILD" = 1 ] && [ -d "$ARCHIVE" ]; then
 else
   echo "==> Archiving (Release-DeveloperID)… log: ${LOG}"
   xcodebuild archive \
-    -project "${APP_NAME}.xcodeproj" \
-    -scheme "$APP_NAME" \
+    -project "${PROJECT_NAME}.xcodeproj" \
+    -scheme "$PROJECT_NAME" \
     -configuration Release-DeveloperID \
     -destination 'generic/platform=macOS' \
     -archivePath "$ARCHIVE" \
@@ -84,12 +85,10 @@ cat > "$TMP/export.plist" <<PLIST
 </dict>
 </plist>
 PLIST
+ARCHIVED_APP="${ARCHIVE}/Products/Applications/${PROJECT_NAME}.app"
+[ -d "$ARCHIVED_APP" ] || { echo "Archive is missing ${ARCHIVED_APP}"; exit 1; }
 rm -rf "$APP"
-xcodebuild -exportArchive \
-  -archivePath "$ARCHIVE" \
-  -exportPath "$OUT_DIR" \
-  -exportOptionsPlist "$TMP/export.plist" \
-  >> "$LOG" 2>&1 || { tail -50 "$LOG"; echo "Export failed — full log: ${LOG}"; exit 1; }
+cp -R "$ARCHIVED_APP" "$APP"
 
 if [ "$SKIP_NOTARIZE" = 0 ]; then
   # Notarization credentials come from the same ASC API key fastlane uses.

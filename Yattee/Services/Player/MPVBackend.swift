@@ -167,6 +167,11 @@ final class MPVBackend: PlayerBackend {
     /// Whether PiP is currently active.
     var isPiPActive: Bool { pipBridge?.isPiPActive ?? false }
 
+    /// Whether the player view and AVKit source layer are attached to a window.
+    var isPiPRestoreSurfaceReady: Bool {
+        _playerView?.window != nil && pipBridge?.isPiPSourceAttachedToVisibleWindow() == true
+    }
+
     /// Whether PiP is possible.
     var isPiPPossible: Bool { pipBridge?.isPiPPossible ?? false }
 
@@ -205,6 +210,11 @@ final class MPVBackend: PlayerBackend {
 
     /// Whether PiP is currently active.
     var isPiPActive: Bool { pipBridge?.isPiPActive ?? false }
+
+    /// Whether the player view and AVKit source layer are attached to a visible window.
+    var isPiPRestoreSurfaceReady: Bool {
+        _playerView?.window?.isVisible == true && pipBridge?.isPiPSourceAttachedToVisibleWindow() == true
+    }
 
     /// Whether PiP is possible.
     var isPiPPossible: Bool { pipBridge?.isPiPPossible ?? false }
@@ -1122,6 +1132,11 @@ final class MPVBackend: PlayerBackend {
         // Always store playerState so we have it when onDidMoveToWindow fires
         pipPlayerState = playerState
 
+        // SwiftUI may call updateUIView before the replacement container has a
+        // window. Keep AVKit's source layer on its current visible host until
+        // the candidate is attached.
+        guard containerView.window != nil else { return }
+
         // The bridge can outlive a video while its callbacks change.
         if isPiPSetUp {
             if pipContainerView !== containerView {
@@ -1305,17 +1320,19 @@ final class MPVBackend: PlayerBackend {
         // Always store playerState so we have it for later
         pipPlayerState = playerState
 
-        // Only proceed with actual setup if not already done and view is in window
-        guard !isPiPSetUp, containerView.window != nil else {
-            if isPiPSetUp {
-                // Re-wire bridge callbacks in case stop() cleared them since
-                // setup (the backend is reused across videos)
-                wirePiPBridgeCallbacks()
-                // If playerState changed, update isPiPPossible
-                if let playerState {
-                    playerState.isPiPPossible = isPiPPossible
+        // Keep AVKit's source layer on a window-attached host.
+        guard containerView.window != nil else { return }
+
+        if isPiPSetUp {
+            if pipContainerView !== containerView {
+                pipContainerView = containerView
+                pipBridge?.moveLayer(to: containerView)
+                if containerView.bounds.size != .zero {
+                    pipBridge?.updateLayerFrame(for: containerView)
                 }
             }
+            wirePiPBridgeCallbacks()
+            pipBridge?.notifyPiPPossibleState()
             return
         }
 
@@ -1745,11 +1762,16 @@ extension MPVBackend: MPVClientDelegate {
                 }
             }
 
+        case "video-out-params":
+            // Treat the observed node as a change signal. The asynchronous
+            // reread carries the active load generation and is rejected if a
+            // newer video takes ownership before it completes.
+            captureVideoSizeSnapshot()
+
         case "width", "height":
-            // A dimension property only signals that MPV has a new size. Read
-            // both properties atomically from MPV's serial queue before
-            // publishing them, so adaptive changes and file handoffs cannot
-            // combine values from different snapshots.
+            // Compatibility signal for MPV builds that do not emit
+            // video-out-params changes. The follow-up read still fetches one
+            // node-valued dimension snapshot.
             captureVideoSizeSnapshot()
 
         case "container-fps":

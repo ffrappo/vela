@@ -2510,17 +2510,17 @@ final class PlayerService {
         if let mpvBackend = backend as? MPVBackend {
             // Configure PiP callbacks
             if let coordinator = navigationCoordinator {
-                mpvBackend.onRestoreFromPiP = { [weak coordinator] in
-                    guard let coordinator else { return false }
+                mpvBackend.onRestoreFromPiP = { [weak coordinator, weak mpvBackend] in
+                    guard let coordinator, let mpvBackend else { return false }
                     #if os(macOS)
                     // On macOS, always restore into the expanded player window.
                     coordinator.expandPlayer()
-                    return await coordinator.waitForPlayerSurface()
+                    return await coordinator.waitForPlayerSurface(backend: mpvBackend)
                     #else
                     if MiniPlayerSettings.cached.showVideo == false {
                         coordinator.expandPlayer()
                     }
-                    return await coordinator.waitForPlayerSurface()
+                    return await coordinator.waitForPlayerSurface(backend: mpvBackend)
                     #endif
                 }
                 mpvBackend.onPiPDidStart = { [weak coordinator] in
@@ -2682,12 +2682,12 @@ final class PlayerService {
         // Configure PiP restore callback - don't expand player, just let PiP close
         // Video continues in mini player; user taps mini player to expand
         if let mpvBackend = currentBackend as? MPVBackend {
-            mpvBackend.onRestoreFromPiP = { [weak coordinator] in
-                guard let coordinator else { return false }
+            mpvBackend.onRestoreFromPiP = { [weak coordinator, weak mpvBackend] in
+                guard let coordinator, let mpvBackend else { return false }
                 if MiniPlayerSettings.cached.showVideo == false {
                     coordinator.expandPlayer()
                 }
-                return await coordinator.waitForPlayerSurface()
+                return await coordinator.waitForPlayerSurface(backend: mpvBackend)
             }
         }
         #endif

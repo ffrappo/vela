@@ -914,6 +914,7 @@ private struct PlayerIOSEventHandlersModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onAppear {
+                OrientationManager.shared.beginPlayerSession()
                 setupRotationMonitoring()
                 setupOrientationLockCallback()
                 if inAppOrientationLock {

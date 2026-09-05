@@ -421,6 +421,15 @@ final class MPVPiPBridge: NSObject {
         #endif
     }
 
+    func isPiPSourceAttachedToVisibleWindow() -> Bool {
+        guard let containerLayer = sampleBufferLayer.superlayer else { return false }
+        #if os(iOS)
+        return containerLayer.delegate.flatMap { $0 as? UIView }?.window != nil
+        #elseif os(macOS)
+        return (containerLayer.delegate as? NSView)?.window?.isVisible == true
+        #endif
+    }
+
     /// Clean up and release resources.
     func cleanup() {
         NotificationCenter.default.removeObserver(self)
