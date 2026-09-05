@@ -1,0 +1,1 @@
+{"nodes": [{"id": "users_ffrappo_works_repos_vela_spec_ui_support_shared_contexts_with_logged_in_invidious_rb", "label": "with_logged_in_invidious.rb", "file_type": "code", "source_file": "spec/ui/support/shared_contexts/with_logged_in_invidious.rb", "source_location": "L1"}], "edges": [], "raw_calls": []}

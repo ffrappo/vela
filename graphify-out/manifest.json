@@ -1,0 +1,3207 @@
+{
+  "Docs/Research/youtube-client-foundations-2026.json": {
+    "mtime": 1788635252.100872,
+    "ast_hash": "25834652b44e2c2b3ccc676f3dbe7c62",
+    "semantic_hash": ""
+  },
+  "Yattee.xcodeproj/xcshareddata/xcodecloud/manifest.json": {
+    "mtime": 1788631642.4819477,
+    "ast_hash": "d0f80bb36c61f0a53209d9c7fc26a236",
+    "semantic_hash": ""
+  },
+  "Yattee/AppDelegate.swift": {
+    "mtime": 1788631642.48273,
+    "ast_hash": "89fddb4e6e0e5c218018f1612a0329c4",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AccentColor.colorset/Contents.json": {
+    "mtime": 1788631642.4828591,
+    "ast_hash": "55019f7265dde0a78318b0807f98e847",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIcon.appiconset/Contents.json": {
+    "mtime": 1788631642.4829428,
+    "ast_hash": "1be20321a31ab908ee42f8b207220802",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreview.imageset/Contents.json": {
+    "mtime": 1788631642.483675,
+    "ast_hash": "39b09bf40ee3d9ce765182694f3ca3c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewClassic.imageset/Contents.json": {
+    "mtime": 1788631642.483919,
+    "ast_hash": "1952b93556210086a114aeb79a20af17",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewMascot.imageset/Contents.json": {
+    "mtime": 1788631642.4841444,
+    "ast_hash": "8b796b6c504d04c499614333f6ceeb09",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Contents.json": {
+    "mtime": 1788631642.4841983,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/PlayerControlsPreviewBackground.imageset/Contents.json": {
+    "mtime": 1788631642.484291,
+    "ast_hash": "d6e9134f1b622eefec531141250e9446",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Back.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.4854522,
+    "ast_hash": "fab302ff31bf06e07da25461ba50f954",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Back.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.4858427,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Contents.json": {
+    "mtime": 1788631642.4858954,
+    "ast_hash": "e2aa7cc32efbf3c852c9d6bbf0b1c8c8",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Front.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.4859962,
+    "ast_hash": "fab302ff31bf06e07da25461ba50f954",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Front.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.4863865,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.4864953,
+    "ast_hash": "50507bb2a6372ff1acea55e103554862",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Middle.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.4865563,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Back.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.48671,
+    "ast_hash": "6732eaaee2595f5ef94b9977080b1696",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Back.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.4870548,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Contents.json": {
+    "mtime": 1788631642.4870963,
+    "ast_hash": "e2aa7cc32efbf3c852c9d6bbf0b1c8c8",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Front.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.4871957,
+    "ast_hash": "6732eaaee2595f5ef94b9977080b1696",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Front.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.4875734,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Middle.imagestacklayer/Content.imageset/Contents.json": {
+    "mtime": 1788631642.4876914,
+    "ast_hash": "50507bb2a6372ff1acea55e103554862",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Middle.imagestacklayer/Contents.json": {
+    "mtime": 1788631642.487736,
+    "ast_hash": "9deb2ada1cc834bbebf8bbad9c8978a1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/Contents.json": {
+    "mtime": 1788631642.4877863,
+    "ast_hash": "cc5845d6f63cf45ac141a58b64c0f99e",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/Top Shelf Image Wide.imageset/Contents.json": {
+    "mtime": 1788631642.4878535,
+    "ast_hash": "1a80f1990b4e2dba5cf8ada40e4d2719",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/Top Shelf Image.imageset/Contents.json": {
+    "mtime": 1788631642.4880364,
+    "ast_hash": "f8510f370c33bfa5eb41b3e597bf6afc",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/discord.imageset/Contents.json": {
+    "mtime": 1788631642.4882083,
+    "ast_hash": "76baa3931c1c5ce8342793cdc5edc145",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/github.imageset/Contents.json": {
+    "mtime": 1788631642.4883308,
+    "ast_hash": "8665263aa7dfe46f73ab8069d30cbc1c",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/incognito.imageset/Contents.json": {
+    "mtime": 1788631642.488445,
+    "ast_hash": "960adc93fae9942af57fe3bfc65832d1",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/peertube.imageset/Contents.json": {
+    "mtime": 1788631642.4886,
+    "ast_hash": "6893e681cbcd3ff4a674daae1d0641e5",
+    "semantic_hash": ""
+  },
+  "Yattee/ContentView.swift": {
+    "mtime": 1788631642.4887283,
+    "ast_hash": "b6b9ddeb0a236b8afa19675b2704e4c7",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/AppEnvironment.swift": {
+    "mtime": 1788631642.4888608,
+    "ast_hash": "63b5ae7e01d55720928616c92c03a14d",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/AppGroup.swift": {
+    "mtime": 1788635210.8254325,
+    "ast_hash": "e8b208c6e9ae8b1c9c4ca2f630c10289",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/AppIdentifiers.swift": {
+    "mtime": 1788635206.103092,
+    "ast_hash": "73a4b2c467b1b0fada6d772f41778574",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/FeedCache.swift": {
+    "mtime": 1788631642.4890149,
+    "ast_hash": "a8075ba114a7761a5ab54f671d5e6fc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/FileCommands.swift": {
+    "mtime": 1788631642.4890594,
+    "ast_hash": "cfd7638f465ed5d4da5c7b485c4aaa26",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/HardwareCapabilities.swift": {
+    "mtime": 1788631642.4891155,
+    "ast_hash": "49d193f8d3d204235b46284c68744088",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/HomeInstanceDiskCache.swift": {
+    "mtime": 1788631642.489166,
+    "ast_hash": "69abfa4ab767170bbdc4e2def56ff50c",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/InstancesManager.swift": {
+    "mtime": 1788631642.489231,
+    "ast_hash": "a51cc297c035ad4cb5e6ac9d914e6aae",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/MediaSourcesManager.swift": {
+    "mtime": 1788631642.4893045,
+    "ast_hash": "a8944c9a011acd40c890f860ffb9f8ad",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/NavigationCommands.swift": {
+    "mtime": 1788631642.4893796,
+    "ast_hash": "905cd2f545e71b9e84b8ecc7e3900fa3",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Notifications.swift": {
+    "mtime": 1788631642.4894564,
+    "ast_hash": "6d1700711ae466e1de351a5715edff1b",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/PlaybackCommands.swift": {
+    "mtime": 1788631642.4895597,
+    "ast_hash": "0aa72dcc7182fc3b7983279480abdf99",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsKey.swift": {
+    "mtime": 1788631642.4896579,
+    "ast_hash": "678f80d87fa5d9ac1e568215d6f0ffc2",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Advanced.swift": {
+    "mtime": 1788631642.489854,
+    "ast_hash": "72457b1708587667c8bd840b8ba2bf69",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+CloudSync.swift": {
+    "mtime": 1788631642.4899292,
+    "ast_hash": "618d60c3ccf183c66d4c97d4b8f432ca",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+DeArrow.swift": {
+    "mtime": 1788631642.4899964,
+    "ast_hash": "22a446e518f5b8f788ae392e2b438af4",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+General.swift": {
+    "mtime": 1788631642.4900694,
+    "ast_hash": "f55dfe55999568f3281902a0991a6f72",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Haptics.swift": {
+    "mtime": 1788631642.4901445,
+    "ast_hash": "1453aaf3a1e93cbc637d96118db2d884",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Home.swift": {
+    "mtime": 1788631642.4902394,
+    "ast_hash": "91c830d897b76e84683bc931cff8a805",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+MPV.swift": {
+    "mtime": 1788631642.4903004,
+    "ast_hash": "0b8b1e29e96340f13d2cf5c5450e0369",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Migration.swift": {
+    "mtime": 1788631642.4903464,
+    "ast_hash": "aa40bfa01e5b6a6b7ff31ae9a9184ccb",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Playback.swift": {
+    "mtime": 1788631642.4904065,
+    "ast_hash": "e49a75dd5cedd230af7764818f91a90d",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Player.swift": {
+    "mtime": 1788631642.490476,
+    "ast_hash": "5a3fcfe485236e41a9f4f1bc5c641f50",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+SponsorBlock.swift": {
+    "mtime": 1788631642.490541,
+    "ast_hash": "132ebb76657623f24f5ab062f996555a",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+Subtitles.swift": {
+    "mtime": 1788631642.4905906,
+    "ast_hash": "691c2f3ecedfd54f11cf6b0bee25234f",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsManager+TopShelf.swift": {
+    "mtime": 1788631642.490649,
+    "ast_hash": "c8eed375d9129c4bc1624ae6b653ffcf",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/SettingsTypes.swift": {
+    "mtime": 1788631642.4907255,
+    "ast_hash": "9db101e393c60ac8b146bb1a4e6e1a99",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/Settings/TopShelfSection.swift": {
+    "mtime": 1788631642.4908113,
+    "ast_hash": "9a6aa811ae8e2854030b77116fc3c16e",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/SettingsManager.swift": {
+    "mtime": 1788631642.4909334,
+    "ast_hash": "856065c0a5a19adc11526660db677a30",
+    "semantic_hash": ""
+  },
+  "Yattee/Core/UserAgentGenerator.swift": {
+    "mtime": 1788631642.491015,
+    "ast_hash": "c7aaf86103236b894f8e347e7dab7dec",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/Bookmark.swift": {
+    "mtime": 1788631642.4911351,
+    "ast_hash": "9880b356045bc2c69fc004d7e3fd5d88",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/ChannelNotificationSettings.swift": {
+    "mtime": 1788631642.4911864,
+    "ast_hash": "b224170e0d23420e2cc9c6a0de5136db",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataExportStructures.swift": {
+    "mtime": 1788631642.4912302,
+    "ast_hash": "7fb58d96cf733e40d860a40bac8b486c",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+Bookmarks.swift": {
+    "mtime": 1788631642.4912915,
+    "ast_hash": "a55baa9705a0d19fd2108f1440a6b9bb",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+ChannelNotificationSettings.swift": {
+    "mtime": 1788631642.491344,
+    "ast_hash": "c2e10d9d01f55e7aca620c01c9a7d200",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+Maintenance.swift": {
+    "mtime": 1788631642.4914126,
+    "ast_hash": "f67d66cf64a38c33f708f8d601ab8749",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+Playlists.swift": {
+    "mtime": 1788631642.4914744,
+    "ast_hash": "00aaed03a4299432333b42ff68b17fbc",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+Recents.swift": {
+    "mtime": 1788631642.491549,
+    "ast_hash": "7e7c12d6225813b86482dd899d7d7088",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+Subscriptions.swift": {
+    "mtime": 1788631642.4916275,
+    "ast_hash": "9c70e7dc71996a146971c1cf8cd308ef",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager+WatchHistory.swift": {
+    "mtime": 1788631642.491688,
+    "ast_hash": "3e0036d2b4a81e7834e6a238c8f45fa0",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManager.swift": {
+    "mtime": 1788631642.4917634,
+    "ast_hash": "6ad7b577a9b51b94b780d7ab4951daba",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/DataManagerNotifications.swift": {
+    "mtime": 1788631642.4918337,
+    "ast_hash": "02f0cbefc07a7066e6828f633b4beca9",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/LocalPlaylist.swift": {
+    "mtime": 1788631642.4919088,
+    "ast_hash": "6000d3d2de5ad0dabd991d8f76bc3569",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/RecentChannel.swift": {
+    "mtime": 1788631642.491956,
+    "ast_hash": "12d5022fa1454e733d9c5b964d28e0c0",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/RecentPlaylist.swift": {
+    "mtime": 1788631642.4920008,
+    "ast_hash": "0f8baa5af0e9420bd18f512c248b7588",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/SearchHistory.swift": {
+    "mtime": 1788631642.4920478,
+    "ast_hash": "e7cea16283604a13abc6b5a5415c882e",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/Subscription.swift": {
+    "mtime": 1788631642.4920976,
+    "ast_hash": "21a6cf052dcf07eefb600998767e047f",
+    "semantic_hash": ""
+  },
+  "Yattee/Data/WatchEntry.swift": {
+    "mtime": 1788631642.4921622,
+    "ast_hash": "7781b5242eb85f41df8393b3373bae3a",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/Array+Chunked.swift": {
+    "mtime": 1788631642.4922752,
+    "ast_hash": "d2ba344448e15b2cbcfd7c822500a4ff",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/Color+Hex.swift": {
+    "mtime": 1788631642.4923344,
+    "ast_hash": "c5b5e9e1fc0e257fba8d7240690c730d",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/PlatformImage+Cropping.swift": {
+    "mtime": 1788631642.492381,
+    "ast_hash": "d2656a8cf3083f81058df90fdb1f5093",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/PlatformImage.swift": {
+    "mtime": 1788631642.4924207,
+    "ast_hash": "87c8e0303d0524370334e5469bd7d9b6",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/TimeInterval+Formatting.swift": {
+    "mtime": 1788631642.4924672,
+    "ast_hash": "09585428adc697cfc2d8ec81faab436f",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/ToolbarContent+Close.swift": {
+    "mtime": 1788631642.492527,
+    "ast_hash": "2ee28aa556571ef052998ed703c1f90a",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/Video+DeArrow.swift": {
+    "mtime": 1788631642.4925854,
+    "ast_hash": "64d697b5f851a461ac51ccdf92b79dc0",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/View+Conditional.swift": {
+    "mtime": 1788631642.4926329,
+    "ast_hash": "f896f641faee1452d46debb50570f6f3",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/View+LiquidGlassSheet.swift": {
+    "mtime": 1788631642.492696,
+    "ast_hash": "cc6f27c58e7ff77b06034d5a0587c244",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/View+NavigationSubtitle.swift": {
+    "mtime": 1788631642.4927526,
+    "ast_hash": "adb4f5443b8ed6e030b939c36478ecf7",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/View+SoftScrollEdgeEffect.swift": {
+    "mtime": 1788631642.4928088,
+    "ast_hash": "c0343baefe00bc42780c3ca8e9950f60",
+    "semantic_hash": ""
+  },
+  "Yattee/Extensions/View+ZoomTransition.swift": {
+    "mtime": 1788631642.4928896,
+    "ast_hash": "317abd9e0862d0450ceb86d9fe351ede",
+    "semantic_hash": ""
+  },
+  "Yattee/Helpers/ObjCExceptionHandler.h": {
+    "mtime": 1788631642.4929829,
+    "ast_hash": "35f589b1284dce926aef255fe6a42f70",
+    "semantic_hash": ""
+  },
+  "Yattee/Helpers/ObjCExceptionHandler.m": {
+    "mtime": 1788631642.49304,
+    "ast_hash": "9c96a61ddb64adfa97fd063e6bb08ca0",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/CachedChannelData.swift": {
+    "mtime": 1788631642.4936776,
+    "ast_hash": "28f490325e4491df6a09dfe49715dd0b",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Caption.swift": {
+    "mtime": 1788631642.4937406,
+    "ast_hash": "65a6e27fd24e600497812490f486baf8",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Channel.swift": {
+    "mtime": 1788631642.4938135,
+    "ast_hash": "938a398bff6942c37f259769c7f20362",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/ChannelStripSize.swift": {
+    "mtime": 1788631642.4938784,
+    "ast_hash": "74a596f302aa6a5976387fad42b1b34f",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Comment.swift": {
+    "mtime": 1788631642.4939423,
+    "ast_hash": "d523c357421dac965190077089303fd5",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/ContentSource.swift": {
+    "mtime": 1788631642.4940076,
+    "ast_hash": "303d4b2416125a7cec97d6f4c6d61a29",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/GitHubContributor.swift": {
+    "mtime": 1788631642.494062,
+    "ast_hash": "54ad588bd9be5069251177c2bd1e98f4",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Instance.swift": {
+    "mtime": 1788631642.4941468,
+    "ast_hash": "d27427578e0b6bfd79933acc751c6d77",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/MPVTrack.swift": {
+    "mtime": 1788631642.4942188,
+    "ast_hash": "6c5bb75b86654d3b343d3955733ddaba",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/MediaSources/MediaBrowserSortOrder.swift": {
+    "mtime": 1788631642.4943206,
+    "ast_hash": "c48384dfa37c9f2bfe99a284e7639a20",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/MediaSources/MediaFile.swift": {
+    "mtime": 1788631642.494404,
+    "ast_hash": "835f771987ea6ad54ebf8c647e4336d9",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/MediaSources/MediaSource.swift": {
+    "mtime": 1788631642.49447,
+    "ast_hash": "7e7b515a8868c3227cfb7183e32ec5c7",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/AppTab.swift": {
+    "mtime": 1788631642.4945712,
+    "ast_hash": "accf33172517314fa3c85dbb686fc574",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/ChannelTab.swift": {
+    "mtime": 1788631642.4946437,
+    "ast_hash": "7948a48cb3ce91d0ab76672994de3d2c",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/HomeTab.swift": {
+    "mtime": 1788631642.4947155,
+    "ast_hash": "6ccd9fc908fd27b65ceee6e83f38a7e8",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/PlayerInfoTab.swift": {
+    "mtime": 1788631642.4947846,
+    "ast_hash": "74e881c041fc618b7c762703d15ba827",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/SearchResultType.swift": {
+    "mtime": 1788631642.4948435,
+    "ast_hash": "65d142979efa2e38bb06a31e83d29d73",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/SidebarItem.swift": {
+    "mtime": 1788631642.494928,
+    "ast_hash": "fe59f46548a5baed4676f35220ede17b",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/SidebarMainItem.swift": {
+    "mtime": 1788631642.4950242,
+    "ast_hash": "f0b527c3b25b4fc02f0c4bc76059ee05",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Navigation/TabBarItem.swift": {
+    "mtime": 1788631642.4950893,
+    "ast_hash": "29f775a31b027bd70683e33701287286",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PeerTubeDirectoryInstance.swift": {
+    "mtime": 1788631642.495155,
+    "ast_hash": "84393079fc2adc1355706db20d545a92",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Player/QueueSource.swift": {
+    "mtime": 1788631642.4952521,
+    "ast_hash": "f5eb324e391eeb70a4881dd09c6cdbe7",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Player/VideoQueueContext.swift": {
+    "mtime": 1788631642.4953215,
+    "ast_hash": "1fbc94c730b03cf2bbcaf6294a5113a3",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/BuiltInPresets.swift": {
+    "mtime": 1788631642.495432,
+    "ast_hash": "f3812415c1a701fad51cd5af5c46bfee",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/ButtonSettings.swift": {
+    "mtime": 1788631642.4955254,
+    "ast_hash": "b21ba6c5c07444d9ceb925cfc0c02eaa",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/CenterSectionSettings.swift": {
+    "mtime": 1788631642.4955945,
+    "ast_hash": "46f367f65e1582a9cb541b27af1ca184",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/ControlButtonConfiguration.swift": {
+    "mtime": 1788631642.4956598,
+    "ast_hash": "dbcd44cf75afe0e99a4f6a858865c926",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/ControlButtonType.swift": {
+    "mtime": 1788631642.4957435,
+    "ast_hash": "d833558cceb7c2f7e86c3bfcdb0b6345",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/DeviceClass.swift": {
+    "mtime": 1788631642.495805,
+    "ast_hash": "cf05cf7804e3558a61980dd55cab6377",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/GesturesSettings.swift": {
+    "mtime": 1788631642.4959054,
+    "ast_hash": "8253466b20f430ef8420d0e32ae71df3",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/PanscanGestureSettings.swift": {
+    "mtime": 1788631642.4959705,
+    "ast_hash": "7ba23f2a248dac0bf22aca8abc4fde9f",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/SeekGestureSensitivity.swift": {
+    "mtime": 1788631642.496031,
+    "ast_hash": "70bfec0f8790594a9b050f1ccfd840c1",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/SeekGestureSettings.swift": {
+    "mtime": 1788631642.4960935,
+    "ast_hash": "ce1acfd89e18facce7ecce6e0836c8ca",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/TapGestureAction.swift": {
+    "mtime": 1788631642.4961603,
+    "ast_hash": "7de04351651221a5ca0ac56a97aad16b",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/TapGesturesSettings.swift": {
+    "mtime": 1788631642.4962287,
+    "ast_hash": "08b10f6345c1f13f5bada3d77375b4b6",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/TapZoneConfiguration.swift": {
+    "mtime": 1788631642.4962974,
+    "ast_hash": "fc1cbaee4cddd72710185e7409a919d1",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/TapZoneLayout.swift": {
+    "mtime": 1788631642.4963627,
+    "ast_hash": "01d5e498a49f59c6231ea0b5c0c465a6",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/Gestures/TapZonePosition.swift": {
+    "mtime": 1788631642.4964252,
+    "ast_hash": "53e85c6d6d529a26d4bcf1f0fed1b1ad",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/GlobalLayoutSettings.swift": {
+    "mtime": 1788631642.4965055,
+    "ast_hash": "1e72f9e45964f06ac70c3f73746e5fde",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/LayoutPreset.swift": {
+    "mtime": 1788631642.4965894,
+    "ast_hash": "f4e74520ac4e484caf7449880e80a4e8",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/LayoutSection.swift": {
+    "mtime": 1788631642.4966571,
+    "ast_hash": "7bd66462f722160482411898c92c51f4",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/MiniPlayerSettings.swift": {
+    "mtime": 1788631642.4967175,
+    "ast_hash": "8be840ab331c9d4b742d2bf181a44d6e",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/PlayerControlsLayout.swift": {
+    "mtime": 1788631642.4967785,
+    "ast_hash": "33fcf0161a01e6e3777d929aac331d7b",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/PlayerPillSettings.swift": {
+    "mtime": 1788631642.4968293,
+    "ast_hash": "4f3a0984dc45b51700619c392ab4b386",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/SideSliderType.swift": {
+    "mtime": 1788631642.4968736,
+    "ast_hash": "d4bd75429aee37df0729230647e824f4",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/PlayerControls/VisibilityMode.swift": {
+    "mtime": 1788631642.4969199,
+    "ast_hash": "39135b3bc0acee70d773558113d5ec31",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Playlist.swift": {
+    "mtime": 1788631642.4969754,
+    "ast_hash": "4c30b9da3c270851059e94e2706af5d3",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Search/SearchFilters.swift": {
+    "mtime": 1788631642.4970698,
+    "ast_hash": "10d137a1bf5c940921284093f359aaac",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Sources/UnifiedSource.swift": {
+    "mtime": 1788631642.4971564,
+    "ast_hash": "6c4d98f9aecb3fe027b013c38ef4778b",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/State/CommentsLoadState.swift": {
+    "mtime": 1788631642.4972277,
+    "ast_hash": "f79de58cf5a8cd534b986f5fdfa3763e",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/State/VideoDetailsLoadState.swift": {
+    "mtime": 1788631642.4972932,
+    "ast_hash": "f36983314e90a7c0efa2067c656317da",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Storyboard.swift": {
+    "mtime": 1788631642.4973636,
+    "ast_hash": "3b590c0da9e653600cea1f6d84f1e6b3",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Stream.swift": {
+    "mtime": 1788631642.4974372,
+    "ast_hash": "7bd2f2b85e31f7a450f3e0a306a403ef",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/SubscriptionAccountType.swift": {
+    "mtime": 1788631642.4974856,
+    "ast_hash": "4eb50861c351364a242edfee75578cc6",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/SubtitleSettings.swift": {
+    "mtime": 1788631642.4975302,
+    "ast_hash": "1c43c6bb59eb27500dbddde57aaad7de",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/TVVideoSyncMode.swift": {
+    "mtime": 1788631642.4975734,
+    "ast_hash": "b62b19b9127c2bba85a011e1d9a9bcb4",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Toast.swift": {
+    "mtime": 1788631642.4976366,
+    "ast_hash": "fbc5537533c74b4ee01e0803221b2067",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/TranslationContributor.swift": {
+    "mtime": 1788631642.4976943,
+    "ast_hash": "07c70af36fd5321ed87fbf142f127d0e",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/Video.swift": {
+    "mtime": 1788631642.4977539,
+    "ast_hash": "9ecc7fabd60a519ffe0aabe994082924",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/VideoListLayout.swift": {
+    "mtime": 1788631642.4978094,
+    "ast_hash": "42fce0486497a07465639795e57f26b1",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/VideoListStyle.swift": {
+    "mtime": 1788631642.4978635,
+    "ast_hash": "697f2796077f9fd53e2e0d908c69f292",
+    "semantic_hash": ""
+  },
+  "Yattee/Models/VideoRowStyle.swift": {
+    "mtime": 1788631642.4979265,
+    "ast_hash": "5fc93c6675de74fab8c609ba81b15e9f",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/ContentService.swift": {
+    "mtime": 1788631642.4981775,
+    "ast_hash": "934ec6436d76c1f45cc97e8ac30a9a32",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/GitHubAPI.swift": {
+    "mtime": 1788631642.4982567,
+    "ast_hash": "93b26461ed3fd44eabc87c27317178dc",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/InstanceAPI.swift": {
+    "mtime": 1788631642.498326,
+    "ast_hash": "9a4919ea6bbf412eb600f15d5c97d169",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/InstanceDetector.swift": {
+    "mtime": 1788631642.49842,
+    "ast_hash": "c4daac2b3f5c4dcd7630104a63379778",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/InvidiousAPI.swift": {
+    "mtime": 1788631642.4985485,
+    "ast_hash": "afef805b3302f3c4f2cbbac88982bba5",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/PeerTubeAPI.swift": {
+    "mtime": 1788631642.4986463,
+    "ast_hash": "23d6cd1827f10ae80d4da887aa5e25b7",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/PeerTubeDirectoryAPI.swift": {
+    "mtime": 1788631642.4987133,
+    "ast_hash": "2fcb9b9307a296cd2d322358d51ef544",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/PipedAPI.swift": {
+    "mtime": 1788631642.4988084,
+    "ast_hash": "9ca79fabf9ef77283189585613b4893a",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/ProxyDetectionCache.swift": {
+    "mtime": 1788631642.4988892,
+    "ast_hash": "f221fe20595e960df063b737a18bb286",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/API/YatteeServerAPI.swift": {
+    "mtime": 1788631642.4990454,
+    "ast_hash": "35c265a999fd28a65cff90d03196c6ef",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/BackgroundRefresh/BackgroundFeedRefresher.swift": {
+    "mtime": 1788631642.499179,
+    "ast_hash": "135daf509fe9d0bb6fbd4d9b65aebf86",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/BackgroundRefresh/BackgroundRefreshManager.swift": {
+    "mtime": 1788631642.4992502,
+    "ast_hash": "4bdd49f8525d00b890fbe39780c830c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/BackgroundRefresh/NotificationManager.swift": {
+    "mtime": 1788631642.499327,
+    "ast_hash": "cc74fd4a41ed07fb234ee7af2a118a41",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/CloudKitAvailability.swift": {
+    "mtime": 1788631642.4994266,
+    "ast_hash": "5fe6f9c9e7fe628acea5a34212bbf70c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/CloudKitConflictResolver.swift": {
+    "mtime": 1788631642.4994822,
+    "ast_hash": "8aabdb2c18561fafadcbdf30a70114ba",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/CloudKitRecordMapper.swift": {
+    "mtime": 1788631642.4995553,
+    "ast_hash": "ec0f5f7570e89f0d8d5b25d29ae77a4f",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/CloudKitSyncEngine.swift": {
+    "mtime": 1788631642.4997191,
+    "ast_hash": "8b3f48c85c171529325226fe05c65dc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/CloudKitZoneManager.swift": {
+    "mtime": 1788631642.4997923,
+    "ast_hash": "6b8172757d02c775c50e476fae96d262",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/CloudKit/RecordTypes.swift": {
+    "mtime": 1788631642.4998412,
+    "ast_hash": "56ffd121fcef134ac886c3940b84949a",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Credentials/BasicAuthCredentialsManager.swift": {
+    "mtime": 1788631642.4999359,
+    "ast_hash": "a86b86e7de3b1dc050095553535a1d42",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Credentials/InstanceCredentialsManager.swift": {
+    "mtime": 1788631642.4999988,
+    "ast_hash": "a06d9fa5cd1ab0399230518573233e8d",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Credentials/InvidiousCredentialsManager.swift": {
+    "mtime": 1788631642.50007,
+    "ast_hash": "9dfe275c8448cc649e826e7ad320ca52",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Credentials/PipedCredentialsManager.swift": {
+    "mtime": 1788631642.5001378,
+    "ast_hash": "d0fc39e5f3bba4922b7729322cfbfa12",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/DeArrowBrandingProvider.swift": {
+    "mtime": 1788631642.5002213,
+    "ast_hash": "1149376b865f43ddaf13798daccd488d",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/DeviceRotationManager.swift": {
+    "mtime": 1788633839.7941637,
+    "ast_hash": "739db3621ef501ce70f26ef9aac99c37",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/Download.swift": {
+    "mtime": 1788631642.5003974,
+    "ast_hash": "f236f387080bae6a73986e20c9f6d539",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadError.swift": {
+    "mtime": 1788631642.5004609,
+    "ast_hash": "c8a5c80ba1ebe437556d2d192ab49927",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager+Assets.swift": {
+    "mtime": 1788631642.5005226,
+    "ast_hash": "fc0c65bd67603778d3c578ee82a660a5",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager+Execution.swift": {
+    "mtime": 1788631642.500632,
+    "ast_hash": "c733f4710f74c3ee130bfae410572d56",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager+Persistence.swift": {
+    "mtime": 1788631642.5007176,
+    "ast_hash": "e243b3b43b3f84dc10f5a4caa162e4cf",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager+Storage.swift": {
+    "mtime": 1788631642.5007868,
+    "ast_hash": "5a80e86246472c57cc5fd4dc82055c05",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager+URLSession.swift": {
+    "mtime": 1788631642.500855,
+    "ast_hash": "c69617077d8c801cdc61e4ba12a75b08",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadManager.swift": {
+    "mtime": 1788631642.5009801,
+    "ast_hash": "77a55865a060460d25de2280bba49543",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadSettings.swift": {
+    "mtime": 1788631642.5011034,
+    "ast_hash": "86cf300373af6c44c6d8537015f28934",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/DownloadTypes.swift": {
+    "mtime": 1788631642.5011714,
+    "ast_hash": "da52fdcefe53acb8c1ca85ede288c8ea",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Downloads/StorageDiagnostics.swift": {
+    "mtime": 1788631642.5013592,
+    "ast_hash": "8659a975b34cce0f3a77edd52d45b84c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Handoff/HandoffManager.swift": {
+    "mtime": 1788631642.501517,
+    "ast_hash": "181031c0b989b2b80a53931aca2f3470",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/HomeInstanceCache.swift": {
+    "mtime": 1788631642.5015855,
+    "ast_hash": "b295880f6e68698f8faf7e77db82819a",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/ImageLoading/ImageLoadingService.swift": {
+    "mtime": 1788631642.5016959,
+    "ast_hash": "248b723650a2398d87ca88b366df8416",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Logging/LogExportHTTPServer.swift": {
+    "mtime": 1788631642.5018115,
+    "ast_hash": "b616c3a9c3521f1cdba6c19fefc3d786",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Logging/LoggingService.swift": {
+    "mtime": 1788631642.5018787,
+    "ast_hash": "1fa4b0e35d2858724a71e2b69fb58a63",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/LocalFileClient.swift": {
+    "mtime": 1788631642.5019789,
+    "ast_hash": "e8d0b527976a540690bb043f27d8cd2e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/MediaSourceError.swift": {
+    "mtime": 1788631642.5020337,
+    "ast_hash": "55e4c13a727b0e3fecd5634a0f9c528b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/NetworkShareDiscoveryService.swift": {
+    "mtime": 1788631642.5021214,
+    "ast_hash": "af8a550165a59227351a2e7f40725cf4",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/SMBBridge/SMBBridge.c": {
+    "mtime": 1788631642.502216,
+    "ast_hash": "eceae187cc4642237546389d5b302ff6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/SMBBridge/SMBBridge.h": {
+    "mtime": 1788631642.502299,
+    "ast_hash": "b028527c553630cba06a44e41e651280",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/SMBBridge/SMBBridgeWrapper.swift": {
+    "mtime": 1788631642.5023608,
+    "ast_hash": "6c55f5b52746221f853ad548c9ef95ad",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/SMBBridge/libsmbclient_minimal.h": {
+    "mtime": 1788631642.5024087,
+    "ast_hash": "797270741d890249418d02b76930db71",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/SMBClient.swift": {
+    "mtime": 1788631642.5024867,
+    "ast_hash": "a14bea41ab13957622b438a8dc1e476f",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/WebDAVClient.swift": {
+    "mtime": 1788631642.5025735,
+    "ast_hash": "82bb0c268bc8005435474b12f45f6d7e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/MediaSources/WebDAVClientFactory.swift": {
+    "mtime": 1788631642.5026274,
+    "ast_hash": "2daa606325a6504a2754f5ee15605d2f",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Migration/LegacyDataMigrationService.swift": {
+    "mtime": 1788631642.5027404,
+    "ast_hash": "03ad8159dc3d3e38309c0ab88c65e1c1",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Migration/LegacyDataModels.swift": {
+    "mtime": 1788631642.502802,
+    "ast_hash": "3bff5676c9f450903f6e3f643b44ec9c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/ConnectivityMonitor.swift": {
+    "mtime": 1788631642.5028908,
+    "ast_hash": "eb2ca8e937f846a2195c4b550fdaae43",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/NavigationCoordinator.swift": {
+    "mtime": 1788631642.5029507,
+    "ast_hash": "b507537e4bd1b588caac1bb8868f50c4",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/NavigationDestination.swift": {
+    "mtime": 1788631642.503014,
+    "ast_hash": "f6994d765cd7b2dae250ff7b63ff6b7e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/SidebarManager.swift": {
+    "mtime": 1788631642.503071,
+    "ast_hash": "0ef9245baad519b131eb0e4d8d08bef1",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/URLRouter.swift": {
+    "mtime": 1788631642.503132,
+    "ast_hash": "54d74770dc1ef044d620b53d7aa06ff8",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Navigation/URLShortenerResolver.swift": {
+    "mtime": 1788631642.5032063,
+    "ast_hash": "4b1d4ca720cebe9ca8edc00dc03f6cc9",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/APIError.swift": {
+    "mtime": 1788631642.5033052,
+    "ast_hash": "64cd16ebba4a23cee5f4ca6b93dd76a6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/Endpoint.swift": {
+    "mtime": 1788631642.5033686,
+    "ast_hash": "8aeb654199aaf9048f196e75ea0f18f3",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/HTTPClient.swift": {
+    "mtime": 1788631642.5034585,
+    "ast_hash": "2009cbdd8e6c6e43ef6bcc2dd8200823",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/HTTPClientFactory.swift": {
+    "mtime": 1788631642.5035276,
+    "ast_hash": "2438810a67f91179400f3ed968790741",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/InsecureURLSessionDelegate.swift": {
+    "mtime": 1788631642.5035918,
+    "ast_hash": "92fdbc23e7899d6247da53ee412153c7",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Networking/URLSessionFactory.swift": {
+    "mtime": 1788631642.5036538,
+    "ast_hash": "eb745ef386f16aa62b0070e02d3dc224",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/OrientationManager.swift": {
+    "mtime": 1788633779.8329477,
+    "ast_hash": "cdb4ea162d7e2d45350dbef65fb40570",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/BackendSwitcher.swift": {
+    "mtime": 1788631642.5038366,
+    "ast_hash": "db75d2884609892f7c1cc2c4f0993121",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/DeArrowAPI.swift": {
+    "mtime": 1788631642.5039275,
+    "ast_hash": "b45d8dbfdacad0bf596170f5c6ce99a6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVClient.swift": {
+    "mtime": 1788631642.5041032,
+    "ast_hash": "68d1a78d1e5df03f51fd851a19bef64e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVLogging.swift": {
+    "mtime": 1788631642.5042126,
+    "ast_hash": "378ca8e6099ee79d878865d1c971b99e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVOGLView.swift": {
+    "mtime": 1788631642.5043042,
+    "ast_hash": "620af4a06cb949d8c8340f4f93bbb193",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVOpenGLLayer.swift": {
+    "mtime": 1788631642.5044038,
+    "ast_hash": "b8e806a158e581b117d0538f4e3b6797",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVPiPBridge.swift": {
+    "mtime": 1788631642.5045228,
+    "ast_hash": "d098f72a040006bbc74c1437fd6f83eb",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVRenderView.swift": {
+    "mtime": 1788631642.5046558,
+    "ast_hash": "1cdc628036a52d592d520fe8bf2748f6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPV/MPVSoftwareRenderView.swift": {
+    "mtime": 1788631642.5047727,
+    "ast_hash": "794438743e0e4cb252dbcc3b0e78db16",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/MPVBackend.swift": {
+    "mtime": 1788634290.7119238,
+    "ast_hash": "3f99e17ffd8195104e28b4418f11068f",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/NowPlayingService.swift": {
+    "mtime": 1788631642.5050392,
+    "ast_hash": "fc6cd55be9e5ce9c9fb20ab80841d72a",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/PlayerBackend.swift": {
+    "mtime": 1788631642.5051427,
+    "ast_hash": "12e5d7741c37a3945a4d4c7a0a74bb4b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/PlayerService.swift": {
+    "mtime": 1788631642.5053568,
+    "ast_hash": "771bc75af2e13e1d36e9a2a580c1ad64",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/PlayerState.swift": {
+    "mtime": 1788631642.5054648,
+    "ast_hash": "83f372361835a328bb686245b6a4befc",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/QueueManager.swift": {
+    "mtime": 1788631642.505593,
+    "ast_hash": "e4bce8c7e47eb603685f7735907b036b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/ReturnYouTubeDislikeAPI.swift": {
+    "mtime": 1788631642.5056837,
+    "ast_hash": "1e07265195dbfdced92e779688a698b0",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/SponsorBlockAPI.swift": {
+    "mtime": 1788631642.505755,
+    "ast_hash": "0aaae210cf19ba54a0686bb686838812",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/StoryboardService.swift": {
+    "mtime": 1788631642.5058787,
+    "ast_hash": "f31f4c196fb7011ee3716b7735a0b8d7",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Player/TVDisplayModeManager.swift": {
+    "mtime": 1788631642.5059586,
+    "ast_hash": "6e71e8dbf8c05e02bd7c3fc879379774",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerControls/PlayerControlsBackupService.swift": {
+    "mtime": 1788631642.5061016,
+    "ast_hash": "955f52af0e1625b295457058843e50b6",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerControls/PlayerControlsLayoutService.swift": {
+    "mtime": 1788631642.5062234,
+    "ast_hash": "c4ca28264c8b363a6c4d9239cc0fe974",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerControls/PlayerControlsPresetExportImport.swift": {
+    "mtime": 1788631642.5063152,
+    "ast_hash": "e86d58939cf92b63db26e6426359758e",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerControls/PlayerGestureActionHandler.swift": {
+    "mtime": 1788631642.50637,
+    "ast_hash": "7082c99db83b17067d48a10b42fa5207",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerControls/SeekGestureCalculator.swift": {
+    "mtime": 1788631642.5064235,
+    "ast_hash": "4edb33fe9890c2835ace1f2e5c2fdb3c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/PlayerOrientationPolicy.swift": {
+    "mtime": 1788633742.8926857,
+    "ast_hash": "2721636133e0b344b23d475a24b8d161",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/RemoteControl/LocalNetworkService.swift": {
+    "mtime": 1788631642.5066216,
+    "ast_hash": "ac98bb1ff77ae87bc8f3e3f1de05916c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/RemoteControl/RemoteControlCoordinator.swift": {
+    "mtime": 1788631642.5067859,
+    "ast_hash": "316fd51d84d04a604d8f7cb837e12537",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/RemoteControl/RemoteControlProtocol.swift": {
+    "mtime": 1788631642.5068889,
+    "ast_hash": "4e3bfb19bbbd20ee03c305cdf2868dea",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/SleepPreventionService.swift": {
+    "mtime": 1788631642.5069735,
+    "ast_hash": "471ce85e2ce96aa791fba577215ecd0b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Sources/SourcesSettings.swift": {
+    "mtime": 1788631642.5070705,
+    "ast_hash": "f09ddb783f34e86aec3dc973eb6eb7c3",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/SubscriptionFeedCache.swift": {
+    "mtime": 1788631642.507154,
+    "ast_hash": "e789472c5fe255af2b30079a7292cb4a",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/SubscriptionImportExport.swift": {
+    "mtime": 1788631642.507263,
+    "ast_hash": "c32a29bae09cc2f5961c06b695a72d4b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/SubscriptionService.swift": {
+    "mtime": 1788631642.5073366,
+    "ast_hash": "bee0db28ff2090ba7e843e3b78bbb0d9",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Subscriptions/InvidiousSubscriptionProvider.swift": {
+    "mtime": 1788631642.5074337,
+    "ast_hash": "4226b05ea559e577adb9b0cd64862272",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Subscriptions/LocalSubscriptionProvider.swift": {
+    "mtime": 1788631642.5075097,
+    "ast_hash": "dde1be34137565d563daee5c2774c90b",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Subscriptions/PipedSubscriptionProvider.swift": {
+    "mtime": 1788631642.5076,
+    "ast_hash": "18fdb80f141766f5ca76e09ba7857ef1",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Subscriptions/SubscriptionAccountValidator.swift": {
+    "mtime": 1788631642.507686,
+    "ast_hash": "545636e42627039f6253249009b3b9fc",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Subscriptions/SubscriptionProvider.swift": {
+    "mtime": 1788631642.5077722,
+    "ast_hash": "59ffa900a2e1154868cfa397c79c5517",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/ToastManager.swift": {
+    "mtime": 1788631642.5078743,
+    "ast_hash": "64adf42330d9f773b76d7643e788b620",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/TopShelfSnapshot.swift": {
+    "mtime": 1788631642.5079381,
+    "ast_hash": "ceaeeefc320a55fab93d67dec6c5956c",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/TopShelfSnapshotWriter.swift": {
+    "mtime": 1788631642.508002,
+    "ast_hash": "cd69d9131e7ad8f266a33aa8033227af",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/TranslationContributorsLoader.swift": {
+    "mtime": 1788631642.5081284,
+    "ast_hash": "4b4e39970aa52e420504269d9bc99ece",
+    "semantic_hash": ""
+  },
+  "Yattee/Services/Updates/SparkleUpdater.swift": {
+    "mtime": 1788631642.5082822,
+    "ast_hash": "b2cced0c1e160865d00b9f1db31d919a",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/AvatarURLBuilder.swift": {
+    "mtime": 1788631642.5083869,
+    "ast_hash": "a240b648f04dd1d5c9d6619079a7ba4e",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/ChapterParser.swift": {
+    "mtime": 1788631642.5084763,
+    "ast_hash": "d3efd7d61acef9ca0e74396c417911ee",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/CountFormatter.swift": {
+    "mtime": 1788631642.5085344,
+    "ast_hash": "40fc4a1902e057d39f7dbb75494d23b3",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/DescriptionText.swift": {
+    "mtime": 1788631642.5086098,
+    "ast_hash": "f1dda0d153161b6d73c086b096877636",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/DirectMediaHelper.swift": {
+    "mtime": 1788631642.5086737,
+    "ast_hash": "2476553fe30a5d6573e9f849948c27c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Utilities/RelativeDateFormatter.swift": {
+    "mtime": 1788631642.508741,
+    "ast_hash": "ed16c8819c7fb709b8f3643203e96024",
+    "semantic_hash": ""
+  },
+  "Yattee/ViewModels/PlayerControls/PlayerControlsSettingsViewModel.swift": {
+    "mtime": 1788631642.5089054,
+    "ast_hash": "cda1e1c079d1d2409cb9c64a75f1fcc8",
+    "semantic_hash": ""
+  },
+  "Yattee/ViewModels/SearchViewModel.swift": {
+    "mtime": 1788631642.5089862,
+    "ast_hash": "784951646c148a0af1de10e1f9cd4910",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Channel/ChannelPlaylistRow.swift": {
+    "mtime": 1788631642.5091155,
+    "ast_hash": "2ddf303c17610eb0ef2db058cc34bd27",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Channel/ChannelView.swift": {
+    "mtime": 1788631642.509253,
+    "ast_hash": "f1806632f67638310d728314aebbd873",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/AirPlayButton.swift": {
+    "mtime": 1788631642.5093584,
+    "ast_hash": "0867f6a07ce04704e3abfb824e542b9b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/BlurredImageBackground.swift": {
+    "mtime": 1788631642.5094228,
+    "ast_hash": "642f730cb4e1738239c845c15b18ff13",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/BookmarkCardView.swift": {
+    "mtime": 1788631642.5094812,
+    "ast_hash": "f904ec0842a9ebd5288a09894026d6c4",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/BookmarkRowView.swift": {
+    "mtime": 1788631642.5095413,
+    "ast_hash": "b9a79187d0af971e8515e15541f9089e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/BookmarkTagsView.swift": {
+    "mtime": 1788631642.509604,
+    "ast_hash": "9b4e1297e7808284de41101340dd7431",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ChannelAvatarView.swift": {
+    "mtime": 1788631642.5096684,
+    "ast_hash": "73180e646d9c2537ace301505c03eefa",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ChannelCardGridView.swift": {
+    "mtime": 1788631642.5097306,
+    "ast_hash": "9ad9554719f35ce3b2ab8ccab86633ad",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ChannelRowView.swift": {
+    "mtime": 1788631642.5097878,
+    "ast_hash": "3c2ebc731d720566a67f41463f117035",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/CommentView.swift": {
+    "mtime": 1788631642.5098658,
+    "ast_hash": "5832a4168d749874082c38e8aba86174",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/CommentsPillView.swift": {
+    "mtime": 1788631642.509919,
+    "ast_hash": "440348da7f2ed9aaad850a16b7fccd7d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/DeArrowVideoThumbnail.swift": {
+    "mtime": 1788631642.5100038,
+    "ast_hash": "3ceb11498363841fbe1e1e57df18a15c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/DownloadProgressIndicator.swift": {
+    "mtime": 1788631642.5100694,
+    "ast_hash": "1e6931c3d8d1fe799d0253d78bdc6293",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/DurationBadge.swift": {
+    "mtime": 1788631642.510127,
+    "ast_hash": "2b5926856958ce474e12a33d7aee15ee",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/DynamicSheet.swift": {
+    "mtime": 1788631642.5101755,
+    "ast_hash": "2ca6113ac9ad86ef8004a0b259bd4567",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ExpandableText.swift": {
+    "mtime": 1788631642.5102277,
+    "ast_hash": "488a086b8d100e11dd20d2b61d28cadb",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ExpandedCommentsView.swift": {
+    "mtime": 1788631642.5102985,
+    "ast_hash": "af6a853dedbe4e8f43834c970f54ba6b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/GlassBackground.swift": {
+    "mtime": 1788631642.5103834,
+    "ast_hash": "a33fd230d87ca1dc741e4978fdfd9de0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/InstanceToolbarButton.swift": {
+    "mtime": 1788631642.5104544,
+    "ast_hash": "678712d91450812f37904741eb181f74",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ListBackgroundStyle.swift": {
+    "mtime": 1788631642.5105164,
+    "ast_hash": "1cecf5e7cb29a83f6a8d82bd4a5ecbed",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/LoadMoreTrigger.swift": {
+    "mtime": 1788631642.5105913,
+    "ast_hash": "d72f18ba383284f2150141b8ae65c215",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/LoadStateView.swift": {
+    "mtime": 1788631642.5106525,
+    "ast_hash": "dc51ee1ac988d9f16ef802fd4fd6e7e7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/MarqueeText.swift": {
+    "mtime": 1788631642.510716,
+    "ast_hash": "7d97de3dedc8a18f80c36002826533ad",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/OpaqueWindowBackground.swift": {
+    "mtime": 1788631642.510784,
+    "ast_hash": "4451b38d6373f7edca8c49c341286d07",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/PlayerPillButtonView.swift": {
+    "mtime": 1788631642.5108945,
+    "ast_hash": "1967b3ded115f38a0e6eaee1b8feaa53",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/PlayerPillView.swift": {
+    "mtime": 1788631642.5109806,
+    "ast_hash": "31c969d2454d96df3b5bd476c0a2c251",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/PlaylistCardView.swift": {
+    "mtime": 1788631642.5110412,
+    "ast_hash": "6e739a8fbddbf558498dc762c1c9b64d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/QueueActionSheet.swift": {
+    "mtime": 1788631642.5113037,
+    "ast_hash": "41e8950eebd99e8a5f9eba5a008954fb",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ResolvedLinkPromptsModifier.swift": {
+    "mtime": 1788631642.5113964,
+    "ast_hash": "f39934f072ab80f2685a415599782bc7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ResumeActionSheet.swift": {
+    "mtime": 1788631642.5114694,
+    "ast_hash": "fc05a444ea126692dacaff01f6a9b36e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SearchPlaylistRowView.swift": {
+    "mtime": 1788631642.5115378,
+    "ast_hash": "7e3519cadab039e0d74b3460ce7c03c5",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ShareSheet.swift": {
+    "mtime": 1788631642.5116186,
+    "ast_hash": "ea08a9c5ed5a3e77be7d137915608030",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SourceBadge.swift": {
+    "mtime": 1788631642.5116944,
+    "ast_hash": "2eead83ca5bbfd5ceda02c170b7b5d58",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SourceListContainer.swift": {
+    "mtime": 1788631642.5117676,
+    "ast_hash": "fad38f50323dbe1fc104f841c6d0e548",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SourceListRow.swift": {
+    "mtime": 1788631642.511837,
+    "ast_hash": "1f155648882c0809fb94ecc5bfebf316",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SwipeAction.swift": {
+    "mtime": 1788631642.5118988,
+    "ast_hash": "6ed66f2d016527c861056608fe06d7b8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SwipeActionModifier.swift": {
+    "mtime": 1788631642.5119941,
+    "ast_hash": "2cf72339faa04945c6b5f6a8c43cd3f8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/SwipeGesture.swift": {
+    "mtime": 1788631642.512072,
+    "ast_hash": "e97be083a39629f31d7b6546f71597c0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/TVSidebarDetailContainer.swift": {
+    "mtime": 1788631642.512156,
+    "ast_hash": "dd154d23cfee655767cc37e1c1536532",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/TagInputView.swift": {
+    "mtime": 1788631642.5122223,
+    "ast_hash": "6a1f2d70d1842362f8a665bff3f2cc76",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/TappableVideoModifier.swift": {
+    "mtime": 1788631642.512321,
+    "ast_hash": "265d24f54624d1f16101ba148efe6cd4",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/TextTruncationEffect.swift": {
+    "mtime": 1788631642.5123973,
+    "ast_hash": "e2bba3d39945a21913d6b163185dd57e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoCardView.swift": {
+    "mtime": 1788631642.5124617,
+    "ast_hash": "da32811dfc87438c770b97adf00ca938",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoContextMenu.swift": {
+    "mtime": 1788631642.5125456,
+    "ast_hash": "0f8bd7c68bb388df048f449dd5a14b96",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoGridContent.swift": {
+    "mtime": 1788631642.5126338,
+    "ast_hash": "1203eb23a8f98808c8e1e17ae64b9802",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoInfoComponents.swift": {
+    "mtime": 1788631642.5127017,
+    "ast_hash": "779a7363f2ead98de15ae825dbe639c9",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoListContainer.swift": {
+    "mtime": 1788631642.512767,
+    "ast_hash": "32f7d5939c1e63fc751a4a6fb58f113b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoListContent.swift": {
+    "mtime": 1788631642.5128639,
+    "ast_hash": "2425cef8c6486f903a6c912cfd711d52",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoListRow.swift": {
+    "mtime": 1788631642.5129266,
+    "ast_hash": "1715871d7825ff4182588589efd5be9e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoMetadataLine.swift": {
+    "mtime": 1788631642.5129943,
+    "ast_hash": "f35ae646d524bfb3c3d8be3dccf5ae81",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoNavigationButton.swift": {
+    "mtime": 1788631642.513065,
+    "ast_hash": "ec507a9e2db7ea46dacf7dd5b6622e0f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoRowView.swift": {
+    "mtime": 1788631642.5131333,
+    "ast_hash": "9c88e39313a752732d98316cd99a073f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoSwipeActionsModifier.swift": {
+    "mtime": 1788631642.5132194,
+    "ast_hash": "c3f405bad9366a70701dab252ffaa4d1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/VideoThumbnailView.swift": {
+    "mtime": 1788631642.5132904,
+    "ast_hash": "5418f157ef2dd4f2cb08fe798dfb5870",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/ViewOptionsSheet.swift": {
+    "mtime": 1788631642.5133946,
+    "ast_hash": "9a32914851e391e6c8fc3204e8f4e385",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Components/WatchEntryRowView.swift": {
+    "mtime": 1788631642.5134566,
+    "ast_hash": "bdb4c5751ea3aae8f4e00d63b1ed61b2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Downloads/DownloadRowView.swift": {
+    "mtime": 1788631642.5135722,
+    "ast_hash": "c7fd12072d3281e78dd1de8ed9b584f3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Downloads/DownloadsStorageView.swift": {
+    "mtime": 1788631642.5136817,
+    "ast_hash": "75d6481f8f37e635bcea83e407d0f37d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Downloads/DownloadsView.swift": {
+    "mtime": 1788631642.5137703,
+    "ast_hash": "4f526343b1e7472dcc62d962153b9094",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/BookmarksListView.swift": {
+    "mtime": 1788631642.5139248,
+    "ast_hash": "ce958fb610cae2d3968edf73717b2370",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/ContinueWatchingGridCard.swift": {
+    "mtime": 1788631642.513996,
+    "ast_hash": "6a0bbe036d5d488748e568ec08732c4f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/ContinueWatchingView.swift": {
+    "mtime": 1788631642.5141633,
+    "ast_hash": "4539625dd98768ce26e40cc2a2aca2ae",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HistoryListView.swift": {
+    "mtime": 1788631642.5142522,
+    "ast_hash": "6ac14ee40c497873717ee3799f149bd8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeHorizontalCards.swift": {
+    "mtime": 1788631642.5143118,
+    "ast_hash": "23da19ccefb6c47c9f746416f3f40d78",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeItem.swift": {
+    "mtime": 1788631642.5143864,
+    "ast_hash": "a7531183b6eedda287e665343ace302b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeSettingsView.swift": {
+    "mtime": 1788631642.5144913,
+    "ast_hash": "e3d93c4c55eadc01b004ff5a41a85b9a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeShortcutCardView.swift": {
+    "mtime": 1788631642.5145874,
+    "ast_hash": "2c8434287be328660eebd216cdd72635",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeShortcutRowView.swift": {
+    "mtime": 1788631642.5146344,
+    "ast_hash": "be308aed7cbfc3db400c9b3525cd1a6f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeShortcutStyleView.swift": {
+    "mtime": 1788631642.5146925,
+    "ast_hash": "56b7b9af2f5c40ce58be1785f53eb016",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/HomeView.swift": {
+    "mtime": 1788631642.5147967,
+    "ast_hash": "ae2ce9d32d280d20b169b0545ff0c378",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/LocalPlaylistCardView.swift": {
+    "mtime": 1788631642.5149355,
+    "ast_hash": "6fa39c02062ea204f3f5435bb3988d35",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/OpenLinkSheet.swift": {
+    "mtime": 1788631642.5150285,
+    "ast_hash": "cd33ed4a26a5e5b1f53700d56251996e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/PlaylistRowView.swift": {
+    "mtime": 1788631642.5151138,
+    "ast_hash": "ba6bba9ab86f19d0d85403d7a398c79e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/PlaylistsListView.swift": {
+    "mtime": 1788631642.5152185,
+    "ast_hash": "922b0de11e9f5c57dd45cd931d5d4a1b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Home/TVHomeButtonStyles.swift": {
+    "mtime": 1788631642.515283,
+    "ast_hash": "b789a3255d07f9ca71e2bb821344b1aa",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/ICloudSyncProgressView.swift": {
+    "mtime": 1788631642.5153482,
+    "ast_hash": "4f1599ef69927139c04dd5aae13a03c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Instances/InstanceBrowseView.swift": {
+    "mtime": 1788631642.5155952,
+    "ast_hash": "ad5f918ad8b5e9b2490e40b73832e77a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/MediaBrowser/MediaBrowserView.swift": {
+    "mtime": 1788631642.5157104,
+    "ast_hash": "018aac32950521cbe38fabc12b2baa8d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/MediaBrowser/MediaBrowserViewOptionsSheet.swift": {
+    "mtime": 1788631642.5157769,
+    "ast_hash": "9d6146fff6ebb81de97877d6f5758583",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/MediaBrowser/MediaFileRow.swift": {
+    "mtime": 1788631642.5158355,
+    "ast_hash": "f7d21d0af4efbe389b7f40c9de9b88d2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/MediaBrowser/MediaFileTapModifier.swift": {
+    "mtime": 1788631642.5158985,
+    "ast_hash": "be016669118249f7c27c6b8fabe0e9b1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/MediaBrowser/MediaSourcesView.swift": {
+    "mtime": 1788631642.5159984,
+    "ast_hash": "d524fad3ef91ea9bc4cf806c5681612f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/CompactTabView.swift": {
+    "mtime": 1788631642.5161135,
+    "ast_hash": "1ebb4630a262774955824801132d7799",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/SidebarAdaptableModifier.swift": {
+    "mtime": 1788631642.5161672,
+    "ast_hash": "923adae2f04f1a310cacd9f39aac4b6f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/SidebarChannelIcon.swift": {
+    "mtime": 1788631642.516226,
+    "ast_hash": "8d572ad6846818f4889fe14c624f7929",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/SidebarChannelRow.swift": {
+    "mtime": 1788631642.5162692,
+    "ast_hash": "6785c864b2d0498085a32eb2eeec38f5",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/SidebarPlaylistIcon.swift": {
+    "mtime": 1788631642.5163271,
+    "ast_hash": "372ae7e50d2d52b3dc6f4a5d7f0cc92e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/SidebarPlaylistRow.swift": {
+    "mtime": 1788631642.516384,
+    "ast_hash": "69b3015eeea7c30165f8605f9db0c248",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Navigation/UnifiedTabView.swift": {
+    "mtime": 1788631642.5164855,
+    "ast_hash": "e739059198b6b28ccb1c72e08cfa8429",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ChapterRow.swift": {
+    "mtime": 1788631642.5165732,
+    "ast_hash": "457e28cfcd7ab9f723d1770f991b0295",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ChaptersView.swift": {
+    "mtime": 1788631642.5166385,
+    "ast_hash": "164e49acb6c63d2bc12ff73307b8a492",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ControlsSectionRenderer.swift": {
+    "mtime": 1788631642.5167465,
+    "ast_hash": "0368ae47f30a7d0c9a6dd5737b8deede",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+Autoplay.swift": {
+    "mtime": 1788631642.5169616,
+    "ast_hash": "3ddf468f3378065258b0efe21a722e38",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+Debug.swift": {
+    "mtime": 1788631642.5170453,
+    "ast_hash": "1d6c941c3b8f5e8e5156becd2fdc6800",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+Layouts.swift": {
+    "mtime": 1788631642.5171878,
+    "ast_hash": "ee040f6e7c22f0c9130fdcbeb6131d4a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+Orientation.swift": {
+    "mtime": 1788633829.131694,
+    "ast_hash": "3f6ef4cb86d32a5d46c91bedf25060c9",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+Overlays.swift": {
+    "mtime": 1788631642.5173545,
+    "ast_hash": "6da77973480996ea236bc0c6c5d9a0ba",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet+VideoInfo.swift": {
+    "mtime": 1788631642.517452,
+    "ast_hash": "0bb9253e33277d74faadfbe2d4467c8d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerSheet.swift": {
+    "mtime": 1788633967.1986248,
+    "ast_hash": "980c6ff47449fcaf2cc9c9e7a4d1ee37",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerWindow.swift": {
+    "mtime": 1788633977.2446125,
+    "ast_hash": "2fb267077d23e4c696a6e722746745c0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/ExpandedPlayerWindowManager.swift": {
+    "mtime": 1788631642.5178168,
+    "ast_hash": "2575b8e793e76f39fd8b2bf882d43cf8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/FloatingDetailsPanel.swift": {
+    "mtime": 1788631642.5179183,
+    "ast_hash": "34461748f851469a3214dd7bd99a0529",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/GestureSeekPreviewView.swift": {
+    "mtime": 1788631642.5180612,
+    "ast_hash": "962de2e36c06a4e0bc0ceb47e3741475",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/OverscrollGestureHandler.swift": {
+    "mtime": 1788631642.5181186,
+    "ast_hash": "3225ee2c98f1ac42638d7f26341ffd5e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/OverscrollGestureView.swift": {
+    "mtime": 1788631642.5181794,
+    "ast_hash": "9d93e09f7485144120824d6ec012fc22",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/PlayerGestureCoordinator.swift": {
+    "mtime": 1788631642.5182614,
+    "ast_hash": "4016b5bd513459f2ff4d7beab8a0762a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/PlayerGestureOverlay.swift": {
+    "mtime": 1788631642.5183144,
+    "ast_hash": "f0645a57b4d99d244a5122c15c4410b1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/TapGestureFeedbackView.swift": {
+    "mtime": 1788631642.5184066,
+    "ast_hash": "b51e5ba698aaee1108bc632dd8d27400",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/Gestures/TapZoneCalculator.swift": {
+    "mtime": 1788631642.518475,
+    "ast_hash": "51d531780c6dc39e22a2321b790c2f57",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/MPVDebugOverlay.swift": {
+    "mtime": 1788631642.5185428,
+    "ast_hash": "495758548540d80c90268d149566de7c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/MPVRenderViewRepresentable.swift": {
+    "mtime": 1788631642.5186315,
+    "ast_hash": "369492ae17e91348edaee6544ce96f2f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/MPVVideoView.swift": {
+    "mtime": 1788631642.518761,
+    "ast_hash": "17f84dd026796b919c682448a85467f7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/MiniPlayerView.swift": {
+    "mtime": 1788631642.5188477,
+    "ast_hash": "f7cb511e52d6892298c8bfe81b1a763b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PanelAlignmentButton.swift": {
+    "mtime": 1788631642.5189242,
+    "ast_hash": "cdaf11685628c8bd5cb7cc4126b3c6ff",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PanelPinButton.swift": {
+    "mtime": 1788631642.5189822,
+    "ast_hash": "af561c80a75c15b319ff1a5831f6b3db",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PlayerControlsActions.swift": {
+    "mtime": 1788631642.519057,
+    "ast_hash": "4783ba5be18d39981ce69381bb91ed94",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PlayerControlsView.swift": {
+    "mtime": 1788631642.5191758,
+    "ast_hash": "fa739bf7c4e3ffc541854bcd0a3d5aa6",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PlayerHelperViews.swift": {
+    "mtime": 1788631642.5192447,
+    "ast_hash": "7fd0df0ced511db4f38915accfe80f89",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PlayerScrollModifiers.swift": {
+    "mtime": 1788631642.5192943,
+    "ast_hash": "759800dc2d3ca45d595eba0679d077de",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/PortraitDetailsPanel.swift": {
+    "mtime": 1788631642.5193977,
+    "ast_hash": "9288673de13c9e8208a1f14f5d417d16",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelector/CardBackgroundModifier.swift": {
+    "mtime": 1788631642.5194824,
+    "ast_hash": "b38679125eee419aff921e65d5f7db14",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelector/QualitySelectorDownloadRows.swift": {
+    "mtime": 1788631642.5195637,
+    "ast_hash": "2f8211c42114f2c01a6dc350b6afee9a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelector/QualitySelectorRowViews.swift": {
+    "mtime": 1788631642.5196295,
+    "ast_hash": "c35ba898ac8052780bbb9a0a4e0b975c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelector/QualitySelectorTypes.swift": {
+    "mtime": 1788631642.5196834,
+    "ast_hash": "54f3afd6b5771602f09baf5636e16399",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelector/SubtitleFilePicker.swift": {
+    "mtime": 1788631642.5197325,
+    "ast_hash": "be7258040a19309a532ce59dbbc4e825",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelectorView+Sections.swift": {
+    "mtime": 1788631642.5198274,
+    "ast_hash": "61f964a5d03f8a538d766cbdfa4a76e9",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelectorView+StreamHelpers.swift": {
+    "mtime": 1788631642.5199134,
+    "ast_hash": "c101cb9e8a3d649ae94ce7144aa8424c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QualitySelectorView.swift": {
+    "mtime": 1788631642.519995,
+    "ast_hash": "446df5cf22ee9ec825bdfb9ce272cef6",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QueueItemRow.swift": {
+    "mtime": 1788631642.5200553,
+    "ast_hash": "22315fa8f736ce1903d1928d09214c75",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/QueueManagementSheet.swift": {
+    "mtime": 1788631642.52015,
+    "ast_hash": "90cc23d3aa90b19b9b5cccf4bb451550",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/SeekPreviewView.swift": {
+    "mtime": 1788631642.5202498,
+    "ast_hash": "503c859d29f5e6a4145aa726d5c9d75e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/SeekTimePreviewView.swift": {
+    "mtime": 1788631642.5203109,
+    "ast_hash": "792786d4ce90e63053e8214ef03dd2fe",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/SegmentedProgressBar.swift": {
+    "mtime": 1788631642.5204067,
+    "ast_hash": "7818acc2832ed81736b88dc2242cb2d7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/SponsorBlockOverlay.swift": {
+    "mtime": 1788631642.5204763,
+    "ast_hash": "808c0f981d72ee842ba7ceeb44fcb796",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/WideScreenPlayerLayout.swift": {
+    "mtime": 1788631642.5205579,
+    "ast_hash": "f3fac0d1d35372d0d26410e0624b8f8d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/macOS/MacOSControlBar.swift": {
+    "mtime": 1788631642.5206983,
+    "ast_hash": "d5aba6132918ec7cb5bb7ac4945f95fb",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/macOS/MacOSControlsSectionRenderer.swift": {
+    "mtime": 1788631642.52083,
+    "ast_hash": "b2b09c61fa642a061c2a32cf7a630e5c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/macOS/MacOSPlayerControlsView.swift": {
+    "mtime": 1788631642.520934,
+    "ast_hash": "e9f1c160c9693e189b6a024a7e2cfd2d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVAutoplayCountdownView.swift": {
+    "mtime": 1788631642.5210326,
+    "ast_hash": "46f1b339d6563b1bafb7841c663df5d0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVDetailsPanel.swift": {
+    "mtime": 1788631642.5211391,
+    "ast_hash": "622ffa62c75f5611b9d3fe70ce5ad17b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVPlayerControlsView.swift": {
+    "mtime": 1788631642.5212343,
+    "ast_hash": "26ab8abe68ac2222d44c25e5017f188a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVPlayerProgressBar.swift": {
+    "mtime": 1788631642.521335,
+    "ast_hash": "02fd73591149b265997cefbba6b1e80c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVPlayerView.swift": {
+    "mtime": 1788631642.521433,
+    "ast_hash": "b41c3d1ef557d56d404bfabb9effad9a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVRemoteHoldSeekObserver.swift": {
+    "mtime": 1788631642.5215228,
+    "ast_hash": "8df2648b7f86b33e1c484732f3c23e0d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Player/tvOS/TVSeekPreviewView.swift": {
+    "mtime": 1788631642.521581,
+    "ast_hash": "e6bbc41c90784aebc9aeaf464d3df963",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/BatchDownloadCoordinator.swift": {
+    "mtime": 1788631642.5216851,
+    "ast_hash": "6cf7d19fcebad58ca3d13a5138de579c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/BatchDownloadQualitySheet.swift": {
+    "mtime": 1788631642.5217662,
+    "ast_hash": "af4e50b08b46f5f36aaac669859ecba0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/PlaylistFormSheet.swift": {
+    "mtime": 1788631642.5218196,
+    "ast_hash": "785e46366389471a8bf2af1ffa5c5e1c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/PlaylistVideoRowView.swift": {
+    "mtime": 1788631642.521866,
+    "ast_hash": "0fdcd5df31a68d6433627f12adc499c9",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/TappablePlaylistVideoRow.swift": {
+    "mtime": 1788631642.521917,
+    "ast_hash": "be368d76745a9ae544adc70524299909",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Playlist/UnifiedPlaylistDetailView.swift": {
+    "mtime": 1788631642.5219958,
+    "ast_hash": "82323ebd85dcf8fe2cbedc3cdb13d9c8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/RemoteControl/RemoteControlContentView.swift": {
+    "mtime": 1788631642.5221267,
+    "ast_hash": "cb8b17c7376df23b0c3bdf4041549d29",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/RemoteControl/RemoteControlView.swift": {
+    "mtime": 1788631642.522216,
+    "ast_hash": "109d2227ab8c38bc38de70db1908ebc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/RemoteControl/RemoteDevicesSheet.swift": {
+    "mtime": 1788631642.522299,
+    "ast_hash": "5ef2406a6afe33cd181f8a5bc67248f2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Search/SearchView.swift": {
+    "mtime": 1788631642.522485,
+    "ast_hash": "63dc3a7dace4d6610ae52ee65c158808",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AVSyncDiagnosticsView.swift": {
+    "mtime": 1788631642.5225842,
+    "ast_hash": "69c90ad7bf19151e67ac161ce3c130c3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AboutView.swift": {
+    "mtime": 1788631642.5226662,
+    "ast_hash": "049030ea6eb592ca306aa490d2857700",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AcknowledgementsView.swift": {
+    "mtime": 1788631642.5227287,
+    "ast_hash": "2878ee22ab87079c1c1e308c5880bb9a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSource/AddLocalFolderView.swift": {
+    "mtime": 1788631642.5228477,
+    "ast_hash": "3af4cd182965be0ebeefc363fbf260c0",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSource/AddRemoteServerView.swift": {
+    "mtime": 1788631642.522916,
+    "ast_hash": "d57f0c42098bdaad5778e7eb5395a0bc",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSource/AddSMBView.swift": {
+    "mtime": 1788631642.5230553,
+    "ast_hash": "444b7fbdd17750a19af0c52908e78709",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSource/AddSourceShared.swift": {
+    "mtime": 1788631642.5231414,
+    "ast_hash": "14018a7a013343dc277643788722241f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSource/AddWebDAVView.swift": {
+    "mtime": 1788631642.5232134,
+    "ast_hash": "a8567b0abac141cf77abc727d8a1d517",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AddSourceView.swift": {
+    "mtime": 1788631642.523468,
+    "ast_hash": "f955f2b9ef9e4db35f1443eb3ec8987e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AdvancedSettingsView.swift": {
+    "mtime": 1788631642.5235817,
+    "ast_hash": "9682e7bb09ee32793720d3ba41a287be",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/AppearanceSettingsView.swift": {
+    "mtime": 1788631642.5236554,
+    "ast_hash": "81d1efdeac69fba74bdab8c9f3591db7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/ContributorsView.swift": {
+    "mtime": 1788631642.5238585,
+    "ast_hash": "be4d25d0198af7266552caa2dc0edae2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/DeArrowSettingsView.swift": {
+    "mtime": 1788631642.5239434,
+    "ast_hash": "18a4d0f82b2701671a54d5267c535ea8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/DeveloperSettingsView.swift": {
+    "mtime": 1788631642.5241528,
+    "ast_hash": "bb06e95ce338bd76cdc1b315946955c3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/DeviceCapabilitiesView.swift": {
+    "mtime": 1788631642.5242364,
+    "ast_hash": "f9d0d6ff9bad8ed007fabfd06f6ebc87",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/DownloadSettingsView.swift": {
+    "mtime": 1788631642.5242908,
+    "ast_hash": "aaa9e8b566aa46a3d8090aaa34e4a13b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/EditSourceView.swift": {
+    "mtime": 1788631642.5243638,
+    "ast_hash": "c5784ddea712331d3584315e657fefb2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/ImportPlaylistsView.swift": {
+    "mtime": 1788631642.52446,
+    "ast_hash": "a676467128a302a8133facc5b15e6b31",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/ImportSubscriptionsView.swift": {
+    "mtime": 1788631642.5245407,
+    "ast_hash": "5955580b7d7d8c8e55bbfcab2504b1d4",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/InstanceLoginView.swift": {
+    "mtime": 1788631642.5246062,
+    "ast_hash": "3116dcbaa673c6740756d6b818d9e727",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/InstancePickerSheet.swift": {
+    "mtime": 1788631642.524661,
+    "ast_hash": "af7aee7576338ecd8b40caac0c4b3703",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/LayoutNavigationSettingsView.swift": {
+    "mtime": 1788631642.5247505,
+    "ast_hash": "5eb2a20a43a08c388b595e28a43fb82b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/LegacyDataImportView.swift": {
+    "mtime": 1788631642.5248501,
+    "ast_hash": "b8d19d0e15e4b30f2b02b7ef8e037bc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/LogExportOverlayView.swift": {
+    "mtime": 1788631642.525026,
+    "ast_hash": "9d485406501c8535227dc8078baf1731",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/LogViewerView.swift": {
+    "mtime": 1788631642.525116,
+    "ast_hash": "deadfd976c3ce7dc62140f429a0b7f21",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/MPVOptionsSettingsView.swift": {
+    "mtime": 1788631642.525188,
+    "ast_hash": "aac75a6e6bb8caf4341013332a1c4b17",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/MacOSSettings.swift": {
+    "mtime": 1788631642.525243,
+    "ast_hash": "42837da0186b1908b7d313244ff91ba5",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/NetworkShareDiscoverySheet.swift": {
+    "mtime": 1788631642.5254185,
+    "ast_hash": "6faf1966cd1aa712cf852f5fef2e5c66",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/NotificationSettingsView.swift": {
+    "mtime": 1788631642.5255306,
+    "ast_hash": "c23a4423b79a0536813db471f2690e62",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PeerTubeDirectoryRow.swift": {
+    "mtime": 1788631642.525595,
+    "ast_hash": "af0b5f3edd20363ba07fa230d64e05ae",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PeerTubeFiltersSheet.swift": {
+    "mtime": 1788631642.5256495,
+    "ast_hash": "7a6d5d34315c822bf6c23b5379407b76",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PeerTubeInstancesExploreView.swift": {
+    "mtime": 1788631642.5257218,
+    "ast_hash": "c373ed7bcff275522debf7cde1ccae7e",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlatformMenuPicker.swift": {
+    "mtime": 1788631642.525772,
+    "ast_hash": "e044aa2b7c01ca021a72cfabb005800b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlaybackSettingsView.swift": {
+    "mtime": 1788631642.5258296,
+    "ast_hash": "74cf068ea0ac9349b915e8ac224cdc15",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/ButtonConfigurationView.swift": {
+    "mtime": 1788631642.5259466,
+    "ast_hash": "1b022812b65a81f80bbd0f88f09dd7d8",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/CenterControlsSettingsView.swift": {
+    "mtime": 1788631642.526015,
+    "ast_hash": "8940bd99b9b42696f5bd4e17ade005df",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/CompactPreviewButtonView.swift": {
+    "mtime": 1788631642.5260758,
+    "ast_hash": "147db4160e4272cd8f67d73ec4f9496a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/PanscanGestureSettingsView.swift": {
+    "mtime": 1788631642.5261621,
+    "ast_hash": "d8ec800f0aa02b2e03a3990a973ae7c1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/SeekGestureSettingsView.swift": {
+    "mtime": 1788631642.5262103,
+    "ast_hash": "0d788edf0be35d4701030fbceef888db",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/TapGesturesSettingsView.swift": {
+    "mtime": 1788631642.5262997,
+    "ast_hash": "03410227725544179839a11d6c7f0f7a",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/TapZoneActionPicker.swift": {
+    "mtime": 1788631642.5263677,
+    "ast_hash": "c177cb638ea9cc99842089baad134e4b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/TapZoneLayoutPicker.swift": {
+    "mtime": 1788631642.526542,
+    "ast_hash": "6f67adcdc589702390c56489f4d04cd1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/Gestures/TapZonePreview.swift": {
+    "mtime": 1788631642.5266097,
+    "ast_hash": "199f3a8368f7bbb72f758926a8965b8f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/MiniPlayerEditorView.swift": {
+    "mtime": 1788631642.5266685,
+    "ast_hash": "62d2b8b670bd1fc1f9cc89deb8bf8f34",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PillButtonConfigurationView.swift": {
+    "mtime": 1788631642.5268385,
+    "ast_hash": "eb8480ec51b48614ea7fbc95bb489a57",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PlayerControlsPreviewView.swift": {
+    "mtime": 1788631642.5269153,
+    "ast_hash": "b2b691f15f11b9efb1ced8f3e9c7ef71",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PlayerControlsSettingsView.swift": {
+    "mtime": 1788631642.5269868,
+    "ast_hash": "b84c0e6e649097e3df52f96dbbb36f8b",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PlayerPillEditorView.swift": {
+    "mtime": 1788631642.5270386,
+    "ast_hash": "98102b4fe943fc4a8036a1516572490c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PresetEditorView.swift": {
+    "mtime": 1788631642.527149,
+    "ast_hash": "1df7837245bc0531e3c9bb23ddf4474f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/PresetSelectorView.swift": {
+    "mtime": 1788631642.5272012,
+    "ast_hash": "5a50c2240f5283fa71e3c35ea4d26237",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/ProgressBarSettingsView.swift": {
+    "mtime": 1788631642.527269,
+    "ast_hash": "018807d17881dd93296d5280f0dc1820",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PlayerControls/SectionEditorView.swift": {
+    "mtime": 1788631642.52734,
+    "ast_hash": "c6db1400da559de9616e6e8f64ad2a18",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/PrivacySettingsView.swift": {
+    "mtime": 1788631642.5274096,
+    "ast_hash": "7d7524d018fe8210c427350ea74070b3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/RemoteControlSettingsView.swift": {
+    "mtime": 1788631642.5274677,
+    "ast_hash": "a1a46ec813b8a033b4628dcf78e058d7",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/ReturnYouTubeDislikeSettingsView.swift": {
+    "mtime": 1788631642.5275106,
+    "ast_hash": "4548bc5bf7e1538c57a5600d8d17fb2c",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SettingsView.swift": {
+    "mtime": 1788631642.5275667,
+    "ast_hash": "f7dcd18c5d719618cabdd51e616051f5",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SidebarSettingsView.swift": {
+    "mtime": 1788631642.5276353,
+    "ast_hash": "7d389ffce0994b822d5bd69df2e67268",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SourceRow.swift": {
+    "mtime": 1788631642.5276887,
+    "ast_hash": "81845882810fa303a896417da61cf826",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SourcesListView.swift": {
+    "mtime": 1788631642.527746,
+    "ast_hash": "69fa6efade66916f419c55c7ee185dcf",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SponsorBlockSettingsView.swift": {
+    "mtime": 1788631642.5278227,
+    "ast_hash": "eb3b9f299e1b48d732dd5a18d7b220d1",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SubscriptionsSettingsView.swift": {
+    "mtime": 1788631642.5278966,
+    "ast_hash": "2a4844d2753430c667b359be5ef9cf6d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SubtitlesSettingsView.swift": {
+    "mtime": 1788631642.527962,
+    "ast_hash": "be147db18e655beb476004d52af10aca",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/SwipeActionsSettingsView.swift": {
+    "mtime": 1788631642.5280347,
+    "ast_hash": "3c71c1efdf27bd8142d1e1b787c88cce",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/TVSettingsButtonStyles.swift": {
+    "mtime": 1788631642.5280938,
+    "ast_hash": "f834e2166f3f1dd3a08b3e9fe3c8c502",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/TabBarSettingsView.swift": {
+    "mtime": 1788631642.5282454,
+    "ast_hash": "440b4f39567d11640dbb2b0ab883fe9f",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/TopShelfSettingsView.swift": {
+    "mtime": 1788631642.5283103,
+    "ast_hash": "f2f2c116927a050c1f6cf2634c97d4bc",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/TranslationContributorsView.swift": {
+    "mtime": 1788631642.5283816,
+    "ast_hash": "a8d8b3ebab952ed576ddb638a06bbb75",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/YouTubeEnhancementsSettingsView.swift": {
+    "mtime": 1788631642.5284548,
+    "ast_hash": "ec21b029295fa90f1bc6046fd25cef93",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Settings/iCloudSettingsView.swift": {
+    "mtime": 1788631642.5285347,
+    "ast_hash": "03a89d6d7c62368e134fb0b2f39e6006",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Subscriptions/ChannelFilterChip.swift": {
+    "mtime": 1788631642.5286224,
+    "ast_hash": "ca3df79376cd05cfbf47363715e7b24d",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Subscriptions/ManageChannelsView.swift": {
+    "mtime": 1788631642.5286927,
+    "ast_hash": "02041ca45dac797dcc00dce576635fc2",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Subscriptions/SubscriptionsSidebarRow.swift": {
+    "mtime": 1788631642.5287535,
+    "ast_hash": "e54474017f36feec6f85a5d2cdda6c48",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Subscriptions/SubscriptionsView.swift": {
+    "mtime": 1788631642.5288193,
+    "ast_hash": "0a2d2accd4543b28f1557772b17e5587",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Subscriptions/TVSubscriptionsSidebarRow.swift": {
+    "mtime": 1788631642.5288754,
+    "ast_hash": "60f93bf6af2ce42525c03a7409aa6fc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Toast/ToastCardView.swift": {
+    "mtime": 1788631642.5289567,
+    "ast_hash": "947639e77f33d8f436546a9dc9701b30",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Toast/ToastOverlayView.swift": {
+    "mtime": 1788631642.5290046,
+    "ast_hash": "f8217e106782b9da2cc8f2b3c5fc9fc3",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Video/DownloadQualitySheet.swift": {
+    "mtime": 1788631642.529086,
+    "ast_hash": "5c2cee91bd74d14c90503e5dbb19faab",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Video/ExternalVideoView.swift": {
+    "mtime": 1788631642.529175,
+    "ast_hash": "5fe283a5365c06a7064231ef9d0b56f9",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Video/PlaylistSelectorSheet.swift": {
+    "mtime": 1788631642.5292432,
+    "ast_hash": "d1957ad2c5dd3e228a6b833bee2fd497",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/Video/VideoInfoView.swift": {
+    "mtime": 1788631642.5293293,
+    "ast_hash": "ed30da7cc446001435265f0bf265bedf",
+    "semantic_hash": ""
+  },
+  "Yattee/Views/macOS/CheckForUpdatesMenuItem.swift": {
+    "mtime": 1788631642.5294223,
+    "ast_hash": "bb11b0155261da6f16f072da9e2bff41",
+    "semantic_hash": ""
+  },
+  "Yattee/Yattee-Bridging-Header.h": {
+    "mtime": 1788631642.5294807,
+    "ast_hash": "f77321dde673822c051b7bc508e04fe7",
+    "semantic_hash": ""
+  },
+  "Yattee/YatteeApp.swift": {
+    "mtime": 1788631642.5297685,
+    "ast_hash": "d89c1e6e94520cc00c35b72ba20d2810",
+    "semantic_hash": ""
+  },
+  "Yattee/weblate-credits.json": {
+    "mtime": 1788631642.5298622,
+    "ast_hash": "37fee07d874491d21c8cfd9dd2a6b5ae",
+    "semantic_hash": ""
+  },
+  "Yattee2.icon/icon.json": {
+    "mtime": 1788631642.5300639,
+    "ast_hash": "1c3ec7807f5323fc82650612012a1998",
+    "semantic_hash": ""
+  },
+  "YatteeShareExtension/ShareViewController.swift": {
+    "mtime": 1788635223.638713,
+    "ast_hash": "c7ca56bbe45e55d04eebf1f49461ce29",
+    "semantic_hash": ""
+  },
+  "YatteeTests/APIParsingTests.swift": {
+    "mtime": 1788631642.5304117,
+    "ast_hash": "6fb5091139d3f64115d108c167517f7d",
+    "semantic_hash": ""
+  },
+  "YatteeTests/APITests.swift": {
+    "mtime": 1788631642.5304825,
+    "ast_hash": "0e1bc21fbac518bdf55fea0d256c1776",
+    "semantic_hash": ""
+  },
+  "YatteeTests/ChapterIntegrationTests.swift": {
+    "mtime": 1788631642.530547,
+    "ast_hash": "a2dbce94cab329d02ad5b92ad32a7597",
+    "semantic_hash": ""
+  },
+  "YatteeTests/ChapterParserTests.swift": {
+    "mtime": 1788631642.5306225,
+    "ast_hash": "8bdb914af4657106d64c165563c12f45",
+    "semantic_hash": ""
+  },
+  "YatteeTests/CloudKitSyncTests.swift": {
+    "mtime": 1788631642.5306818,
+    "ast_hash": "dcb0986fd1c9824ada80ee8f4629cff9",
+    "semantic_hash": ""
+  },
+  "YatteeTests/CredentialsTests.swift": {
+    "mtime": 1788631642.5310192,
+    "ast_hash": "71b9fbd7742bdc681a6037fef62aee29",
+    "semantic_hash": ""
+  },
+  "YatteeTests/DataTests.swift": {
+    "mtime": 1788631642.5311258,
+    "ast_hash": "f3216c749061b9e6a98ecc4c50664183",
+    "semantic_hash": ""
+  },
+  "YatteeTests/DescriptionTextTests.swift": {
+    "mtime": 1788631642.5312026,
+    "ast_hash": "426f81c857815326aa3b3386ce794d1c",
+    "semantic_hash": ""
+  },
+  "YatteeTests/DownloadTests.swift": {
+    "mtime": 1788631642.53128,
+    "ast_hash": "a153e5d8b13585fc1115b51e79812221",
+    "semantic_hash": ""
+  },
+  "YatteeTests/GestureSettingsTests.swift": {
+    "mtime": 1788631642.5313523,
+    "ast_hash": "e14d0e8a40641449f03563d35fba1cb7",
+    "semantic_hash": ""
+  },
+  "YatteeTests/InstancesManagerTests.swift": {
+    "mtime": 1788631642.531424,
+    "ast_hash": "e654ac46597faef0e4a259c510f1068d",
+    "semantic_hash": ""
+  },
+  "YatteeTests/Integration/InvidiousAPIIntegrationTests.swift": {
+    "mtime": 1788631642.5315447,
+    "ast_hash": "c275c871d18ffa6897b0baf7b6442dbf",
+    "semantic_hash": ""
+  },
+  "YatteeTests/Integration/TestConstants.swift": {
+    "mtime": 1788631642.5316067,
+    "ast_hash": "03377bab2877080352d246b270e93341",
+    "semantic_hash": ""
+  },
+  "YatteeTests/MPVTrackFormatTests.swift": {
+    "mtime": 1788631642.5316644,
+    "ast_hash": "4b271a2cb9c04b3913c3ab0075f43b27",
+    "semantic_hash": ""
+  },
+  "YatteeTests/MPVTrackTests.swift": {
+    "mtime": 1788631642.5317364,
+    "ast_hash": "c01092c7c036c8cbb36a1d5abd101031",
+    "semantic_hash": ""
+  },
+  "YatteeTests/ModelTests.swift": {
+    "mtime": 1788631642.531817,
+    "ast_hash": "24af0bcc2086ee12feb39af59b66dfd5",
+    "semantic_hash": ""
+  },
+  "YatteeTests/NavigationTests.swift": {
+    "mtime": 1788631642.5318973,
+    "ast_hash": "d2c9313a59ae837d1db36163f8d222ef",
+    "semantic_hash": ""
+  },
+  "YatteeTests/NetworkingTests.swift": {
+    "mtime": 1788631642.532068,
+    "ast_hash": "32907e928898215ad0a4d58d4f998f43",
+    "semantic_hash": ""
+  },
+  "YatteeTests/PlaybackRateTests.swift": {
+    "mtime": 1788631642.5321243,
+    "ast_hash": "45671ceb1a8e7fc54ff7519431a63378",
+    "semantic_hash": ""
+  },
+  "YatteeTests/PlayerOrientationPolicyTests.swift": {
+    "mtime": 1788633995.0063229,
+    "ast_hash": "823cb6ac7d6d0a95d7eff3f7e601620d",
+    "semantic_hash": ""
+  },
+  "YatteeTests/PlayerTests.swift": {
+    "mtime": 1788631642.5321805,
+    "ast_hash": "918458c33d3f26e097a0e484294bbebd",
+    "semantic_hash": ""
+  },
+  "YatteeTests/SearchHistoryTests.swift": {
+    "mtime": 1788631642.5322394,
+    "ast_hash": "109078316dd21e61209e05f358718d12",
+    "semantic_hash": ""
+  },
+  "YatteeTests/SeekGestureTests.swift": {
+    "mtime": 1788631642.5323074,
+    "ast_hash": "66ff8d25afe2fddbb85997cada423881",
+    "semantic_hash": ""
+  },
+  "YatteeTests/ServiceTests.swift": {
+    "mtime": 1788631642.532386,
+    "ast_hash": "d0dd1b6b46c355588bb447ebade3e900",
+    "semantic_hash": ""
+  },
+  "YatteeTests/SettingsTests.swift": {
+    "mtime": 1788631642.5324588,
+    "ast_hash": "537e5dbafc9ecc5a0c1cc564153dd94b",
+    "semantic_hash": ""
+  },
+  "YatteeTests/YatteeServerFeedChunkingTests.swift": {
+    "mtime": 1788631642.5325217,
+    "ast_hash": "4ca4652fdcef8b3226270b5922c0db9c",
+    "semantic_hash": ""
+  },
+  "YatteeTopShelf/AppGroup.swift": {
+    "mtime": 1788635217.469012,
+    "ast_hash": "9af86d8723d6fea7383daac755e57d1f",
+    "semantic_hash": ""
+  },
+  "YatteeTopShelf/TopShelfContentProvider.swift": {
+    "mtime": 1788631642.5327077,
+    "ast_hash": "da48901d34941b2265e699d05c37b89d",
+    "semantic_hash": ""
+  },
+  "YatteeTopShelf/TopShelfSection.swift": {
+    "mtime": 1788631642.532757,
+    "ast_hash": "b09e9eabd9dd7f76c98a11e1a2d7a5a7",
+    "semantic_hash": ""
+  },
+  "YatteeTopShelf/TopShelfSnapshot.swift": {
+    "mtime": 1788631642.5328083,
+    "ast_hash": "81144910eaaa118bf7d8f5e0b781c488",
+    "semantic_hash": ""
+  },
+  "altstore-source.json": {
+    "mtime": 1788631642.532934,
+    "ast_hash": "e110ececf410f606096e7de7e4ef9e2f",
+    "semantic_hash": ""
+  },
+  "bin/clean-weblate-credits": {
+    "mtime": 1788631642.537901,
+    "ast_hash": "bbb5504d1579774c425569a881cd74db",
+    "semantic_hash": ""
+  },
+  "bin/generate-changelog": {
+    "mtime": 1788631642.537953,
+    "ast_hash": "48a8ee7c0f219c86583522d98f57fe06",
+    "semantic_hash": ""
+  },
+  "bin/install-debug": {
+    "mtime": 1788631642.5379982,
+    "ast_hash": "08312a480518f85476a36277a652697a",
+    "semantic_hash": ""
+  },
+  "bin/lint-localizable-keys": {
+    "mtime": 1788631642.538047,
+    "ast_hash": "da72b1391bd538ea3afacb55dbe11300",
+    "semantic_hash": ""
+  },
+  "bin/mac-release": {
+    "mtime": 1788631642.5381002,
+    "ast_hash": "e75a32351f53e5e52a6d000368eabfc1",
+    "semantic_hash": ""
+  },
+  "bin/ui-test": {
+    "mtime": 1788631642.5381477,
+    "ast_hash": "449a9185cd46a6c42683b24abdad6068",
+    "semantic_hash": ""
+  },
+  "buildServer.json": {
+    "mtime": 1788631642.5382025,
+    "ast_hash": "b53bd28283a4d7d59e868ab0b65f50f0",
+    "semantic_hash": ""
+  },
+  "scripts/sparkle/update_appcast.rb": {
+    "mtime": 1788631642.5386865,
+    "ast_hash": "beac725a04e31165e02bf92883fb7326",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/app_launch_spec.rb": {
+    "mtime": 1788631642.538841,
+    "ast_hash": "dfd1c07f17f38b91bea0c1bfa4073d1d",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/import_playlists_piped_spec.rb": {
+    "mtime": 1788631642.5389185,
+    "ast_hash": "046b04b25ca62a53ddcacd50222aa244",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/import_playlists_spec.rb": {
+    "mtime": 1788631642.5389893,
+    "ast_hash": "b47a08d32c0d080e81bb3173a0b06c44",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/import_subscriptions_piped_spec.rb": {
+    "mtime": 1788631642.5390425,
+    "ast_hash": "47bc867769f6f5515bf3c6b363f58304",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/import_subscriptions_spec.rb": {
+    "mtime": 1788631642.5390966,
+    "ast_hash": "9e603a749dfd66639774f9508d40e4f2",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/invidious_basic_auth_search_play_spec.rb": {
+    "mtime": 1788631642.5391443,
+    "ast_hash": "0feaea3ead4aba25de704d3f066a03a7",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/invidious_basic_auth_spec.rb": {
+    "mtime": 1788631642.5391967,
+    "ast_hash": "aa896831587b04d4ba1ed2015b63fba7",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/invidious_spec.rb": {
+    "mtime": 1788631642.539248,
+    "ast_hash": "e6ada308ba303c459c8082156c7053da",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/piped_login_spec.rb": {
+    "mtime": 1788631642.5393183,
+    "ast_hash": "22607d71d5145774370b55767c6c77c4",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/piped_spec.rb": {
+    "mtime": 1788631642.5393724,
+    "ast_hash": "edc35ec11bbf2db164f5a49a9857ab6d",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/player_controls_preview_spec.rb": {
+    "mtime": 1788631642.53942,
+    "ast_hash": "f596a896c99b9bbceb56f3ea2892506c",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/search_spec.rb": {
+    "mtime": 1788631642.53947,
+    "ast_hash": "74953fd8d20efa2b836cd840012e982b",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/settings_spec.rb": {
+    "mtime": 1788631642.5395398,
+    "ast_hash": "2389f1ff842b05bd2342fdbdf0b5472f",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/url_schemes_spec.rb": {
+    "mtime": 1788631642.539613,
+    "ast_hash": "e154cf561ddfd3c40b738c96a9fe4180",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/video_playback_invidious_spec.rb": {
+    "mtime": 1788631642.5396767,
+    "ast_hash": "e6d4ac9844cedaf26ed2f0a67bc0c628",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/video_playback_piped_spec.rb": {
+    "mtime": 1788631642.5397391,
+    "ast_hash": "482f31dbc98c149f95cef207ab605086",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/video_playback_spec.rb": {
+    "mtime": 1788631642.5398033,
+    "ast_hash": "21c7fb2f0ac45fef9ce6992032cd4113",
+    "semantic_hash": ""
+  },
+  "spec/ui/smoke/yattee_server_spec.rb": {
+    "mtime": 1788631642.5398717,
+    "ast_hash": "380e05fe74b6e2c819464fa1b973564b",
+    "semantic_hash": ""
+  },
+  "spec/ui/spec_helper.rb": {
+    "mtime": 1788631642.539928,
+    "ast_hash": "391e5981f2c9536a3a45e671a93a57d3",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/app.rb": {
+    "mtime": 1788631642.5400217,
+    "ast_hash": "46d3a7f52731aba88cddbc1538171c81",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/axe.rb": {
+    "mtime": 1788631642.540073,
+    "ast_hash": "01a71e0f62e3d8b9785d1d9884cf59e8",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/axe_matchers.rb": {
+    "mtime": 1788631642.5401158,
+    "ast_hash": "f6067e16e54de913f28c5c720ad43d43",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/config.rb": {
+    "mtime": 1788631642.540172,
+    "ast_hash": "7b931c2b3d93f67be121b2a2ffd6efa1",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/instance_setup.rb": {
+    "mtime": 1788631642.5402691,
+    "ast_hash": "4f7ad67ec857e7d591092992147560e9",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/player_helper.rb": {
+    "mtime": 1788631642.540485,
+    "ast_hash": "f1052a21ba52051d63fb8c17d762d247",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/screenshot_comparison.rb": {
+    "mtime": 1788631642.5405352,
+    "ast_hash": "79d297923b23d5e77b0963fd5c0b8fef",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/search_helper.rb": {
+    "mtime": 1788631642.540582,
+    "ast_hash": "61bac7f4d3f822fc6134f30686066caa",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/shared_contexts/with_invidious.rb": {
+    "mtime": 1788631642.5406635,
+    "ast_hash": "976c89d456043164159c4a213a5f1b38",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/shared_contexts/with_logged_in_invidious.rb": {
+    "mtime": 1788631642.540712,
+    "ast_hash": "ebc4729eed508da7270a0929bee61504",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/shared_contexts/with_logged_in_piped.rb": {
+    "mtime": 1788631642.5407662,
+    "ast_hash": "3ae7a06d6f54a2b1e3122837e2dfe864",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/shared_contexts/with_piped.rb": {
+    "mtime": 1788631642.5408087,
+    "ast_hash": "55b49603feed09563bd9471744d0537e",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/shared_contexts/with_yattee_server.rb": {
+    "mtime": 1788631642.5408485,
+    "ast_hash": "4d0e04ae81fd0e886d1fef48d7d0192d",
+    "semantic_hash": ""
+  },
+  "spec/ui/support/simulator.rb": {
+    "mtime": 1788631642.5409,
+    "ast_hash": "e6011cea56d1cbe43a1db52941699bea",
+    "semantic_hash": ""
+  },
+  ".github/FUNDING.yml": {
+    "mtime": 1788631642.480411,
+    "ast_hash": "c78834d089ee6951497545310e60f52c",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/bug-report.yaml": {
+    "mtime": 1788631642.4804986,
+    "ast_hash": "691915cce0bfe40c870c775834c0158b",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/config.yml": {
+    "mtime": 1788631642.4805522,
+    "ast_hash": "a58b47c3d59071bcc435c6c9c86bb4d8",
+    "semantic_hash": ""
+  },
+  ".github/ISSUE_TEMPLATE/feature-request.yaml": {
+    "mtime": 1788631642.480604,
+    "ast_hash": "8d82f05d4272ee09bea475b980b161d7",
+    "semantic_hash": ""
+  },
+  ".github/workflows/release.yml": {
+    "mtime": 1788631642.4806988,
+    "ast_hash": "69709d9316131feaed515e0175ed445a",
+    "semantic_hash": ""
+  },
+  ".github/workflows/update-altstore.yml": {
+    "mtime": 1788631642.480775,
+    "ast_hash": "8af32e7909fb2f1ae9aee373ea1d4e7e",
+    "semantic_hash": ""
+  },
+  ".periphery.yml": {
+    "mtime": 1788631642.4808888,
+    "ast_hash": "eb5c7f61685a39fe2c43571c4516f7c5",
+    "semantic_hash": ""
+  },
+  ".rubocop.yml": {
+    "mtime": 1788631642.4809332,
+    "ast_hash": "aa16c442d59f17c225c10a7ec18e585f",
+    "semantic_hash": ""
+  },
+  ".slather.yml": {
+    "mtime": 1788631642.4810166,
+    "ast_hash": "095e0bdf851e61eb8670b561a8041cd6",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1788631642.4810932,
+    "ast_hash": "d483f5299cedd981a0e29af87af64066",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.md": {
+    "mtime": 1788631642.4811404,
+    "ast_hash": "80a05c81cf6fa3fef3c9b67432ea11e5",
+    "semantic_hash": ""
+  },
+  "Docs/Research/youtube-client-foundations-2026.md": {
+    "mtime": 1788635252.0981166,
+    "ast_hash": "8e9b2131761b36500c3b6027d97dd476",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1788635252.103689,
+    "ast_hash": "d0c062241bcf2894fe34d3fd2b7d9f84",
+    "semantic_hash": ""
+  },
+  "fastlane/README.md": {
+    "mtime": 1788631642.538491,
+    "ast_hash": "b1627714350373739c41db412ba54232",
+    "semantic_hash": ""
+  },
+  "scripts/sparkle/README.md": {
+    "mtime": 1788631642.538589,
+    "ast_hash": "7588312ab0de2e1bf62aa910c463e74e",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/false_positives.yml": {
+    "mtime": 1788631642.5431015,
+    "ast_hash": "df4b36d2356560f4b4615dce1bd8e480",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeClassic/YatteeClassic60@2x.png": {
+    "mtime": 1788631642.4821844,
+    "ast_hash": "e6e99e2b2701a19f847e69dd9c699b40",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeClassic/YatteeClassic60@3x.png": {
+    "mtime": 1788631642.4822514,
+    "ast_hash": "022b68168e573365ad5268edb0091a81",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeClassic/YatteeClassic76@2x.png": {
+    "mtime": 1788631642.4823081,
+    "ast_hash": "c317efc6458af2de21b52d326b6ae27e",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeClassic/YatteeClassic83.5@2x.png": {
+    "mtime": 1788631642.482369,
+    "ast_hash": "3f7dbfb7609a0a1b513fd65654db4ec5",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeMascot/YatteeMascot60@2x.png": {
+    "mtime": 1788631642.4824634,
+    "ast_hash": "b855f0d9a9e5971cbf5b85bc72e52a65",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeMascot/YatteeMascot60@3x.png": {
+    "mtime": 1788631642.4825263,
+    "ast_hash": "bfce23e5d5115c8a5837c61bac956ce7",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeMascot/YatteeMascot76@2x.png": {
+    "mtime": 1788631642.4826076,
+    "ast_hash": "beda8c9e07ad42da3067b03df5097371",
+    "semantic_hash": ""
+  },
+  "Yattee/AlternateIcons/YatteeMascot/YatteeMascot83.5@2x.png": {
+    "mtime": 1788631642.4826684,
+    "ast_hash": "6dfe6fb4528928204a263e0f06b263d2",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreview.imageset/AppIconPreview.png": {
+    "mtime": 1788631642.4830773,
+    "ast_hash": "a4eb20ff9b5c34dc084baebb8e47e63b",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreview.imageset/AppIconPreview@2x.png": {
+    "mtime": 1788631642.4832823,
+    "ast_hash": "d09d04c7d03c79f562838f98f9d7b81f",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreview.imageset/AppIconPreview@3x.png": {
+    "mtime": 1788631642.4836068,
+    "ast_hash": "62602ad6336aa8ac9a2166f52d1a47a3",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewClassic.imageset/AppIconPreviewClassic.png": {
+    "mtime": 1788631642.4837532,
+    "ast_hash": "36e6fea757fc12af729acc43137b9442",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewClassic.imageset/AppIconPreviewClassic@2x.png": {
+    "mtime": 1788631642.483799,
+    "ast_hash": "e6e99e2b2701a19f847e69dd9c699b40",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewClassic.imageset/AppIconPreviewClassic@3x.png": {
+    "mtime": 1788631642.4838526,
+    "ast_hash": "022b68168e573365ad5268edb0091a81",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewMascot.imageset/AppIconPreviewMascot.png": {
+    "mtime": 1788631642.4840155,
+    "ast_hash": "4cbd88242564f67cee1695d64feeb1d8",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewMascot.imageset/AppIconPreviewMascot@2x.png": {
+    "mtime": 1788631642.4840598,
+    "ast_hash": "b855f0d9a9e5971cbf5b85bc72e52a65",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/AppIconPreviewMascot.imageset/AppIconPreviewMascot@3x.png": {
+    "mtime": 1788631642.4841042,
+    "ast_hash": "bfce23e5d5115c8a5837c61bac956ce7",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/PlayerControlsPreviewBackground.imageset/PlayerControlsPreviewBackground.jpeg": {
+    "mtime": 1788631642.4852655,
+    "ast_hash": "655188636df0ba222e781b23c1c52381",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Back.imagestacklayer/Content.imageset/tvOS-AppStore-1280x768.png": {
+    "mtime": 1788631642.4857833,
+    "ast_hash": "76e0c24be3fc962cc267d916c6f380e8",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon - App Store.imagestack/Front.imagestacklayer/Content.imageset/tvOS-AppStore-1280x768.png": {
+    "mtime": 1788631642.486314,
+    "ast_hash": "76e0c24be3fc962cc267d916c6f380e8",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Back.imagestacklayer/Content.imageset/tvOS-Small@1x.png": {
+    "mtime": 1788631642.4868016,
+    "ast_hash": "a59bfedf64f9960c5a1810e4f31e05c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Back.imagestacklayer/Content.imageset/tvOS-Small@2x.png": {
+    "mtime": 1788631642.4869905,
+    "ast_hash": "d1bdcf49d6279ae9d21c86aed54d0473",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Front.imagestacklayer/Content.imageset/tvOS-Small@1x.png": {
+    "mtime": 1788631642.487296,
+    "ast_hash": "a59bfedf64f9960c5a1810e4f31e05c6",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/App Icon.imagestack/Front.imagestacklayer/Content.imageset/tvOS-Small@2x.png": {
+    "mtime": 1788631642.487498,
+    "ast_hash": "d1bdcf49d6279ae9d21c86aed54d0473",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/Top Shelf Image Wide.imageset/TopShelf-Wide.png": {
+    "mtime": 1788631642.4879267,
+    "ast_hash": "c2d276934b43d21849220a7a21fbcbb5",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/Yattee2.brandassets/Top Shelf Image.imageset/TopShelf.png": {
+    "mtime": 1788631642.4881082,
+    "ast_hash": "227560433f1e63a6b04ca959b0b7a529",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/discord.imageset/discord.svg": {
+    "mtime": 1788631642.4882646,
+    "ast_hash": "b630b4df22360d5236b53def6521f3b7",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/github.imageset/github.svg": {
+    "mtime": 1788631642.4883766,
+    "ast_hash": "c23a95fcb4b1d25765107e4e73b06438",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/incognito.imageset/incognito.svg": {
+    "mtime": 1788631642.4885015,
+    "ast_hash": "1c1b6ea1065bc4d1ac5b81c90f17843f",
+    "semantic_hash": ""
+  },
+  "Yattee/Assets.xcassets/peertube.imageset/peertube.svg": {
+    "mtime": 1788631642.4886556,
+    "ast_hash": "887178bad1fcb8057f09246c0d153520",
+    "semantic_hash": ""
+  },
+  "Yattee2.icon/Assets/play-stream.svg": {
+    "mtime": 1788631642.5300055,
+    "ast_hash": "11591a92201270a86dad45cb3a8a0435",
+    "semantic_hash": ""
+  },
+  "assets/yattee-icon-512.png": {
+    "mtime": 1788631642.5332496,
+    "ast_hash": "7a54cc2ebc2f566112c42d4d4db3ab71",
+    "semantic_hash": ""
+  },
+  "assets/yattee-logo.png": {
+    "mtime": 1788631642.5374863,
+    "ast_hash": "46b87755d05ae62e5012c5a381659bc6",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/baseline/iPhone_17_Pro/iOS_26_2/app-launch-home.png": {
+    "mtime": 1788631642.541389,
+    "ast_hash": "913bca10a508dde887bec538c07d7928",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/baseline/iPhone_17_Pro/iOS_26_2/app-launch-library.png": {
+    "mtime": 1788631642.5417511,
+    "ast_hash": "913bca10a508dde887bec538c07d7928",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/baseline/iPhone_17_Pro/iOS_26_2/settings-main.png": {
+    "mtime": 1788631642.5422068,
+    "ast_hash": "2ea90271e65cd154ec768a6b6a6713ea",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/baseline/iPhone_17_Pro/iOS_26_4/app-launch-home.png": {
+    "mtime": 1788631642.5426073,
+    "ast_hash": "6543ea654556ea79155e8e4d35d89dd4",
+    "semantic_hash": ""
+  },
+  "spec/ui_snapshots/baseline/iPhone_17_Pro/iOS_26_4/settings-main.png": {
+    "mtime": 1788631642.5430422,
+    "ast_hash": "9558366d6e6250aca91e0c6b2c9ca31e",
+    "semantic_hash": ""
+  }
+}
