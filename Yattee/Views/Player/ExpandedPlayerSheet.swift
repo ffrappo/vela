@@ -211,7 +211,8 @@ struct ExpandedPlayerSheet: View {
                 startDebugUpdates: startDebugUpdates,
                 stopDebugUpdates: stopDebugUpdates,
                 setupRotationMonitoring: setupRotationMonitoring,
-                setupOrientationLockCallback: setupOrientationLockCallback
+                setupOrientationLockCallback: setupOrientationLockCallback,
+                reconcileVideoOrientation: reconcileVideoOrientation
             ))
             #endif
             #if os(macOS)
@@ -905,6 +906,7 @@ private struct PlayerIOSEventHandlersModifier: ViewModifier {
     let stopDebugUpdates: () -> Void
     let setupRotationMonitoring: () -> Void
     let setupOrientationLockCallback: () -> Void
+    let reconcileVideoOrientation: () -> Void
 
     var playerState: PlayerState? { appEnvironment?.playerService.state }
     var navigationCoordinator: NavigationCoordinator? { appEnvironment?.navigationCoordinator }
@@ -930,6 +932,16 @@ private struct PlayerIOSEventHandlersModifier: ViewModifier {
                 } else {
                     OrientationManager.shared.unlock()
                 }
+                reconcileVideoOrientation()
+            }
+            .onChange(of: playerState?.videoAspectRatio) { _, _ in
+                reconcileVideoOrientation()
+            }
+            .onChange(of: playerState?.currentVideo?.id) { _, _ in
+                // Keep the current landscape geometry while the next video's
+                // dimensions load. A confirmed wide ratio may enter landscape;
+                // a handoff never requests portrait.
+                reconcileVideoOrientation()
             }
             .onChange(of: navigationCoordinator?.pendingFullscreenToggle) { _, _ in
                 toggleFullscreen()

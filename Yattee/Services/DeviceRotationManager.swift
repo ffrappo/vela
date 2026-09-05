@@ -137,11 +137,6 @@ final class DeviceRotationManager {
     }
 
     private func processAccelerometerData(_ data: CMAccelerometerData) {
-        // If in-app orientation lock is enabled, don't process rotation callbacks
-        if isOrientationLocked?() == true {
-            return
-        }
-
         let x = data.acceleration.x
         let y = data.acceleration.y
 
@@ -176,6 +171,11 @@ final class DeviceRotationManager {
 
         let previousOrientation = detectedOrientation
         detectedOrientation = newOrientation
+
+        // Continue tracking the physical device while the interface is locked.
+        // Only callbacks are suppressed, so fullscreen entry and dismissal use
+        // the real device position instead of a stale pre-lock value.
+        guard isOrientationLocked?() != true else { return }
 
         // Only trigger callbacks when app is active - prevents fullscreen entry
         // while app is in background (e.g., when rotating device during audio-only playback)

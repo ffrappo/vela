@@ -70,12 +70,39 @@ final class OrientationManager {
         }
     }
 
-    /// Notify the system that supported orientations have changed
-    private func notifyOrientationChange() {
-        guard let windowScene = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .first(where: { $0.activationState == .foregroundActive })
-        else { return }
+    /// Requests an interface orientation for the foreground scene.
+    /// Geometry requests are the supported iOS 16+ mechanism and can be denied
+    /// by the system, so every denial stays visible in player logs.
+    func request(
+        _ orientation: UIInterfaceOrientationMask,
+        reason: String,
+        scene preferredScene: UIWindowScene? = nil
+    ) {
+        guard let windowScene = preferredScene ?? foregroundScene else {
+            LoggingService.shared.logPlayer("[Orientation] Request skipped: no foreground scene (reason=\(reason))")
+            return
+        }
+
+        notifyOrientationChange(in: windowScene)
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: orientation)) { error in
+            Task { @MainActor in
+                LoggingService.shared.logPlayer(
+                    "[Orientation] Request denied: mask=\(orientation.rawValue), reason=\(reason), error=\(error.localizedDescription)"
+                )
+            }
+        }
+    }
+
+    /// Returns the foreground scene used by the app's orientation policy.
+    private var foregroundScene: UIWindowScene? {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first { $0.activationState == .foregroundActive }
+    }
+
+    /// Notify the system that supported orientations have changed.
+    private func notifyOrientationChange(in windowScene: UIWindowScene? = nil) {
+        guard let windowScene = windowScene ?? foregroundScene else { return }
 
         // Tell all view controllers to re-query supported orientations
         for window in windowScene.windows {
@@ -85,17 +112,19 @@ final class OrientationManager {
 
     /// Get the current interface orientation as a mask
     var currentInterfaceOrientationMask: UIInterfaceOrientationMask {
-        guard let windowScene = UIApplication.shared.connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .first(where: { $0.activationState == .foregroundActive })
-        else {
+        guard let windowScene = foregroundScene else {
             return .allButUpsideDown
         }
 
-        let screenBounds = windowScene.screen.bounds
-        if screenBounds.width > screenBounds.height {
+        let interfaceOrientation: UIInterfaceOrientation
+        if #available(iOS 26.0, *) {
+            interfaceOrientation = windowScene.effectiveGeometry.interfaceOrientation
+        } else {
+            interfaceOrientation = windowScene.interfaceOrientation
+        }
+
+        if interfaceOrientation.isLandscape {
             // Currently landscape - determine which side based on interface orientation
-            let interfaceOrientation = windowScene.interfaceOrientation
             switch interfaceOrientation {
             case .landscapeLeft:
                 return .landscapeLeft

@@ -52,31 +52,20 @@ extension ExpandedPlayerSheet {
             toSize: isCurrentlyLandscape ? CGSize(width: screenBounds.height, height: screenBounds.width) : nil)
 
         if isCurrentlyLandscape {
-            // Exit fullscreen → rotate to portrait
+            // Exit fullscreen and rotate to portrait.
             MPVLogging.log("toggleFullscreen: exiting to portrait")
-            // Lock to portrait first (if lock enabled) so system allows only portrait rotation
             if isOrientationLocked {
                 orientationManager.lock(to: .portrait)
             }
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait)) { _ in }
+            orientationManager.request(.portrait, reason: "explicit fullscreen exit", scene: windowScene)
         } else {
-            // Enter fullscreen → rotate to landscape
+            // Enter fullscreen and rotate to landscape.
             let targetOrientation = Self.currentLandscapeInterfaceOrientation()
             MPVLogging.log("toggleFullscreen: entering landscape")
-            // Lock to landscape first (if lock enabled) so system allows landscape rotation
-            // Use .landscape to allow both directions initially
             if isOrientationLocked {
-                orientationManager.lock(to: .landscape)
+                orientationManager.lock(to: targetOrientation)
             }
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetOrientation)) { _ in }
-            // After rotation completes, re-lock to the specific landscape orientation
-            // Use a delay since completion handler isn't reliable for waiting for rotation
-            if isOrientationLocked {
-                Task { @MainActor in
-                    try? await Task.sleep(nanoseconds: 300_000_000) // 0.3 seconds
-                    orientationManager.lockToCurrentOrientation()
-                }
-            }
+            orientationManager.request(targetOrientation, reason: "explicit fullscreen entry", scene: windowScene)
         }
     }
 
@@ -111,7 +100,11 @@ extension ExpandedPlayerSheet {
                     let targetOrientation = Self.currentLandscapeInterfaceOrientation()
                     MPVLogging.logTransition("onLandscapeDetected: requesting landscape",
                         fromSize: screenBounds.size, toSize: nil)
-                    windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetOrientation)) { _ in }
+                    OrientationManager.shared.request(
+                        targetOrientation,
+                        reason: "physical landscape rotation",
+                        scene: windowScene
+                    )
                 }
             }
         }
@@ -131,7 +124,11 @@ extension ExpandedPlayerSheet {
                 if screenBounds.width > screenBounds.height {
                     MPVLogging.logTransition("onPortraitDetected: requesting portrait",
                         fromSize: screenBounds.size, toSize: nil)
-                    windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait)) { _ in }
+                    OrientationManager.shared.request(
+                        .portrait,
+                        reason: "physical portrait rotation",
+                        scene: windowScene
+                    )
                 }
             }
         }
@@ -157,12 +154,56 @@ extension ExpandedPlayerSheet {
                 }
 
                 MPVLogging.logTransition("onLandscapeOrientationChanged: \(newOrientation.rawValue)")
-                windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetOrientation)) { _ in }
+                OrientationManager.shared.request(
+                    targetOrientation,
+                    reason: "physical landscape side change",
+                    scene: windowScene
+                )
             }
         }
 
         // Always start monitoring
         rotationManager.startMonitoring()
+    }
+
+    /// Applies Vela's automatic wide-video policy. This method can request
+    /// landscape, but it deliberately never requests portrait. That one-way
+    /// rule keeps consecutive landscape videos fullscreen through EOF, queue,
+    /// loading, and aspect-ratio handoffs.
+    func reconcileVideoOrientation() {
+        guard let appEnvironment,
+              UIDevice.current.userInterfaceIdiom == .phone,
+              let windowScene = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive }) else { return }
+
+        let isLandscape: Bool
+        if #available(iOS 26.0, *) {
+            isLandscape = windowScene.effectiveGeometry.interfaceOrientation.isLandscape
+        } else {
+            isLandscape = windowScene.interfaceOrientation.isLandscape
+        }
+
+        let context = PlayerOrientationContext(
+            isPhone: true,
+            isPlayerExpanded: appEnvironment.navigationCoordinator.isPlayerExpanded,
+            isPiPActive: appEnvironment.playerService.state.pipState == .active,
+            rotatesToMatchAspectRatio: appEnvironment.settingsManager.rotateToMatchAspectRatio,
+            interfaceOrientation: isLandscape ? .landscape : .portrait,
+            videoAspectRatio: appEnvironment.playerService.state.videoAspectRatio
+        )
+
+        guard PlayerOrientationPolicy.action(for: context) == .requestLandscape else { return }
+
+        let targetOrientation = Self.currentLandscapeInterfaceOrientation()
+        if appEnvironment.settingsManager.inAppOrientationLock {
+            OrientationManager.shared.lock(to: targetOrientation)
+        }
+        OrientationManager.shared.request(
+            targetOrientation,
+            reason: "wide video started while expanded",
+            scene: windowScene
+        )
     }
 
     /// Get the interface orientation mask matching the device's current landscape orientation.

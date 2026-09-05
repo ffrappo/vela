@@ -127,7 +127,9 @@ final class MPVBackend: PlayerBackend {
     // stuttering / cache starvation remotely (GitHub #947/#949)
     private var playbackStatsTask: Task<Void, Never>?
 
-    // Video dimensions for aspect ratio detection
+    // Video dimensions for aspect ratio detection. Width and height are reset
+    // together for each new load so events from consecutive videos cannot be
+    // combined into a transient, incorrect aspect ratio.
     private var videoWidth: Int = 0
     private var videoHeight: Int = 0
     // Coalesces separate width/height property events into one PiP size update
@@ -458,7 +460,15 @@ final class MPVBackend: PlayerBackend {
             throw CancellationError()
         }
 
-        // Reset state (but keep videoWidth/videoHeight for smooth aspect ratio transition)
+        // A new file owns a new dimension pair. Keep PlayerState's last stable
+        // aspect ratio during the handoff, but do not combine these fresh MPV
+        // property events with dimensions from the previous file.
+        videoWidth = 0
+        videoHeight = 0
+        pipVideoSizeUpdateTask?.cancel()
+        pipVideoSizeUpdateTask = nil
+
+        // Reset state
         isReady = false
         isInitialLoading = true
         loadFailedDuringWait = false
@@ -1114,8 +1124,15 @@ final class MPVBackend: PlayerBackend {
         // Always store playerState so we have it when onDidMoveToWindow fires
         pipPlayerState = playerState
 
-        // Only proceed with actual setup if not already done and view is in window
-        guard !isPiPSetUp, containerView.window != nil else { return }
+        // The bridge can outlive a video while its callbacks change.
+        if isPiPSetUp {
+            wirePiPBridgeCallbacks()
+            pipBridge?.notifyPiPPossibleState()
+            return
+        }
+
+        // Only proceed with actual setup if the view is in a window
+        guard containerView.window != nil else { return }
 
         // Store container reference for updating layer frame after layout
         pipContainerView = containerView
@@ -1147,6 +1164,15 @@ final class MPVBackend: PlayerBackend {
 
         // Set up the bridge with this backend and the container
         pipBridge.setup(backend: self, in: containerView)
+        wirePiPBridgeCallbacks()
+        pipBridge.notifyPiPPossibleState()
+
+        LoggingService.shared.debug("MPV: PiP setup complete", category: .mpv)
+    }
+
+    /// Reconnect callbacks because the backend and bridge can outlive a video.
+    private func wirePiPBridgeCallbacks() {
+        guard let pipBridge else { return }
 
         // Use the restore callback set by PlayerService
         pipBridge.onRestoreUserInterface = { [weak self] in
@@ -1185,12 +1211,14 @@ final class MPVBackend: PlayerBackend {
             _ = self  // Silence unused warning
         }
 
-        // Connect frame capture from render view to PiP bridge
+        // Connect frame capture from the render view to PiP.
         _playerView?.onFrameReady = { [weak self] pixelBuffer, presentationTime in
             self?.enqueueFrameForPiP(pixelBuffer, presentationTime: presentationTime)
         }
 
-        LoggingService.shared.debug("MPV: PiP setup complete", category: .mpv)
+        pipBridge.onPiPPossibleChanged = { [weak self] isPossible in
+            self?.pipPlayerState?.isPiPPossible = isPossible
+        }
     }
 
     /// Start Picture-in-Picture.
@@ -1200,6 +1228,7 @@ final class MPVBackend: PlayerBackend {
             return
         }
 
+        wirePiPBridgeCallbacks()
         startPiPInternal()
     }
 
@@ -1248,6 +1277,7 @@ final class MPVBackend: PlayerBackend {
     func cleanupPiP() {
         _playerView?.captureFramesForPiP = false
         _playerView?.onFrameReady = nil
+        pipPlayerState?.isPiPPossible = false
         pipBridge?.cleanup()
         pipBridge = nil
         isPiPSetUp = false
@@ -1785,18 +1815,12 @@ extension MPVBackend: MPVClientDelegate {
         }
     }
 
-    /// Notify delegate of video size when both dimensions are available
+    /// Notify the UI and PiP of an atomic video-size snapshot.
     private func notifyVideoSizeIfReady() {
         guard videoWidth > 0, videoHeight > 0 else { return }
-        LoggingService.shared.debug("MPV: Video size detected: \(videoWidth)x\(videoHeight)", category: .mpv)
-        delegate?.backend(self, didUpdateVideoSize: videoWidth, height: videoHeight)
 
-        // Update PiP capture dimensions and aspect ratio, coalesced.
-        // Width and height arrive as separate MPV property events and the old
-        // values are kept across video switches, so right after a switch one of
-        // them can still be stale (e.g. new width paired with old height).
-        // Debounce so capture buffers and the PiP window never see that
-        // transient mixed size.
+        // MPV reports width and height as separate property events. Coalescing
+        // keeps both the UI and PiP from seeing a mixed old/new dimension pair.
         #if os(iOS) || os(macOS)
         pipVideoSizeUpdateTask?.cancel()
         pipVideoSizeUpdateTask = Task { [weak self] in
@@ -1805,6 +1829,8 @@ extension MPVBackend: MPVClientDelegate {
             let width = self.videoWidth
             let height = self.videoHeight
             guard width > 0, height > 0 else { return }
+            LoggingService.shared.debug("MPV: Video size detected: \(width)x\(height)", category: .mpv)
+            self.delegate?.backend(self, didUpdateVideoSize: width, height: height)
             // Content dimensions must update before the aspect ratio: on macOS
             // the aspect update flushes the PiP sample buffer during active PiP,
             // and a stale-sized frame captured afterwards would make AVKit

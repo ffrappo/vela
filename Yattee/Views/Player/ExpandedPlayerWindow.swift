@@ -1017,14 +1017,17 @@ final class ExpandedPlayerWindowManager {
 
                 if isScreenLandscape && (isDevicePortrait || preferPortrait) {
                     LoggingService.shared.logPlayer("[ExpandedPlayerWindowManager] Requesting portrait rotation on dismiss")
-                    // Lock to portrait to force rotation, then unlock after a short delay
                     OrientationManager.shared.lock(to: .portrait)
-                    windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait))
-                    
-                    // Unlock after rotation completes so user can rotate freely again
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        OrientationManager.shared.unlock()
-                    }
+                    OrientationManager.shared.request(
+                        .portrait,
+                        reason: "expanded player dismissed",
+                        scene: windowScene
+                    )
+
+                    // The dismissed player cannot race a later session by
+                    // unlocking it after an arbitrary delay. Unlock now that
+                    // the portrait geometry request has captured its mask.
+                    OrientationManager.shared.unlock()
                 }
             }
 
